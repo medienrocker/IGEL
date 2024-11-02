@@ -9,20 +9,17 @@
 </head>
 
 <body>
-    <div id="bs_wrapper">
-
-        <!-- Theme switcher html -->
-        <div id="theme-switcher" class="theme-switcher">
-            <label for="theme-select">Color Theme:</label>
-            <select id="theme-select" class="theme-select">
-                <!-- Original Themes -->
+    <div class="igel_wrapper">
+        <!-- Theme Switcher -->
+        <div class="igel_theme-switcher">
+            <label for="igel_theme-select">Color Theme:</label>
+            <select id="igel_theme-select" class="igel_theme-select">
                 <optgroup label="Original Themes">
                     <option value="neo-naturals">Neo Naturals</option>
                     <option value="digital-garden">Digital Garden</option>
                     <option value="soft-tech">Soft Tech</option>
                     <option value="warm-minimalist">Warm Minimalist</option>
                 </optgroup>
-                <!-- New Themes -->
                 <optgroup label="New Themes">
                     <option value="nordic-calm">Nordic Calm</option>
                     <option value="sunset-vibes">Sunset Vibes</option>
@@ -31,51 +28,91 @@
                 </optgroup>
             </select>
         </div>
-
-        <!-- Hero Section Layout -->
-        <div class="hero-container">
-            <div class="hero-content">
-                <!-- Logo/Icon Section -->
-                <div class="logo-container">
-                    <img src="/api/placeholder/120/120" alt="IGEL Logo" class="logo animate-in">
+    
+        <!-- Hero Section -->
+        <div class="igel_hero-container">
+            <div class="igel_hero-content">
+                <!-- Logo Section -->
+                <div class="igel_logo-container">
+                    <img src="/api/placeholder/120/120" alt="IGEL Logo" class="igel_logo igel_animate-in">
                 </div>
-
-                <!-- Main Title Section -->
-                <div class="title-container">
-                    <h1 class="main-title animate-in">
+    
+                <!-- Title Section -->
+                <div class="igel_title-container">
+                    <h1 class="igel_main-title igel_animate-in">
                         Willkommen bei IGEL
                     </h1>
-                    <p class="subtitle animate-in">
+                    <p class="igel_subtitle igel_animate-in">
                         Individuelle GEzielte Lernförderung für Hamburger Schulen
                     </p>
                 </div>
-
+    
                 <!-- Features List -->
-                <div class="features-container animate-in">
-                    <p class="features-intro">IGEL ist Ihre zentrale Anlaufstelle für:</p>
-                    <ul class="features-list">
+                <div class="igel_features-container igel_animate-in">
+                    <p class="igel_features-intro">IGEL ist Ihre zentrale Anlaufstelle für:</p>
+                    <ul class="igel_features-list">
                         <li>
-                            <span class="feature-icon">📚</span>
+                            <span class="igel_feature-icon">📚</span>
                             Unterrichtsmaterialien für Mathematik, Deutsch und DaZ
                         </li>
                         <li>
-                            <span class="feature-icon">🎯</span>
+                            <span class="igel_feature-icon">🎯</span>
                             Didaktische Konzepte und Fördertools
                         </li>
                         <li>
-                            <span class="feature-icon">✓</span>
+                            <span class="igel_feature-icon">✓</span>
                             Praxiserprobte Lernressourcen
                         </li>
                         <li>
-                            <span class="feature-icon">🔄</span>
+                            <span class="igel_feature-icon">🔄</span>
                             Kompetenzförderung und Bewegungsintegration
                         </li>
                     </ul>
                 </div>
-
-                <p class="outro animate-in">
+    
+                <p class="igel_outro igel_animate-in">
                     Alle Materialien sind speziell für Fördermaßnahmen an Hamburger Schulen konzipiert.
                 </p>
+            </div>
+        </div>
+    
+<br>
+<br>
+
+        <!-- Sidebar Components -->
+        <div class="igel_sidebar-container">
+            <!-- Contact Box -->
+            <div class="igel_sidebar-box igel_contact-box">
+                <div class="igel_sidebar-header">
+                    <i class="igel_contact-icon">✉</i>
+                    <h3>Kontakt</h3>
+                </div>
+                <div class="igel_sidebar-content">
+                    <p class="igel_institution">Landesinstitut für Lehrerbildung und Schulentwicklung Hamburg</p>
+                    <p class="igel_department">Referat LIF 28 (Lernförderung)</p>
+                    <div class="igel_contact-email">
+                        <a href="mailto:lernfoerderung@li.hamburg.de?subject=IGEL">lernfoerderung@li.hamburg.de</a>
+                        <span class="igel_email-note">(Betreff: IGEL)</span>
+                    </div>
+                    <p class="igel_contact-person">
+                        <span class="igel_label">Ansprechperson:</span>
+                        <span class="igel_name">Marika Schwaiger</span>
+                    </p>
+                </div>
+            </div>
+    
+            <!-- Feedback Box -->
+            <div class="igel_sidebar-box igel_feedback-box">
+                <div class="igel_sidebar-header">
+                    <i class="igel_feedback-icon">💭</i>
+                    <h3>Feedback</h3>
+                </div>
+                <div class="igel_sidebar-content">
+                    <!-- Moodle feedback activity placeholder -->
+                    <div class="igel_feedback-placeholder">
+                        [Moodle Feedback Activity]
+                    </div>
+                </div>
             </div>
         </div>
     </div>

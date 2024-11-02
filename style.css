@@ -1,265 +1,307 @@
 :root {
     /* Color Scheme - Modern Educational Colors */
-    --primary-color: #c22a63;
-    --secondary-color: #6B7280;
-    --accent-color: #00C2FF;
-    --background-color: #F8FAFC;
-    --text-color: #1F2937;
+    --igel-primary-color: #c22a63;
+    --igel-secondary-color: #6B7280;
+    --igel-accent-color: #00C2FF;
+    --igel-background-color: #F8FAFC;
+    --igel-text-color: #1F2937;
+    --igel-border: 1px solid rgba(0, 0, 0, 0.1);
+    --igel-box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
 
     /* Typography */
-    --font-family: 'Montserat', 'Roboto', sans-serif;
+    --igel-font-family: 'Montserat', 'Roboto', sans-serif;
 
     /* Spacing */
-    --spacing-unit: 1rem;
-    --container-width: min(90%, 1200px);
+    --igel-spacing-unit: 1rem;
+    --igel-container-width: min(90%, 1200px);
 
     /* Animations */
-    --transition-speed: 0.3s;
+    --igel-transition-speed: 0.3s;
 }
 
-#bs_wrapper {
-    font-family: var(--font-family);
+.igel_wrapper {
+    font-family: var(--igel-font-family);
     padding: 10px;
 }
 
 /* Theme Switcher Styles */
-.theme-switcher {
-    /* position: fixed;
-    top: 20px;
-    right: 20px; */
+.igel_theme-switcher {
     background: white;
     padding: 10px;
     margin-bottom: 10px;
     border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    /* z-index: 1000; */
+    box-shadow: var(--igel-box-shadow);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border: var(--igel-border)
 }
 
-.theme-select {
+.igel_theme-select {
     margin-left: 10px;
     padding: 8px;
     border-radius: 6px;
-    border: 1px solid #ddd;
-    font-family: var(--font-family);
+    border: var(--igel-border);
+    font-family: var(--igel-font-family);
     cursor: pointer;
 }
 
-.theme-select optgroup {
+.igel_theme-select optgroup {
     font-weight: 600;
-    color: var(--text-color);
+    color: var(--igel-text-color);
 }
 
 /* Theme Definitions */
-#bs_wrapper.theme-neo-naturals {
-    --primary-color: #2A9D8F;
-    --secondary-color: #264653;
-    --accent-color: #E9C46A;
-    --background-color: #F4F1DE;
-    --text-color: #264653;
+.igel_wrapper.igel_theme-neo-naturals {
+    --igel-primary-color: #2A9D8F;
+    --igel-secondary-color: #264653;
+    --igel-accent-color: #E9C46A;
+    --igel-background-color: #F4F1DE;
+    --igel-text-color: #264653;
 }
 
-#bs_wrapper.theme-digital-garden {
-    --primary-color: #4CAF50;
-    --secondary-color: #2196F3;
-    --accent-color: #FF9800;
-    --background-color: #F5F7FA;
-    --text-color: #2D3748;
+.igel_wrapper.igel_theme-digital-garden {
+    --igel-primary-color: #4CAF50;
+    --igel-secondary-color: #2196F3;
+    --igel-accent-color: #FF9800;
+    --igel-background-color: #F5F7FA;
+    --igel-text-color: #2D3748;
 }
 
-#bs_wrapper.theme-soft-tech {
-    --primary-color: #6366F1;
-    --secondary-color: #3730A3;
-    --accent-color: #EC4899;
-    --background-color: #F8FAFC;
-    --text-color: #1F2937;
+.igel_wrapper.igel_theme-soft-tech {
+    --igel-primary-color: #6366F1;
+    --igel-secondary-color: #3730A3;
+    --igel-accent-color: #EC4899;
+    --igel-background-color: #F8FAFC;
+    --igel-text-color: #1F2937;
 }
 
-#bs_wrapper.theme-warm-minimalist {
-    --primary-color: #7C3AED;
-    --secondary-color: #374151;
-    --accent-color: #F59E0B;
-    --background-color: #FAFAF9;
-    --text-color: #374151;
+.igel_wrapper.igel_theme-warm-minimalist {
+    --igel-primary-color: #7C3AED;
+    --igel-secondary-color: #374151;
+    --igel-accent-color: #F59E0B;
+    --igel-background-color: #FAFAF9;
+    --igel-text-color: #374151;
 }
 
-/* New Theme Definitions */
-#bs_wrapper.theme-nordic-calm {
-    --primary-color: #5E81AC;
-    --secondary-color: #4C566A;
-    --accent-color: #88C0D0;
-    --background-color: #ECEFF4;
-    --text-color: #2E3440;
+.igel_wrapper.igel_theme-nordic-calm {
+    --igel-primary-color: #5E81AC;
+    --igel-secondary-color: #4C566A;
+    --igel-accent-color: #88C0D0;
+    --igel-background-color: #ECEFF4;
+    --igel-text-color: #2E3440;
 }
 
-#bs_wrapper.theme-sunset-vibes {
-    --primary-color: #FF6B6B;
-    --secondary-color: #4A4E69;
-    --accent-color: #FFB84C;
-    --background-color: #FFF1E6;
-    --text-color: #2D3436;
+.igel_wrapper.igel_theme-sunset-vibes {
+    --igel-primary-color: #FF6B6B;
+    --igel-secondary-color: #4A4E69;
+    --igel-accent-color: #FFB84C;
+    --igel-background-color: #FFF1E6;
+    --igel-text-color: #2D3436;
 }
 
-#bs_wrapper.theme-forest-wisdom {
-    --primary-color: #2D6A4F;
-    --secondary-color: #1B4332;
-    --accent-color: #95D5B2;
-    --background-color: #EDF6F0;
-    --text-color: #081C15;
+.igel_wrapper.igel_theme-forest-wisdom {
+    --igel-primary-color: #2D6A4F;
+    --igel-secondary-color: #1B4332;
+    --igel-accent-color: #95D5B2;
+    --igel-background-color: #EDF6F0;
+    --igel-text-color: #081C15;
 }
 
-#bs_wrapper.theme-ocean-depth {
-    --primary-color: #0077B6;
-    --secondary-color: #023E8A;
-    --accent-color: #48CAE4;
-    --background-color: #F0F8FF;
-    --text-color: #03045E;
+.igel_wrapper.igel_theme-ocean-depth {
+    --igel-primary-color: #0077B6;
+    --igel-secondary-color: #023E8A;
+    --igel-accent-color: #48CAE4;
+    --igel-background-color: #F0F8FF;
+    --igel-text-color: #03045E;
 }
 
-/* Additional Theme-Specific Hover Effects */
-.theme-nordic-calm .features-list li:hover {
-    background: linear-gradient(to right, var(--background-color), white);
-}
-
-.theme-sunset-vibes .features-list li:hover {
-    transform: translateY(-3px) rotate(0.5deg);
-}
-
-.theme-forest-wisdom .features-list li {
-    border-left-width: 6px;
-}
-
-.theme-ocean-depth .features-list li:hover {
-    box-shadow: 0 8px 16px rgba(0, 119, 182, 0.1);
-}
-
-/* --- Standard HTML styles --- */
-.hero-container {
-    background: var(--background-color);
-    padding: calc(var(--spacing-unit) * 3) var(--spacing-unit);
+/* Hero Section */
+.igel_hero-container {
+    background: var(--igel-background-color);
+    padding: calc(var(--igel-spacing-unit) * 3) var(--igel-spacing-unit);
     width: 100%;
     min-height: 60vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid var(--text-color);
+    border: var(--igel-border);
     border-radius: 10px;
-    box-shadow: 0px 3px 8px var(--text-color);
+    box-shadow: var(--igel-box-shadow);
 }
 
-.hero-content {
-    width: var(--container-width);
+.igel_hero-content {
+    width: var(--igel-container-width);
     max-width: 800px;
     margin: 0 auto;
 }
 
-.logo-container {
+.igel_logo-container {
     text-align: center;
-    margin-bottom: var(--spacing-unit);
+    margin-bottom: var(--igel-spacing-unit);
 }
 
-.logo {
+.igel_logo {
     width: 120px;
     height: auto;
     border-radius: 50%;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--igel-box-shadow);
 }
 
-.title-container {
+.igel_title-container {
     text-align: center;
-    margin-bottom: calc(var(--spacing-unit) * 2);
+    margin-bottom: calc(var(--igel-spacing-unit) * 2);
 }
 
-.main-title {
-    color: var(--primary-color) !important;
+.igel_main-title {
+    color: var(--igel-primary-color) !important;
     font-size: 2.5rem;
     font-weight: 700;
-    margin-bottom: calc(var(--spacing-unit) * 0.5);
+    margin-bottom: calc(var(--igel-spacing-unit) * 0.5);
 }
 
-.subtitle {
-    color: var(--secondary-color);
+.igel_subtitle {
+    color: var(--igel-secondary-color);
     font-size: 1.25rem;
     font-weight: 500;
 }
 
-.features-container {
-    margin: calc(var(--spacing-unit) * 2) 0;
+.igel_features-container {
+    margin: calc(var(--igel-spacing-unit) * 2) 0;
 }
 
-.features-intro {
+.igel_features-intro {
     font-size: 1.2rem;
-    color: var(--text-color);
-    margin-bottom: var(--spacing-unit);
+    color: var(--igel-text-color);
+    margin-bottom: var(--igel-spacing-unit);
 }
 
-.features-list {
+.igel_features-list {
     list-style: none;
     padding: 0 0 0 10px;
     display: grid;
-    gap: calc(var(--spacing-unit) * 1.5);
-    /* background-color: white; */
-    border-left: 4px solid var(--accent-color);
+    gap: calc(var(--igel-spacing-unit) * 1.5);
+    border-left: 4px solid var(--igel-accent-color);
 }
 
-.features-list li {
+.igel_features-list li {
     display: flex;
     align-items: center;
-    padding: var(--spacing-unit);
+    padding: var(--igel-spacing-unit);
     background: white;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+    box-shadow: var(--igel-box-shadow);
+    transition: transform var(--igel-transition-speed), box-shadow var(--igel-transition-speed);
 }
 
-/* .features-list li:hover {
-            border-color: var(--primary-color);
-            background-color: var(--background-color);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        } */
-
-.feature-icon {
-    color: var(--primary-color);
+.igel_feature-icon {
+    color: var(--igel-primary-color);
     font-size: 1.5rem;
-    margin-right: var(--spacing-unit);
+    margin-right: var(--igel-spacing-unit);
     flex-shrink: 0;
 }
 
-.outro {
+.igel_outro {
     text-align: left;
-    color: var(--secondary-color);
+    color: var(--igel-secondary-color);
     font-size: 1.1rem;
-    margin-top: calc(var(--spacing-unit) * 2);
+    margin-top: calc(var(--igel-spacing-unit) * 2);
 }
 
-/* Additional theme-specific adjustments */
-[class*="theme-"] .main-title {
-    color: var(--primary-color);
+/* ########## SIDEBAR ########## */
+
+/* Sidebar Components */
+.igel_sidebar-box {
+    background: white;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    box-shadow: var(--igel-box-shadow);
+    border: var(--igel-border);
+    transition: all var(--igel-transition-speed) ease;
 }
 
-[class*="theme-"] .subtitle {
-    color: var(--secondary-color);
+.igel_sidebar-header {
+    background: var(--igel-primary-color);
+    color: white;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-[class*="theme-"] .features-intro {
-    color: var(--text-color);
+.igel_sidebar-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 600;
 }
 
-[class*="theme-"] .outro {
-    color: var(--secondary-color);
+.igel_sidebar-content {
+    padding: 16px;
+    background: linear-gradient(to bottom right,
+            var(--igel-background-color) 0%,
+            white 100%);
+}
+
+/* Contact Box Specific */
+.igel_contact-box .igel_institution {
+    font-weight: 600;
+    color: var(--igel-text-color);
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.igel_contact-box .igel_department {
+    color: var(--igel-secondary-color);
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+}
+
+.igel_contact-box .igel_contact-email {
+    margin-bottom: 12px;
+    word-break: break-word;
+}
+
+.igel_contact-box .igel_contact-email a {
+    color: var(--igel-primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-block;
+    margin-bottom: 4px;
+}
+
+.igel_contact-box .igel_email-note {
+    display: block;
+    color: var(--igel-secondary-color);
+    font-size: 0.85rem;
+    font-style: italic;
 }
 
 /* Animations */
-.animate-in {
+.igel_animate-in {
     opacity: 0;
     transform: translateY(20px);
 }
 
+/* Theme-specific Hover Effects */
+.igel_theme-nordic-calm .igel_features-list li:hover {
+    background: linear-gradient(to right, var(--igel-background-color), white);
+}
+
+.igel_theme-sunset-vibes .igel_features-list li:hover {
+    transform: translateY(-3px) rotate(0.5deg);
+}
+
+.igel_theme-forest-wisdom .igel_features-list li {
+    border-left-width: 6px;
+}
+
+.igel_theme-ocean-depth .igel_features-list li:hover {
+    box-shadow: 0 8px 16px rgba(0, 119, 182, 0.1);
+}
+
 /* Accessibility */
 @media (prefers-reduced-motion: reduce) {
-    .animate-in {
+    .igel_animate-in {
         animation: none !important;
         opacity: 1;
         transform: none !important;
@@ -268,171 +310,25 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .main-title {
+    .igel_main-title {
         font-size: 2rem;
     }
 
-    .subtitle {
+    .igel_subtitle {
         font-size: 1.1rem;
     }
 
-    .features-list {
-        gap: var(--spacing-unit);
+    .igel_features-list {
+        gap: var(--igel-spacing-unit);
     }
 }
 
 @media (max-width: 480px) {
-    .features-list li {
-        padding: calc(var(--spacing-unit) * 0.75);
+    .igel_features-list li {
+        padding: calc(var(--igel-spacing-unit) * 0.75);
     }
 
-    .feature-icon {
+    .igel_feature-icon {
         font-size: 1.25rem;
-    }
-}
-
-/* ##################### SIDEBAR ################## */
-
-/* Sidebar Components Styles */
-.igel-sidebar-box {
-    background: white;
-    border-radius: 12px;
-    margin-bottom: 20px;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    transition: all var(--transition-speed) ease;
-}
-
-.igel-sidebar-box:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transform: translateY(-2px);
-}
-
-.sidebar-header {
-    background: var(--primary-color);
-    color: white;
-    padding: 12px 16px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.sidebar-header h3 {
-    margin: 0;
-    font-size: 1.2rem;
-    font-weight: 600;
-}
-
-.sidebar-header i {
-    font-size: 1.4rem;
-}
-
-.sidebar-content {
-    padding: 16px;
-    background: linear-gradient(to bottom right,
-            var(--background-color) 0%,
-            white 100%);
-}
-
-/* Contact Box Specific Styles */
-.contact-box .institution {
-    font-weight: 600;
-    color: var(--text-color);
-    margin-bottom: 8px;
-    font-size: 0.95rem;
-    line-height: 1.4;
-}
-
-.contact-box .department {
-    color: var(--secondary-color);
-    margin-bottom: 12px;
-    font-size: 0.9rem;
-}
-
-.contact-box .contact-email {
-    margin-bottom: 12px;
-    word-break: break-word;
-}
-
-.contact-box .contact-email a {
-    color: var(--primary-color);
-    text-decoration: none;
-    font-weight: 500;
-    display: inline-block;
-    margin-bottom: 4px;
-}
-
-.contact-box .contact-email a:hover {
-    text-decoration: underline;
-}
-
-.contact-box .email-note {
-    display: block;
-    color: var(--secondary-color);
-    font-size: 0.85rem;
-    font-style: italic;
-}
-
-.contact-box .contact-person {
-    margin-top: 12px;
-    padding-top: 12px;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-.contact-box .contact-person .label {
-    display: block;
-    color: var(--secondary-color);
-    font-size: 0.85rem;
-    margin-bottom: 4px;
-}
-
-.contact-box .contact-person .name {
-    color: var(--text-color);
-    font-weight: 500;
-}
-
-/* Feedback Box Specific Styles */
-.feedback-box .sidebar-content {
-    min-height: 100px;
-}
-
-.feedback-placeholder {
-    padding: 20px;
-    text-align: center;
-    color: var(--secondary-color);
-    border: 2px dashed rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-}
-
-/* Theme-specific adjustments */
-.theme-neo-naturals .igel-sidebar-box {
-    border-color: rgba(42, 157, 143, 0.2);
-}
-
-.theme-digital-garden .igel-sidebar-box {
-    border-color: rgba(76, 175, 80, 0.2);
-}
-
-.theme-soft-tech .igel-sidebar-box {
-    border-color: rgba(99, 102, 241, 0.2);
-}
-
-.theme-warm-minimalist .igel-sidebar-box {
-    border-color: rgba(124, 58, 237, 0.2);
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .igel-sidebar-box {
-        margin-bottom: 15px;
-    }
-
-    .sidebar-header {
-        padding: 10px 14px;
-    }
-
-    .sidebar-content {
-        padding: 14px;
     }
 }

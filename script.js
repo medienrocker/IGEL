@@ -1,91 +1,149 @@
-
-// Theme Switcher Logic
+// IGEL Theme Management System
 document.addEventListener('DOMContentLoaded', () => {
-    const wrapper = document.getElementById('bs_wrapper');
-    const themeSelect = document.getElementById('theme-select');
-
-    // Function to apply theme with transition
-    function applyTheme(themeName) {
-        // Add transition class
-        wrapper.style.transition = 'background-color 0.3s ease, color 0.3s ease';
-
-        // Remove all theme classes
-        wrapper.classList.remove(
-            'theme-neo-naturals',
-            'theme-digital-garden',
-            'theme-soft-tech',
-            'theme-warm-minimalist',
-            'theme-nordic-calm',
-            'theme-sunset-vibes',
-            'theme-forest-wisdom',
-            'theme-ocean-depth'
-        );
-
-        // Add selected theme class
-        wrapper.classList.add(`theme-${themeName}`);
-
-        // Store preference
-        localStorage.setItem('selectedTheme', themeName);
-
-        // Remove transition after it's complete
-        setTimeout(() => {
-            wrapper.style.transition = '';
-        }, 300);
-    }
-
-    // Event listener for theme selection
-    themeSelect.addEventListener('change', (e) => {
-        applyTheme(e.target.value);
-    });
-
-    // Apply saved theme or default
-    const savedTheme = localStorage.getItem('selectedTheme');
-    if (savedTheme) {
-        themeSelect.value = savedTheme;
-        applyTheme(savedTheme);
-    } else {
-        // Apply default theme
-        applyTheme('neo-naturals');
-    }
-});
-
-// Intersection Observer for scroll animations
-document.addEventListener('DOMContentLoaded', () => {
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px'
+    // Configuration object
+    const config = {
+        themePrefix: 'igel_theme-',
+        storageKey: 'igel_selected_theme',
+        defaultTheme: 'neo-naturals',
+        themes: [
+            'neo-naturals',
+            'digital-garden',
+            'soft-tech',
+            'warm-minimalist',
+            'nordic-calm',
+            'sunset-vibes',
+            'forest-wisdom',
+            'ocean-depth'
+        ]
     };
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                requestAnimationFrame(() => {
-                    entry.target.style.animation = `fadeSlideIn 0.6s ${entry.target.dataset.delay || '0s'} forwards ease-out`;
-                });
-                observer.unobserve(entry.target);
+    // Error handling utility
+    const ErrorHandler = {
+        logError: (context, error) => {
+            console.error(`IGEL Theme System - ${context}:`, error);
+        },
+
+        throwIfMissing: (element, elementName) => {
+            if (!element) {
+                const error = new Error(`Required element "${elementName}" not found`);
+                ErrorHandler.logError('Missing Element', error);
+                throw error;
             }
+        }
+    };
+
+    // Theme management utility
+    const ThemeManager = {
+        validateTheme: (themeName) => {
+            if (!config.themes.includes(themeName)) {
+                ErrorHandler.logError('Invalid Theme', `Theme "${themeName}" is not recognized`);
+                return config.defaultTheme;
+            }
+            return themeName;
+        },
+
+        getStoredTheme: () => {
+            try {
+                return localStorage.getItem(config.storageKey);
+            } catch (error) {
+                ErrorHandler.logError('localStorage Access', error);
+                return null;
+            }
+        },
+
+        storeTheme: (themeName) => {
+            try {
+                localStorage.setItem(config.storageKey, themeName);
+            } catch (error) {
+                ErrorHandler.logError('localStorage Save', error);
+            }
+        }
+    };
+
+    // Initialize theme system
+    try {
+        // Get required elements
+        const wrapper = document.querySelector('.igel_wrapper');
+        const themeSelect = document.querySelector('.igel_theme-select');
+
+        // Validate required elements exist
+        ErrorHandler.throwIfMissing(wrapper, '.igel_wrapper');
+        ErrorHandler.throwIfMissing(themeSelect, '.igel_theme-select');
+
+        // Function to apply theme with transition
+        const applyTheme = (themeName) => {
+            try {
+                // Validate theme name
+                const validTheme = ThemeManager.validateTheme(themeName);
+
+                // Add transition
+                wrapper.style.transition = 'background-color 0.3s ease, color 0.3s ease';
+
+                // Remove existing theme classes
+                config.themes.forEach(theme => {
+                    wrapper.classList.remove(`${config.themePrefix}${theme}`);
+                });
+
+                // Add new theme class
+                wrapper.classList.add(`${config.themePrefix}${validTheme}`);
+
+                // Store preference
+                ThemeManager.storeTheme(validTheme);
+
+                // Remove transition after animation
+                setTimeout(() => {
+                    wrapper.style.transition = '';
+                }, 300);
+            } catch (error) {
+                ErrorHandler.logError('Theme Application', error);
+            }
+        };
+
+        // Set up theme selection handler
+        themeSelect.addEventListener('change', (event) => {
+            applyTheme(event.target.value);
         });
-    }, observerOptions);
 
-    // Add animation delays to create a cascade effect
-    document.querySelectorAll('.animate-in').forEach((el, index) => {
-        el.dataset.delay = `${index * 0.1}s`;
-        observer.observe(el);
-    });
+        // Initialize animations
+        try {
+            // Add keyframe animations if not present
+            if (!document.querySelector('#igel_animations')) {
+                const style = document.createElement('style');
+                style.id = 'igel_animations';
+                style.textContent = `
+                    @keyframes igel_fadeSlideIn {
+                        from {
+                            opacity: 0;
+                            transform: translateY(20px);
+                        }
+                        to {
+                            opacity: 1;
+                            transform: translateY(0);
+                        }
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+
+            // Apply animations to elements
+            document.querySelectorAll('.igel_animate-in').forEach((el, index) => {
+                el.style.animation = `igel_fadeSlideIn 0.6s ${index * 0.1}s forwards ease-out`;
+            });
+        } catch (error) {
+            ErrorHandler.logError('Animation Setup', error);
+        }
+
+        // Apply initial theme
+        const savedTheme = ThemeManager.getStoredTheme();
+        if (savedTheme) {
+            themeSelect.value = savedTheme;
+            applyTheme(savedTheme);
+        } else {
+            applyTheme(config.defaultTheme);
+        }
+
+    } catch (error) {
+        ErrorHandler.logError('Initialization', error);
+        console.error('IGEL Theme System failed to initialize. Please check the console for details.');
+    }
 });
-
-// Add keyframe animation
-const style = document.createElement('style');
-style.textContent = `
-      @keyframes fadeSlideIn {
-        from {
-          opacity: 0;
-          transform: translateY(20px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-    `;
-document.head.appendChild(style);
