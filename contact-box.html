@@ -1,11 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kontakt Box</title><link rel="stylesheet" href="style.css">
+    <title>Kontakt Box</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+    <!-- Theme switcher html -->
+    <div id="theme-switcher" class="theme-switcher">
+        <label for="theme-select">Color Theme:</label>
+        <select id="theme-select" class="theme-select">
+            <!-- Original Themes -->
+            <optgroup label="Original Themes">
+                <option value="neo-naturals">Neo Naturals</option>
+                <option value="digital-garden">Digital Garden</option>
+                <option value="soft-tech">Soft Tech</option>
+                <option value="warm-minimalist">Warm Minimalist</option>
+            </optgroup>
+            <!-- New Themes -->
+            <optgroup label="New Themes">
+                <option value="nordic-calm">Nordic Calm</option>
+                <option value="sunset-vibes">Sunset Vibes</option>
+                <option value="forest-wisdom">Forest Wisdom</option>
+                <option value="ocean-depth">Ocean Depth</option>
+            </optgroup>
+        </select>
+    </div>
+
     <!-- Contact Box -->
     <div class="igel-sidebar-box contact-box">
         <div class="sidebar-header">
@@ -25,7 +49,7 @@
             </p>
         </div>
     </div>
-    
+
     <!-- Feedback Box -->
     <div class="igel-sidebar-box feedback-box">
         <div class="sidebar-header">
@@ -39,11 +63,10 @@
             </div>
         </div>
     </div>
-    
-    <style>
-        
-    </style>
+
+    <script src="script.js"></script>
 
 
 </body>
+
 </html>
