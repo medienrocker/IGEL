@@ -24,6 +24,10 @@
     padding: 10px;
 }
 
+.igel_sidebar-box {
+    font-family: var(--igel-font-family);
+}
+
 /* Theme Switcher Styles */
 .igel_theme-switcher {
     background: white;
@@ -50,7 +54,7 @@
 }
 
 /* Theme Definitions */
-.igel_wrapper.igel_theme-neo-naturals {
+.igel_theme-neo-naturals {
     --igel-primary-color: #2A9D8F;
     --igel-secondary-color: #264653;
     --igel-accent-color: #E9C46A;
@@ -58,7 +62,7 @@
     --igel-text-color: #264653;
 }
 
-.igel_wrapper.igel_theme-digital-garden {
+.igel_theme-digital-garden {
     --igel-primary-color: #4CAF50;
     --igel-secondary-color: #2196F3;
     --igel-accent-color: #FF9800;
@@ -66,7 +70,7 @@
     --igel-text-color: #2D3748;
 }
 
-.igel_wrapper.igel_theme-soft-tech {
+.igel_theme-soft-tech {
     --igel-primary-color: #6366F1;
     --igel-secondary-color: #3730A3;
     --igel-accent-color: #EC4899;
@@ -74,7 +78,7 @@
     --igel-text-color: #1F2937;
 }
 
-.igel_wrapper.igel_theme-warm-minimalist {
+.igel_theme-warm-minimalist {
     --igel-primary-color: #7C3AED;
     --igel-secondary-color: #374151;
     --igel-accent-color: #F59E0B;
@@ -82,7 +86,7 @@
     --igel-text-color: #374151;
 }
 
-.igel_wrapper.igel_theme-nordic-calm {
+.igel_theme-nordic-calm {
     --igel-primary-color: #5E81AC;
     --igel-secondary-color: #4C566A;
     --igel-accent-color: #88C0D0;
@@ -90,7 +94,7 @@
     --igel-text-color: #2E3440;
 }
 
-.igel_wrapper.igel_theme-sunset-vibes {
+.igel_theme-sunset-vibes {
     --igel-primary-color: #FF6B6B;
     --igel-secondary-color: #4A4E69;
     --igel-accent-color: #FFB84C;
@@ -98,7 +102,7 @@
     --igel-text-color: #2D3436;
 }
 
-.igel_wrapper.igel_theme-forest-wisdom {
+.igel_theme-forest-wisdom {
     --igel-primary-color: #2D6A4F;
     --igel-secondary-color: #1B4332;
     --igel-accent-color: #95D5B2;
@@ -106,7 +110,7 @@
     --igel-text-color: #081C15;
 }
 
-.igel_wrapper.igel_theme-ocean-depth {
+.igel_theme-ocean-depth {
     --igel-primary-color: #0077B6;
     --igel-secondary-color: #023E8A;
     --igel-accent-color: #48CAE4;

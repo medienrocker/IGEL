@@ -9,106 +9,96 @@
 </head>
 
 <body>
-    <div class="igel_wrapper">
-        <!-- Theme Switcher -->
+    <!-- Main Container -->
+    <div class="igel_app-container">
+        <!-- Theme Switcher - Always outside the main wrapper -->
         <div class="igel_theme-switcher">
-            <label for="igel_theme-select">Color Theme:</label>
-            <select id="igel_theme-select" class="igel_theme-select">
-                <optgroup label="Original Themes">
-                    <option value="neo-naturals">Neo Naturals</option>
-                    <option value="digital-garden">Digital Garden</option>
-                    <option value="soft-tech">Soft Tech</option>
-                    <option value="warm-minimalist">Warm Minimalist</option>
-                </optgroup>
-                <optgroup label="New Themes">
-                    <option value="nordic-calm">Nordic Calm</option>
-                    <option value="sunset-vibes">Sunset Vibes</option>
-                    <option value="forest-wisdom">Forest Wisdom</option>
-                    <option value="ocean-depth">Ocean Depth</option>
-                </optgroup>
+            <label for="themeSelect">Color Theme:</label>
+            <select id="themeSelect" class="igel_theme-select">
+                <option value="neo-naturals">Neo Naturals</option>
+                <option value="digital-garden">Digital Garden</option>
+                <option value="soft-tech">Soft Tech</option>
+                <option value="warm-minimalist">Warm Minimalist</option>
+                <option value="nordic-calm">Nordic Calm</option>
+                <option value="sunset-vibes">Sunset Vibes</option>
+                <option value="forest-wisdom">Forest Wisdom</option>
+                <option value="ocean-depth">Ocean Depth</option>
             </select>
         </div>
     
-        <!-- Hero Section -->
-        <div class="igel_hero-container">
-            <div class="igel_hero-content">
-                <!-- Logo Section -->
-                <div class="igel_logo-container">
-                    <img src="/api/placeholder/120/120" alt="IGEL Logo" class="igel_logo igel_animate-in">
-                </div>
+        <!-- Main Content Wrapper - Will receive theme class -->
+        <div class="igel_wrapper">
+            <!-- Hero Section -->
+            <div class="igel_hero-container">
+                <div class="igel_hero-content">
+                    <!-- Logo -->
+                    <div class="igel_logo-container">
+                        <img src="/api/placeholder/120/120" alt="IGEL Logo" class="igel_logo igel_animate-in">
+                    </div>
     
-                <!-- Title Section -->
-                <div class="igel_title-container">
-                    <h1 class="igel_main-title igel_animate-in">
-                        Willkommen bei IGEL
-                    </h1>
-                    <p class="igel_subtitle igel_animate-in">
-                        Individuelle GEzielte Lernförderung für Hamburger Schulen
-                    </p>
-                </div>
+                    <!-- Title -->
+                    <div class="igel_title-container">
+                        <h1 id="willkommen-bei-igel" class="igel_main-title igel_animate-in">
+                            Willkommen bei IGEL
+                        </h1>
+                        <p class="igel_subtitle">
+                            Individuelle GEzielte Lernförderung für Hamburger Schulen
+                        </p>
+                    </div>
     
-                <!-- Features List -->
-                <div class="igel_features-container igel_animate-in">
-                    <p class="igel_features-intro">IGEL ist Ihre zentrale Anlaufstelle für:</p>
-                    <ul class="igel_features-list">
-                        <li>
-                            <span class="igel_feature-icon">📚</span>
-                            Unterrichtsmaterialien für Mathematik, Deutsch und DaZ
-                        </li>
-                        <li>
-                            <span class="igel_feature-icon">🎯</span>
-                            Didaktische Konzepte und Fördertools
-                        </li>
-                        <li>
-                            <span class="igel_feature-icon">✓</span>
-                            Praxiserprobte Lernressourcen
-                        </li>
-                        <li>
-                            <span class="igel_feature-icon">🔄</span>
-                            Kompetenzförderung und Bewegungsintegration
-                        </li>
-                    </ul>
+                    <!-- Features List -->
+                    <div class="igel_features-container igel_animate-in">
+                        <p>IGEL ist Ihre zentrale Anlaufstelle für:</p>
+                        <ul class="igel_features-list">
+                            <li><span class="igel_feature-icon">📚</span> Unterrichtsmaterialien für Mathematik, Deutsch und
+                                DaZ</li>
+                            <li><span class="igel_feature-icon">🎯</span> Didaktische Konzepte und Fördertools</li>
+                            <li><span class="igel_feature-icon">✓</span> Praxiserprobte Lernressourcen</li>
+                            <li><span class="igel_feature-icon">🔄</span> Kompetenzförderung und Bewegungsintegration</li>
+                        </ul>
+                        <p class="igel_outro">
+                            Alle Materialien sind speziell für Fördermaßnahmen an Hamburger Schulen konzipiert.
+                        </p>
+                    </div>
                 </div>
-    
-                <p class="igel_outro igel_animate-in">
-                    Alle Materialien sind speziell für Fördermaßnahmen an Hamburger Schulen konzipiert.
-                </p>
             </div>
         </div>
     
-<br>
-<br>
-
-        <!-- Sidebar Components -->
+        <!-- Sidebar Container -->
         <div class="igel_sidebar-container">
-            <!-- Contact Box -->
+            <!-- Contact Box - Will receive theme class -->
             <div class="igel_sidebar-box igel_contact-box">
                 <div class="igel_sidebar-header">
-                    <i class="igel_contact-icon">✉</i>
+                    <span class="igel_icon">✉</span>
                     <h3>Kontakt</h3>
                 </div>
                 <div class="igel_sidebar-content">
-                    <p class="igel_institution">Landesinstitut für Lehrerbildung und Schulentwicklung Hamburg</p>
-                    <p class="igel_department">Referat LIF 28 (Lernförderung)</p>
+                    <div class="igel_institution">
+                        Landesinstitut für Lehrerbildung und Schulentwicklung Hamburg
+                    </div>
+                    <div class="igel_department">
+                        Referat LIF 28 (Lernförderung)
+                    </div>
                     <div class="igel_contact-email">
-                        <a href="mailto:lernfoerderung@li.hamburg.de?subject=IGEL">lernfoerderung@li.hamburg.de</a>
+                        <a href="mailto:lernfoerderung@li.hamburg.de?subject=IGEL">
+                            lernfoerderung@li.hamburg.de
+                        </a>
                         <span class="igel_email-note">(Betreff: IGEL)</span>
                     </div>
-                    <p class="igel_contact-person">
+                    <div class="igel_contact-person">
                         <span class="igel_label">Ansprechperson:</span>
                         <span class="igel_name">Marika Schwaiger</span>
-                    </p>
+                    </div>
                 </div>
             </div>
     
-            <!-- Feedback Box -->
+            <!-- Feedback Box - Will receive theme class -->
             <div class="igel_sidebar-box igel_feedback-box">
                 <div class="igel_sidebar-header">
-                    <i class="igel_feedback-icon">💭</i>
+                    <span class="igel_icon">💭</span>
                     <h3>Feedback</h3>
                 </div>
                 <div class="igel_sidebar-content">
-                    <!-- Moodle feedback activity placeholder -->
                     <div class="igel_feedback-placeholder">
                         [Moodle Feedback Activity]
                     </div>
@@ -116,7 +106,7 @@
             </div>
         </div>
     </div>
-
+    
     <script src="script.js"></script>
 
     

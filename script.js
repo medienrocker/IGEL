@@ -1,6 +1,6 @@
 // IGEL Theme Management System
 document.addEventListener('DOMContentLoaded', () => {
-    // Configuration object
+    // Configuration object - no changes needed here
     const config = {
         themePrefix: 'igel_theme-',
         storageKey: 'igel_selected_theme',
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ]
     };
 
-    // Error handling utility
+    // Error handling utility - no changes needed here
     const ErrorHandler = {
         logError: (context, error) => {
             console.error(`IGEL Theme System - ${context}:`, error);
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Theme management utility
+    // Theme management utility - no changes needed here
     const ThemeManager = {
         validateTheme: (themeName) => {
             if (!config.themes.includes(themeName)) {
@@ -62,51 +62,52 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize theme system
     try {
-        // Get required elements
-        const wrapper = document.querySelector('.igel_wrapper');
+        // Get required elements - UPDATED: now get all theme-affected elements
+        const themeElements = document.querySelectorAll('.igel_wrapper, .igel_sidebar-box');
         const themeSelect = document.querySelector('.igel_theme-select');
 
-        // Validate required elements exist
-        ErrorHandler.throwIfMissing(wrapper, '.igel_wrapper');
+        // Validate theme select exists
         ErrorHandler.throwIfMissing(themeSelect, '.igel_theme-select');
 
-        // Function to apply theme with transition
+        // Function to apply theme with transition - UPDATED
         const applyTheme = (themeName) => {
             try {
                 // Validate theme name
                 const validTheme = ThemeManager.validateTheme(themeName);
 
-                // Add transition
-                wrapper.style.transition = 'background-color 0.3s ease, color 0.3s ease';
+                // Apply theme to all elements
+                themeElements.forEach(element => {
+                    // Add transition
+                    element.style.transition = 'background-color 0.3s ease, color 0.3s ease';
 
-                // Remove existing theme classes
-                config.themes.forEach(theme => {
-                    wrapper.classList.remove(`${config.themePrefix}${theme}`);
+                    // Remove existing theme classes
+                    config.themes.forEach(theme => {
+                        element.classList.remove(`${config.themePrefix}${theme}`);
+                    });
+
+                    // Add new theme class
+                    element.classList.add(`${config.themePrefix}${validTheme}`);
+
+                    // Remove transition after animation
+                    setTimeout(() => {
+                        element.style.transition = '';
+                    }, 300);
                 });
-
-                // Add new theme class
-                wrapper.classList.add(`${config.themePrefix}${validTheme}`);
 
                 // Store preference
                 ThemeManager.storeTheme(validTheme);
-
-                // Remove transition after animation
-                setTimeout(() => {
-                    wrapper.style.transition = '';
-                }, 300);
             } catch (error) {
                 ErrorHandler.logError('Theme Application', error);
             }
         };
 
-        // Set up theme selection handler
+        // Rest of the code remains the same
         themeSelect.addEventListener('change', (event) => {
             applyTheme(event.target.value);
         });
 
         // Initialize animations
         try {
-            // Add keyframe animations if not present
             if (!document.querySelector('#igel_animations')) {
                 const style = document.createElement('style');
                 style.id = 'igel_animations';
@@ -125,7 +126,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.head.appendChild(style);
             }
 
-            // Apply animations to elements
             document.querySelectorAll('.igel_animate-in').forEach((el, index) => {
                 el.style.animation = `igel_fadeSlideIn 0.6s ${index * 0.1}s forwards ease-out`;
             });
