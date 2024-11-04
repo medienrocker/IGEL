@@ -147,3 +147,113 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('IGEL Theme System failed to initialize. Please check the console for details.');
     }
 });
+
+
+// IGEL Feature Info System
+document.addEventListener('DOMContentLoaded', () => {
+    const config = {
+        activeClass: 'igel_feature-active',
+        detailSelector: '.igel_info-detail',
+        defaultInfoSelector: '.igel_info-default',
+        animationDuration: 300
+    };
+
+    // Error handling utility
+    const ErrorHandler = {
+        logError: (context, error) => {
+            console.error(`IGEL Feature Info - ${context}:`, error);
+        }
+    };
+
+    // Feature info management
+    const FeatureManager = {
+        // Store current active feature
+        activeFeature: null,
+
+        // Hide all feature details
+        hideAllDetails: () => {
+            document.querySelectorAll(config.detailSelector).forEach(detail => {
+                detail.style.display = 'none';
+                detail.style.opacity = '0';
+            });
+        },
+
+        // Show default info
+        showDefault: () => {
+            const defaultInfo = document.querySelector(config.defaultInfoSelector);
+            if (defaultInfo) {
+                defaultInfo.style.display = 'block';
+                defaultInfo.style.opacity = '1';
+            }
+        },
+
+        // Show specific feature detail
+        showFeatureDetail: (featureId) => {
+            const detail = document.querySelector(`${config.detailSelector}[data-feature="${featureId}"]`);
+            if (detail) {
+                detail.style.display = 'block';
+                // Trigger reflow for animation
+                detail.offsetHeight;
+                detail.style.opacity = '1';
+            }
+        },
+
+        // Handle feature selection
+        selectFeature: (featureId, clickedElement) => {
+            try {
+                // Remove active class from previous selection
+                const previousActive = document.querySelector(`.${config.activeClass}`);
+                if (previousActive) {
+                    previousActive.classList.remove(config.activeClass);
+                }
+
+                // If clicking the same feature, deselect it
+                if (FeatureManager.activeFeature === featureId) {
+                    FeatureManager.activeFeature = null;
+                    FeatureManager.hideAllDetails();
+                    FeatureManager.showDefault();
+                    return;
+                }
+
+                // Add active class to new selection
+                clickedElement.classList.add(config.activeClass);
+                FeatureManager.activeFeature = featureId;
+
+                // Update info display
+                FeatureManager.hideAllDetails();
+                setTimeout(() => {
+                    FeatureManager.showFeatureDetail(featureId);
+                }, 50); // Small delay for smooth transition
+
+            } catch (error) {
+                ErrorHandler.logError('Feature Selection', error);
+            }
+        }
+    };
+
+    // Initialize feature info system
+    try {
+        // Add click handlers to feature list items
+        document.querySelectorAll('.igel_features-list li').forEach(item => {
+            item.addEventListener('click', (event) => {
+                const featureId = item.dataset.featureId;
+                if (featureId) {
+                    FeatureManager.selectFeature(featureId, item);
+                }
+            });
+
+            // Add hover effect handler
+            item.addEventListener('mouseenter', () => {
+                if (!item.classList.contains(config.activeClass)) {
+                    item.style.cursor = 'pointer';
+                }
+            });
+        });
+
+        // Show default info initially
+        FeatureManager.showDefault();
+
+    } catch (error) {
+        ErrorHandler.logError('Initialization', error);
+    }
+});

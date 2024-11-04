@@ -4,6 +4,7 @@
     --igel-secondary-color: #6B7280;
     --igel-accent-color: #00C2FF;
     --igel-background-color: #F8FAFC;
+    --igel-color-bright: #FFF;
     --igel-text-color: #1F2937;
     --igel-border: 1px solid rgba(0, 0, 0, 0.1);
     --igel-box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
@@ -24,9 +25,6 @@
     padding: 10px;
 }
 
-.igel_sidebar-box {
-    font-family: var(--igel-font-family);
-}
 
 /* Theme Switcher Styles */
 .igel_theme-switcher {
@@ -190,7 +188,7 @@
     display: flex;
     align-items: center;
     padding: var(--igel-spacing-unit);
-    background: white;
+    background: var(--igel-color-bright);
     border-radius: 8px;
     box-shadow: var(--igel-box-shadow);
     transition: transform var(--igel-transition-speed), box-shadow var(--igel-transition-speed);
@@ -214,7 +212,8 @@
 
 /* Sidebar Components */
 .igel_sidebar-box {
-    background: white;
+    font-family: var(--igel-font-family);
+    background: var(--igel-color-bright);
     border-radius: 12px;
     margin-bottom: 20px;
     overflow: hidden;
@@ -225,7 +224,7 @@
 
 .igel_sidebar-header {
     background: var(--igel-primary-color);
-    color: white;
+    color: var(--igel-color-bright);
     padding: 12px 16px;
     display: flex;
     align-items: center;
@@ -239,10 +238,11 @@
 }
 
 .igel_sidebar-content {
+    flex: 1;
     padding: 16px;
     background: linear-gradient(to bottom right,
             var(--igel-background-color) 0%,
-            white 100%);
+            var(--igel-color-bright) 100%);
 }
 
 /* Contact Box Specific */
@@ -334,5 +334,84 @@
 
     .igel_feature-icon {
         font-size: 1.25rem;
+    }
+}
+
+
+
+/* ########## FEATURE LIST & INFOBOX ########## */
+
+/* Grid Layout */
+.igel_features-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--igel-spacing-unit);
+    align-items: stretch;
+}
+
+/* Features List Styling */
+
+.igel_features-list li {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.igel_features-list li:hover {
+    transform: translateX(5px);
+}
+
+.igel_features-list li.igel_feature-active {
+    background-color: var(--igel-primary-color);
+    color: var(--igel-color-bright);
+}
+
+.igel_features-list li.igel_feature-active .igel_feature-icon {
+    color: var(--igel-color-bright);
+}
+
+/* Info Box Styling */
+.igel_info-box {
+    position: static;
+    display: flex;
+    flex-direction: column;
+    /* margin-top: var(--igel-spacing-unit); */
+}
+
+.igel_info-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.igel_info-detail {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.igel_info-detail h4 {
+    color: var(--igel-primary-color);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.igel_info-detail ul {
+    list-style: disc;
+    margin-left: 1.2rem;
+    margin-top: 0.5rem;
+}
+
+.igel_info-detail ul li {
+    margin-bottom: 0.3rem;
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .igel_features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .igel_info-box {
+        position: static;
     }
 }
