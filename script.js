@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize theme system
     try {
         // Get required elements - UPDATED: now get all theme-affected elements
-        const themeElements = document.querySelectorAll('.igel_wrapper, .igel_sidebar-box');
+        const themeElements = document.querySelectorAll('.igel_wrapper, .igel_sidebar-box, .grid-section.card');
         const themeSelect = document.querySelector('.igel_theme-select');
 
         // Validate theme select exists

@@ -7,6 +7,7 @@
     --igel-color-bright: #FFF;
     --igel-text-color: #1F2937;
     --igel-border: 1px solid rgba(0, 0, 0, 0.1);
+    --igel-border-radius: 10px;
     --igel-box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
 
     /* Typography */
@@ -130,83 +131,102 @@
     box-shadow: var(--igel-box-shadow);
 }
 
+/* Hero Content Layout */
 .igel_hero-content {
     width: var(--igel-container-width);
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0 auto;
 }
 
-.igel_logo-container {
-    text-align: center;
-    margin-bottom: var(--igel-spacing-unit);
-}
-
-.igel_logo {
-    width: 120px;
-    height: auto;
-    border-radius: 50%;
-    box-shadow: var(--igel-box-shadow);
-}
-
-.igel_title-container {
-    text-align: center;
+/* Header flex container for logo and title alignment */
+.igel_header-group {
+    display: grid;
+    grid-template-columns: auto 2fr;
+    gap: calc(var(--igel-spacing-unit) * 1.5);
+    align-items: center;
     margin-bottom: calc(var(--igel-spacing-unit) * 2);
 }
 
+/* Logo Container */
+.igel_logo-container {
+    width: 200px;
+    margin: 0;
+}
+
+.igel_logo {
+    width: 100%;
+    height: auto;
+    border-radius: var(--igel-border-radius);
+    /* box-shadow: 
+        0 10px 15px -3px rgba(0, 0, 0, 0.1),
+        0 4px 6px -2px rgba(0, 0, 0, 0.05); 
+    transition: transform var(--igel-transition-speed) ease,
+                box-shadow var(--igel-transition-speed) ease;*/
+}
+
+/* .igel_logo:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        0 20px 25px -5px rgba(0, 0, 0, 0.1),
+        0 10px 10px -5px rgba(0, 0, 0, 0.04);
+} */
+
+/* Title Container */
+.igel_title-container {
+    text-align: left;
+    margin: 0;
+}
+
 .igel_main-title {
-    color: var(--igel-primary-color) !important;
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: calc(var(--igel-spacing-unit) * 0.5);
+    color: var(--igel-primary-color);
+    margin-top: 0;
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    line-height: 1.2;
 }
 
 .igel_subtitle {
     color: var(--igel-secondary-color);
-    font-size: 1.25rem;
+    margin-top: 0.5rem;
+    font-size: clamp(1rem, 2vw, 1.4rem);
+    line-height: 1.4;
     font-weight: 500;
 }
 
+/* Features Container spacing */
 .igel_features-container {
-    margin: calc(var(--igel-spacing-unit) * 2) 0;
+    margin-top: calc(var(--igel-spacing-unit) * 3);
 }
 
-.igel_features-intro {
-    font-size: 1.2rem;
-    color: var(--igel-text-color);
-    margin-bottom: var(--igel-spacing-unit);
+/* Responsive Design */
+@media (max-width: 768px) {
+    .igel_header-group {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: var(--igel-spacing-unit);
+    }
+
+    .igel_logo-container {
+        margin: 0 auto;
+    }
+
+    .igel_title-container {
+        text-align: center;
+    }
 }
 
-.igel_features-list {
-    list-style: none;
-    padding: 0 0 0 10px;
-    display: grid;
-    gap: calc(var(--igel-spacing-unit) * 1.5);
-    border-left: 4px solid var(--igel-accent-color);
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .igel_logo {
+        transition: none;
+    }
+
+    .igel_logo:hover {
+        transform: none;
+    }
 }
 
-.igel_features-list li {
-    display: flex;
-    align-items: center;
-    padding: var(--igel-spacing-unit);
-    background: var(--igel-color-bright);
-    border-radius: 8px;
-    box-shadow: var(--igel-box-shadow);
-    transition: transform var(--igel-transition-speed), box-shadow var(--igel-transition-speed);
-}
 
-.igel_feature-icon {
-    color: var(--igel-primary-color);
-    font-size: 1.5rem;
-    margin-right: var(--igel-spacing-unit);
-    flex-shrink: 0;
-}
 
-.igel_outro {
-    text-align: left;
-    color: var(--igel-secondary-color);
-    font-size: 1.1rem;
-    margin-top: calc(var(--igel-spacing-unit) * 2);
-}
 
 /* ########## SIDEBAR ########## */
 
@@ -319,7 +339,7 @@
     }
 
     .igel_subtitle {
-        font-size: 1.1rem;
+        font-size: 1.2rem;
     }
 
     .igel_features-list {
@@ -339,6 +359,7 @@
 
 
 
+
 /* ########## FEATURE LIST & INFOBOX ########## */
 
 /* Grid Layout */
@@ -350,6 +371,44 @@
 }
 
 /* Features List Styling */
+
+.igel_features-intro {
+    font-size: 1.2rem;
+    color: var(--igel-text-color);
+    margin-bottom: var(--igel-spacing-unit);
+}
+
+.igel_features-list {
+    list-style: none;
+    padding: 0 0 0 10px;
+    display: grid;
+    gap: calc(var(--igel-spacing-unit) * 1.5);
+    border-left: 4px solid var(--igel-accent-color);
+}
+
+.igel_features-list li {
+    display: flex;
+    align-items: center;
+    padding: var(--igel-spacing-unit);
+    background: var(--igel-color-bright);
+    border-radius: 8px;
+    box-shadow: var(--igel-box-shadow);
+    transition: transform var(--igel-transition-speed), box-shadow var(--igel-transition-speed);
+}
+
+.igel_feature-icon {
+    color: var(--igel-primary-color);
+    font-size: 1.5rem;
+    margin-right: var(--igel-spacing-unit);
+    flex-shrink: 0;
+}
+
+.igel_outro {
+    text-align: left;
+    color: var(--igel-secondary-color);
+    font-size: 1.1rem;
+    margin-top: calc(var(--igel-spacing-unit) * 2);
+}
 
 .igel_features-list li {
     transition: all 0.3s ease;
@@ -369,12 +428,13 @@
     color: var(--igel-color-bright);
 }
 
+
 /* Info Box Styling */
 .igel_info-box {
     position: static;
     display: flex;
     flex-direction: column;
-    /* margin-top: var(--igel-spacing-unit); */
+    /*margin-top: var(--igel-spacing-unit);*/
 }
 
 .igel_info-content {
@@ -414,4 +474,42 @@
     .igel_info-box {
         position: static;
     }
+}
+
+
+
+
+/* ########## MOODLE GRID CARDS ########## */
+
+/* Base styles for Moodle cards */
+
+.grid-section.card {
+    background-color: #fff;
+    background-clip: border-box;
+    border: var(--igel-border) !important;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--igel-box-shadow);
+    z-index: inherit;
+    transition: all .3s ease;
+}
+
+.grid-section.card:hover {
+    transform: scale(1.2);
+    box-shadow: rgba(0, 0, 0, 0.6) 0px 3px 10px;
+    z-index: 1000;
+}
+
+.grid-section .card-header {
+    background: var(--igel-background-color);
+}
+
+.grid-section .card-header h3 {
+    color: var(--igel-primary-color);
+    font-weight: 600;
+}
+
+.grid-section.card a {
+    color: var(--igel-text-color);
+    text-decoration: none;
 }
