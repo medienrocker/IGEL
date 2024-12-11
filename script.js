@@ -1,152 +1,91 @@
-// IGEL Theme Management System
+
 document.addEventListener('DOMContentLoaded', () => {
-    // Configuration object - no changes needed here
     const config = {
-        themePrefix: 'igel_theme-',
-        storageKey: 'igel_selected_theme',
-        defaultTheme: 'neo-naturals',
-        themes: [
-            'neo-naturals',
-            'digital-garden',
-            'soft-tech',
-            'warm-minimalist',
-            'nordic-calm',
-            'sunset-vibes',
-            'forest-wisdom',
-            'ocean-depth'
-        ]
+        infoboxSelector: '.igel_info-detail',
+        listItemSelector: '.igel_features-list li',
     };
 
-    // Error handling utility - no changes needed here
-    const ErrorHandler = {
-        logError: (context, error) => {
-            console.error(`IGEL Theme System - ${context}:`, error);
-        },
+    const addLinkIcons = (container) => {
+        const currentHostname = window.location.hostname;
 
-        throwIfMissing: (element, elementName) => {
-            if (!element) {
-                const error = new Error(`Required element "${elementName}" not found`);
-                ErrorHandler.logError('Missing Element', error);
-                throw error;
+        if (!container) return;
+
+        const links = container.querySelectorAll('a[href]');
+        links.forEach(link => {
+            const hasMedia = link.querySelector('img, video, svg, canvas, .moodle-icon, .fa');
+            if (hasMedia) return;
+
+            try {
+                const url = new URL(link.href, window.location.origin);
+                const isExternal = url.hostname !== currentHostname;
+
+                const trustedDomains = [
+                    'mathcloud.li-hamburg.de',
+                ];
+                const isTrustedDomain = trustedDomains.some(domain =>
+                    url.hostname === domain || url.hostname.endsWith('.' + domain)
+                );
+
+                const isMoodleSystem = (url) => {
+                    const moodlePatterns = [
+                        /\/mod\/((?!data\/view\.php).)*$/,
+                      //  /\/course\//,
+                        /\/user\//,
+                        /\/grade\//,
+                        /\/group\//,
+                        /\/message\//,
+                        /\/calendar\//
+                    ];
+                    return moodlePatterns.some(pattern => pattern.test(url.pathname));
+                };
+
+                if (!isMoodleSystem(url)) {
+                    if (isExternal || isTrustedDomain) {
+                        link.innerHTML += ' <i class="fa fa-external-link" aria-hidden="true" title="Externer Link"></i>';
+                        link.innerHTML += '<span class="sr-only">(Opens in new window)</span>';
+                        link.setAttribute('target', '_blank');
+                        link.setAttribute('rel', 'noopener noreferrer');
+                    } else {
+                        link.innerHTML += ' <i class="fa fa-link" aria-hidden="true" title="Interner Link"></i>';
+                        link.innerHTML += '<span class="sr-only">(Internal link)</span>';
+                    }
+                }
+            } catch (e) {
+                console.error('Error processing link:', link.href, e);
             }
-        }
+        });
     };
 
-    // Theme management utility - no changes needed here
-    const ThemeManager = {
-        validateTheme: (themeName) => {
-            if (!config.themes.includes(themeName)) {
-                ErrorHandler.logError('Invalid Theme', `Theme "${themeName}" is not recognized`);
-                return config.defaultTheme;
-            }
-            return themeName;
-        },
+    // Initial run for the main content
+    addLinkIcons(document.querySelector('#region-main, .course-content'));
 
-        getStoredTheme: () => {
-            try {
-                return localStorage.getItem(config.storageKey);
-            } catch (error) {
-                ErrorHandler.logError('localStorage Access', error);
-                return null;
-            }
-        },
+    // Add observer for dynamic content in the infobox
+    const infobox = document.querySelector(config.infoboxSelector);
 
-        storeTheme: (themeName) => {
-            try {
-                localStorage.setItem(config.storageKey, themeName);
-            } catch (error) {
-                ErrorHandler.logError('localStorage Save', error);
-            }
-        }
-    };
-
-    // Initialize theme system
-    try {
-        // Get required elements - UPDATED: now get all theme-affected elements
-        const themeElements = document.querySelectorAll('.igel_wrapper, .igel_sidebar-box, .grid-section.card');
-        const themeSelect = document.querySelector('.igel_theme-select');
-
-        // Validate theme select exists
-        ErrorHandler.throwIfMissing(themeSelect, '.igel_theme-select');
-
-        // Function to apply theme with transition - UPDATED
-        const applyTheme = (themeName) => {
-            try {
-                // Validate theme name
-                const validTheme = ThemeManager.validateTheme(themeName);
-
-                // Apply theme to all elements
-                themeElements.forEach(element => {
-                    // Add transition
-                    element.style.transition = 'background-color 0.3s ease, color 0.3s ease';
-
-                    // Remove existing theme classes
-                    config.themes.forEach(theme => {
-                        element.classList.remove(`${config.themePrefix}${theme}`);
+    if (infobox) {
+        const observer = new MutationObserver((mutations) => {
+            mutations.forEach(mutation => {
+                if (mutation.addedNodes) {
+                    mutation.addedNodes.forEach(node => {
+                        if (node.nodeType === Node.ELEMENT_NODE) {
+                            addLinkIcons(node);
+                        }
                     });
-
-                    // Add new theme class
-                    element.classList.add(`${config.themePrefix}${validTheme}`);
-
-                    // Remove transition after animation
-                    setTimeout(() => {
-                        element.style.transition = '';
-                    }, 300);
-                });
-
-                // Store preference
-                ThemeManager.storeTheme(validTheme);
-            } catch (error) {
-                ErrorHandler.logError('Theme Application', error);
-            }
-        };
-
-        // Rest of the code remains the same
-        themeSelect.addEventListener('change', (event) => {
-            applyTheme(event.target.value);
+                }
+            });
         });
 
-        // Initialize animations
-        try {
-            if (!document.querySelector('#igel_animations')) {
-                const style = document.createElement('style');
-                style.id = 'igel_animations';
-                style.textContent = `
-                    @keyframes igel_fadeSlideIn {
-                        from {
-                            opacity: 0;
-                            transform: translateY(20px);
-                        }
-                        to {
-                            opacity: 1;
-                            transform: translateY(0);
-                        }
-                    }
-                `;
-                document.head.appendChild(style);
-            }
+        observer.observe(infobox, { childList: true, subtree: true });
+    }
 
-            document.querySelectorAll('.igel_animate-in').forEach((el, index) => {
-                el.style.animation = `igel_fadeSlideIn 0.6s ${index * 0.1}s forwards ease-out`;
-            });
-        } catch (error) {
-            ErrorHandler.logError('Animation Setup', error);
-        }
-
-        // Apply initial theme
-        const savedTheme = ThemeManager.getStoredTheme();
-        if (savedTheme) {
-            themeSelect.value = savedTheme;
-            applyTheme(savedTheme);
-        } else {
-            applyTheme(config.defaultTheme);
-        }
-
-    } catch (error) {
-        ErrorHandler.logError('Initialization', error);
-        console.error('IGEL Theme System failed to initialize. Please check the console for details.');
+    // Set the current year
+    const currentYear = new Date().getFullYear();
+    const yearSpan = document.getElementById('igel_current-year');
+    if (yearSpan) {
+        yearSpan.textContent = currentYear;
     }
 });
+
 
 
 // IGEL Feature Info System
@@ -187,6 +126,15 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         },
 
+        // Hide default info
+        hideDefault: () => {
+            const defaultInfo = document.querySelector(config.defaultInfoSelector);
+            if (defaultInfo) {
+                defaultInfo.style.display = 'none';
+                defaultInfo.style.opacity = '0';
+            }
+        },
+
         // Show specific feature detail
         showFeatureDetail: (featureId) => {
             const detail = document.querySelector(`${config.detailSelector}[data-feature="${featureId}"]`);
@@ -220,6 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 FeatureManager.activeFeature = featureId;
 
                 // Update info display
+                FeatureManager.hideDefault(); // Hide the default info
                 FeatureManager.hideAllDetails();
                 setTimeout(() => {
                     FeatureManager.showFeatureDetail(featureId);

@@ -13,21 +13,22 @@
     <!-- Main Container -->
     <div class="igel_app-container">
         <!-- Theme Switcher - Always outside the main wrapper -->
-        <div class="igel_theme-switcher">
+        <!--  <div class="igel_theme-switcher">
             <label for="themeSelect">Color Theme:</label>
             <select id="themeSelect" class="igel_theme-select">
                 <option value="neo-naturals">Neo Naturals</option>
                 <option value="digital-garden">Digital Garden</option>
                 <option value="soft-tech">Soft Tech</option>
                 <option value="warm-minimalist">Warm Minimalist</option>
-                <option value="nordic-calm">Nordic Calm</option>
                 <option value="sunset-vibes">Sunset Vibes</option>
-                <option value="forest-wisdom">Forest Wisdom</option>
+                <option value="forest-wisdom">Forest Wisdom</option> 
                 <option value="ocean-depth">Ocean Depth</option>
+                <option value="nordic-calm">Nordic Calm</option>
+                <option value="li-colors">LI Farben</option>
             </select>
-        </div>
+        </div>-->
 
-        <!-- Main Content Wrapper - Will receive theme class -->
+        <!-- Main Content Wrapper -->
         <div class="igel_wrapper">
             <!-- Hero Section -->
             <div class="igel_hero-container">
@@ -37,12 +38,12 @@
                     <div class="igel_header-group">
                         <!-- Logo -->
                         <div class="igel_logo-container">
-                            <img src="IGEL-Logo_540x540.png" alt="IGEL Logo" class="igel_logo igel_animate-in">
+                            <img src="IGEL-Logo_540x540.png" alt="IGEL Logo" class="igel_logo ">
                         </div>
 
                         <!-- Title -->
                         <div class="igel_title-container">
-                            <h1 id="willkommen-bei-igel" class="igel_main-title igel_animate-in">
+                            <h1 id="willkommen-bei-igel" class="igel_main-title ">
                                 Willkommen bei IGEL
                             </h1>
                             <p class="igel_subtitle">
@@ -52,27 +53,31 @@
                     </div>
 
                     <!-- Features List -->
-                    <div class="igel_features-container igel_animate-in">
+                    <div class="igel_features-container ">
                         <p>IGEL ist Ihre zentrale Anlaufstelle für:</p>
                         <div class="igel_features-grid">
                             <!-- Left side: Features List -->
                             <div class="igel_features-main">
                                 <ul class="igel_features-list">
-                                    <li data-feature-id="materials">
+                                    <li data-feature-id="material">
                                         <span class="igel_feature-icon"><i class="fas fa-book"></i></span>
-                                        Unterrichtsmaterialien für Mathematik, Deutsch und DaZ
+                                        Lehr- und Lernmaterialien für Mathematik, Deutsch und DaZ
                                     </li>
-                                    <li data-feature-id="concepts">
+                                    <li data-feature-id="foerdermassnahmen">
                                         <span class="igel_feature-icon"><i class="fas fa-bullseye"></i></span>
-                                        Didaktische Konzepte und Fördertools
+                                        Informationen zu den Hamburger Fördermaßnahmen
                                     </li>
-                                    <li data-feature-id="resources">
+                                    <li data-feature-id="kompetenzen">
                                         <span class="igel_feature-icon"><i class="fas fa-check"></i></span>
-                                        Praxiserprobte Lernressourcen
+                                        Förderung der überfachlichen Kompetenzen
                                     </li>
-                                    <li data-feature-id="competence">
+                                    <li data-feature-id="diagnostik">
+                                        <span class="igel_feature-icon"><i class="fas fa-magnifying-glass"></i></span>
+                                        Förderdiagnostik und -didaktik
+                                    </li>
+                                    <li data-feature-id="programme">
                                         <span class="igel_feature-icon"><i class="fas fa-sync"></i></span>
-                                        Kompetenzförderung und Bewegungsintegration
+                                        Förderprogramme
                                     </li>
                                 </ul>
                             </div>
@@ -88,46 +93,60 @@
                                     <div id="featureInfo" class="igel_info-content">
                                         <!-- Default content -->
                                         <p class="igel_info-default">Wählen Sie einen Punkt aus der Liste für weitere
-                                            Informationen.</p>
+                                            Informationen.
+                                        </p>
 
                                         <!-- Hidden feature details -->
-                                        <div class="igel_info-detail" data-feature="materials" style="display: none;">
-                                            <h4>Unterrichtsmaterialien</h4>
-                                            <p>Umfangreiche Sammlung von Materialien für:</p>
+                                        <div class="igel_info-detail" data-feature="material" style="display: none;">
+                                            <h4>Umfangreiche Sammlung von Materialien für:</h4>
                                             <ul>
-                                                <li>Mathematik: Grundrechenarten bis Algebra</li>
-                                                <li>Deutsch: Grammatik, Rechtschreibung, Textverständnis</li>
-                                                <li>DaZ: Speziell entwickelte Sprachförderungsmaterialien</li>
+                                                <li><a href="https://lms.lernen.hamburg/course/section.php?id=1059102"
+                                                        title="Link zur Math-Cloud des LI">Mathematik, alle
+                                                        Jahrgangsstufen</a></li>
+                                                <li><a href="https://lms.lernen.hamburg/course/section.php?id=1059097"
+                                                        title="Link zum Deutsch-Unterrichtsmaterial">Deutsch,
+                                                        Jahrgangsstufen 0–10</a></li>
+                                                <li><a href="https://lms.lernen.hamburg/course/section.php?id=1059107"
+                                                        title="Link zum Unterrichtsmaterial für Deutsch als Zweitsprache">DaZ,
+                                                        Sprachniveau A1–C1</a></li>
                                             </ul>
                                         </div>
 
-                                        <div class="igel_info-detail" data-feature="concepts" style="display: none;">
-                                            <h4>Didaktische Konzepte</h4>
-                                            <p>Moderne Förderansätze einschließlich:</p>
+                                        <div class="igel_info-detail" data-feature="foerdermassnahmen"
+                                            style="display: none;">
+                                            <h4>Wir bieten</h4>
                                             <ul>
-                                                <li>Individuelle Lernpfade</li>
-                                                <li>Differenzierte Aufgabenstellungen</li>
-                                                <li>Innovative Fördertools</li>
+                                                <li>Informationen zu den wichtigsten schulischen Fördermaßnahmen in
+                                                    Hamburg</li>
+                                                <li>Hinweise zu den Hamburger Bildungsplänen</li>
+                                                <li>Musterverträge für Honorarkräfte</li>
                                             </ul>
                                         </div>
 
-                                        <div class="igel_info-detail" data-feature="resources" style="display: none;">
-                                            <h4>Lernressourcen</h4>
-                                            <p>Praxiserprobte Materialien mit:</p>
+                                        <div class="igel_info-detail" data-feature="kompetenzen" style="display: none;">
+                                            <h4>Hinweise</h4>
                                             <ul>
-                                                <li>Bewährten Methoden</li>
-                                                <li>Erfolgsgeschichten</li>
-                                                <li>Evaluierten Ergebnissen</li>
+                                                <li>zur Förderung überfachlicher Kompetenzen (sozial, motivational,
+                                                    lernmethodisch, personal)</li>
+                                                <li>zum Bewegten Lernen</li>
+                                                <li>zu außerschulischen Lernorten</li>
                                             </ul>
                                         </div>
 
-                                        <div class="igel_info-detail" data-feature="competence" style="display: none;">
-                                            <h4>Kompetenzförderung</h4>
-                                            <p>Ganzheitlicher Ansatz durch:</p>
+                                        <div class="igel_info-detail" data-feature="diagnostik" style="display: none;">
+                                            <h4>Wir bieten</h4>
                                             <ul>
-                                                <li>Integration von Bewegungselementen</li>
-                                                <li>Fächerübergreifende Kompetenzen</li>
-                                                <li>Nachhaltige Lernstrategien</li>
+                                                <li>Tools zur Förderplanung</li>
+                                                <li>Diagnoseverfahren und -instrumente</li>
+                                                <li>Grundlagenwissen</li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="igel_info-detail" data-feature="programme" style="display: none;">
+                                            <h4>Informationen und Hinweise zu einzelnen Förderprogrammen, z.B.</h4>
+                                            <ul>
+                                                <li>BiSS (Bildung durch Sprache und Schrift)</li>
+                                                <li>Anschluss – Das Hamburger Mentorenprogramm</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -143,42 +162,120 @@
 
             <!-- Sidebar Container -->
             <div class="igel_sidebar-container">
-                <!-- Contact Box - Will receive theme class -->
+                <!-- Contact Box -->
                 <div class="igel_sidebar-box igel_contact-box">
                     <div class="igel_sidebar-header">
-                        <span class="igel_icon">✉</span>
+                        <span class="igel_icon"><i class="fa fa-envelope"></i></span>
                         <h3>Kontakt</h3>
                     </div>
                     <div class="igel_sidebar-content">
-                        <div class="igel_institution">
-                            Landesinstitut für Lehrerbildung und Schulentwicklung Hamburg
-                        </div>
-                        <div class="igel_department">
-                            Referat LIF 28 (Lernförderung)
-                        </div>
-                        <div class="igel_contact-email">
+                        <span class="igel_label">Landesinstitut für Lehrerbildung und Schulentwicklung Hamburg</span>
+                        Referat LIF 28 (Lernförderung)
+                        <br><br>
+                        <p><span class="igel_label">E-Mail:</span>
                             <a href="mailto:lernfoerderung@li.hamburg.de?subject=IGEL">
-                                lernfoerderung@li.hamburg.de
-                            </a>
-                            <span class="igel_email-note">(Betreff: IGEL)</span>
-                        </div>
-                        <div class="igel_contact-person">
-                            <span class="igel_label">Ansprechperson:</span>
-                            <span class="igel_name">Marika Schwaiger</span>
-                        </div>
+                                lernfoerderung@li.hamburg.de <i class="fa fa-external-link" aria-hidden="true"
+                                    title="E-Mail-Link"></i><span class="sr-only">(Opens in new window)</span>
+                            </a><br>
+                            (Betreff: IGEL)
+                        </p>
+                        <span class="igel_label">Ansprechperson:</span>
+                        <a href="mailto:marika.schwaiger@li.hamburg.de?subject=IGEL">Marika
+                            Schwaiger <i class="fa fa-external-link" aria-hidden="true" title="E-Mail-Link"></i><span
+                                class="sr-only">(Opens in new
+                                window)</span></a>
                     </div>
                 </div>
 
-                <!-- Feedback Box - Will receive theme class -->
+                <!-- Feedback Box -->
                 <div class="igel_sidebar-box igel_feedback-box">
                     <div class="igel_sidebar-header">
-                        <span class="igel_icon">💭</span>
+                        <span class="igel_icon"><i class="fa fa-comment"></i></span>
                         <h3>Feedback</h3>
                     </div>
                     <div class="igel_sidebar-content">
-                        <div class="igel_feedback-placeholder">
-                            [Moodle Feedback Activity]
-                        </div>
+                        <span class="igel_label">Wir freuen uns über Ihr Feedback</span>
+                        <br>
+                        <a href="https://app.edkimo.com/feedback/deosaviw" target="_blank"
+                            title="Feedback zum IGEL Portal" alt="Feedback zum IGEL Portal">Rückmeldung zum Portal<i
+                                class="fa fa-external-link" aria-hidden="true" title="Externer Link"></i><span
+                                class="sr-only">(Opens in new window)</span></a>
+                        <br>
+                        <a href="https://app.edkimo.com/feedback/atpiita" target="_blank"
+                            title="Materialempfehlung für das IGEL Portal"
+                            alt="Materialempfehlung für das IGEL Porta">Materialempfehlung<i class="fa fa-external-link"
+                                aria-hidden="true" title="Externer Link"></i><span class="sr-only">(Opens in new
+                                window)</span></a>
+                    </div>
+                </div>
+
+                <!-- Newsfeed Box -->
+                <div class="igel_sidebar-box igel_newsfeed-box">
+                    <div class="igel_sidebar-header">
+                        <span class="igel_icon"><i class="fa fa-bullhorn"></i></span>
+                        <h3>Newsfeed</h3>
+                    </div>
+                    <div class="igel_sidebar-content">
+                        <span class="igel_label">Neuigkeiten und Updates!</span>
+                        <p>Für Neuigkeiten, Updates oder Events des IGEL-Portals:</p>
+                        <ul>
+                            <li>ALs Teilnehmer:in in den Kurs einschreiben</li>
+                            <li>Mit lms-Zugang und</li>
+                            <li>Einschreibeschlüssel: <span class="igel_accent-color"><strong>Igel010124</strong></span>
+                            </li>
+                        </ul>
+
+                        <p>
+                            Sie sind an einer Hamburger Schule tätig, haben aber noch keinen LMS-Account? &#10132; Bitte
+                            wenden Sie sich an Ihre
+                            Schulleitung!
+                        </p>
+                        </p>
+                        <img src="https://lms.lernen.hamburg/theme/image.php/ocschool/forum/1733407648/monologo?filtericon=1"
+                            class="activityicon " data-region="activity-icon" data-id="5519866" alt="Icon Forum"
+                            title="Forum"><a href="https://lms.lernen.hamburg/mod/forum/view.php?id=5519866"> Hier gehts
+                            zum Forum <i class="fa fa-link" aria-hidden="true" title="Interner Link"></i></a>
+                    </div>
+                </div>
+
+                <!-- Impressum Box -->
+                <div class="igel_sidebar-box igel_impressum-box">
+                    <div class="igel_sidebar-header">
+                        <span class="igel_icon"><i class="fa fa-section"></i></span>
+                        <h3>Impressum</h3>
+                    </div>
+                    <div class="igel_sidebar-content">
+                        <span class="igel_label">IGEL - Das Hamburger Portal mit Informationen und Materialien
+                            für individuelle gezielte Lernförderung</span>
+                        <p>wurde im Schuljahr 2021 von der Behörde für
+                            Schule und Berufsbildung (BSB) Hamburg beauftragt. Zuständige Stelle ist das Landesinstitut
+                            für
+                            Lehrerbildung und Schulentwicklung (LI) Hamburg.</p>
+                        <p class="igel_label">Verantwortlich:</p>
+                        Behörde für Schule und Berufsbildung Hamburg
+                        <p>Landesinstitut für Lehrerbildung und Schulentwicklung Hamburg</p>
+                        <p>Abteilung Fortbildung (LIF 2)</p>
+                        <p>Stabsstelle Lernförderung (LIF-LF/LIF 28)</p>
+                        <p class="igel_label">Steuergruppe: </p>
+                        B 31-11, BQ 11, BQ 22, LIF-LF/LIF 28 (FF)
+                        <br><br>
+                        <p class="igel_label">Mitwirkung der Referate:</p>
+                        LIF 11 (Sprachen), LIF 12 (Mathematik),
+                        LIF 15 (Medienpädagogik), LIF 17 (Bewegung und Sport), LIF 22 (Sonderpädagogik und
+                        individuelle Förderung),
+                        LIF-LF/LIF 28 (Lernförderung)
+                        <br><br>
+                        <p class="igel_label">Kontakt für Anfragen:</p>
+                        lernfoerderung@li.hamburg.de (Betreff:
+                        IGEL)
+                        <br><br>
+                        <p class="igel_label">Ansprechperson:</p>
+                        Marika Schwaiger, Leitung Stabsstelle
+                        Lernförderung (LIF-LF / LIF 28)</p>
+                        <p class="igel_label">Bildrechte:</p>
+                        Hintergrundbilder der Kacheln: Colourbox.com
+
+                        <p>&copy; LI <span id="igel_current-year"></span></p>
                     </div>
                 </div>
             </div>

@@ -12,7 +12,6 @@
 
     /* Typography */
     --igel-font-family: 'Montserat', 'Roboto', sans-serif;
-    --igel-link-weight: 500;
 
     /* Spacing */
     --igel-spacing-unit: 1rem;
@@ -22,34 +21,117 @@
     --igel-transition-speed: 0.3s;
 }
 
-#region-main .course-content a {
-    color: var(--igel-secondary-color) !important;
-    font-weight: 600;
-    font-family: var(--igel-font-family);
-}
-
-#region-main .course-content a:hover {
-    color: var(--igel-primary-color) !important;
-}
-
 .igel_wrapper {
     font-family: var(--igel-font-family);
     padding: 10px;
 }
 
-.igel_accent-color {
-    color: var(--igel-accent-color);
+
+/* Theme Switcher Styles */
+.igel_theme-switcher {
+    background: white;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    box-shadow: var(--igel-box-shadow);
+    backdrop-filter: blur(10px);
+    border: var(--igel-border)
 }
 
-/* Backup colors nordic-calm */
-/* .igel_theme-nordic-calm {
+.igel_theme-select {
+    margin-left: 10px;
+    padding: 8px;
+    border-radius: 6px;
+    border: var(--igel-border);
+    font-family: var(--igel-font-family);
+    cursor: pointer;
+}
+
+.igel_theme-select optgroup {
+    font-weight: 600;
+    color: var(--igel-text-color);
+}
+
+/* Theme Definitions */
+/* .igel_theme-default {
+    --igel-primary-color: #c22a63;
+    --igel-secondary-color: #6B7280;
+    --igel-accent-color: #00C2FF;
+    --igel-background-color: #F8FAFC;
+    --igel-text-color: #1F2937;
+}
+    
+.igel_theme-neo-naturals {
+    --igel-primary-color: #2A9D8F;
+    --igel-secondary-color: #264653;
+    --igel-accent-color: #E9C46A;
+    --igel-background-color: #F4F1DE;
+    --igel-text-color: #264653;
+}
+
+.igel_theme-digital-garden {
+    --igel-primary-color: #4CAF50;
+    --igel-secondary-color: #2196F3;
+    --igel-accent-color: #FF9800;
+    --igel-background-color: #F5F7FA;
+    --igel-text-color: #2D3748;
+}
+
+.igel_theme-soft-tech {
+    --igel-primary-color: #6366F1;
+    --igel-secondary-color: #3730A3;
+    --igel-accent-color: #EC4899;
+    --igel-background-color: #F8FAFC;
+    --igel-text-color: #1F2937;
+}
+
+.igel_theme-warm-minimalist {
+    --igel-primary-color: #7C3AED;
+    --igel-secondary-color: #374151;
+    --igel-accent-color: #F59E0B;
+    --igel-background-color: #FAFAF9;
+    --igel-text-color: #374151;
+} */
+
+/* .igel_theme-sunset-vibes {
+    --igel-primary-color: #FF6B6B;
+    --igel-secondary-color: #4A4E69;
+    --igel-accent-color: #FFB84C;
+    --igel-background-color: #FFF1E6;
+    --igel-text-color: #2D3436;
+}
+
+.igel_theme-forest-wisdom {
+    --igel-primary-color: #2D6A4F;
+    --igel-secondary-color: #1B4332;
+    --igel-accent-color: #95D5B2;
+    --igel-background-color: #EDF6F0;
+    --igel-text-color: #081C15;
+} */
+
+.igel_theme-nordic-calm {
     --igel-primary-color: #5E81AC;
     --igel-secondary-color: #4C566A;
     --igel-accent-color: #88C0D0;
     --igel-background-color: #ECEFF4;
     --igel-text-color: #2E3440;
-} */
+}
 
+.igel_theme-ocean-depth {
+    --igel-primary-color: #0077B6;
+    --igel-secondary-color: #023E8A;
+    --igel-accent-color: #48CAE4;
+    --igel-background-color: #F0F8FF;
+    --igel-text-color: #03045E;
+}
+
+.igel_theme-li-colors {
+    --igel-primary-color: #003063;
+    --igel-secondary-color: #005ca9;
+    --igel-accent-color: #e10019;
+    --igel-background-color: #f3f3f3;
+    --igel-text-color: #333;
+}
 
 /* Hero Section */
 .igel_hero-container {
@@ -168,25 +250,12 @@
 .igel_sidebar-box {
     font-family: var(--igel-font-family);
     background: var(--igel-color-bright);
-    border-radius: var(--igel-border-radius);
-    margin: 0 5px calc(var(--igel-spacing-unit) * 1.2) 5px;
+    border-radius: 12px;
+    margin-bottom: 20px;
     overflow: hidden;
     box-shadow: var(--igel-box-shadow);
     border: var(--igel-border);
     transition: all var(--igel-transition-speed) ease;
-}
-
-.igel_sidebar-box a {
-    color: var(--igel-secondary-color);
-    text-decoration: none;
-    font-weight: var(--igel-link-weight);
-    display: inline-block;
-    margin-bottom: calc(var(--igel-spacing-unit) * 0.2);
-}
-
-.igel_sidebar-box a:hover {
-    color: var(--igel-primary-color);
-    text-decoration: underline;
 }
 
 .igel_sidebar-header {
@@ -206,25 +275,45 @@
 
 .igel_sidebar-content {
     flex: 1;
-    padding: 10px;
+    padding: 16px;
     background: linear-gradient(to bottom right,
             var(--igel-background-color) 0%,
             var(--igel-color-bright) 100%);
-    font-size: 0.85rem;
 }
-
-.igel_label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: calc(var(--igel-spacing-unit) * 0.2);
-}
-
-
 
 /* Contact Box Specific */
-.igel_contact-email {
+.igel_contact-box .igel_institution {
+    font-weight: 600;
+    color: var(--igel-text-color);
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.igel_contact-box .igel_department {
+    color: var(--igel-secondary-color);
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+}
+
+.igel_contact-box .igel_contact-email {
     margin-bottom: 12px;
     word-break: break-word;
+}
+
+.igel_contact-box .igel_contact-email a {
+    color: var(--igel-primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-block;
+    margin-bottom: 4px;
+}
+
+.igel_contact-box .igel_email-note {
+    display: block;
+    color: var(--igel-secondary-color);
+    font-size: 0.85rem;
+    font-style: italic;
 }
 
 /* Animations */
@@ -234,11 +323,30 @@
 }
 
 /* Theme-specific Hover Effects */
+.igel_theme-nordic-calm .igel_features-list li:hover {
+    background: linear-gradient(to right, var(--igel-background-color), white);
+    color: var(--igel-text-color);
+}
+
+.igel_theme-nordic-calm .igel_features-list li:hover i {
+    color: var(--igel-primary-color);
+}
+
 .igel_theme-li-colors .igel_features-list li:hover {
     text-decoration: underline;
 }
 
+/* .igel_theme-sunset-vibes .igel_features-list li:hover {
+    transform: translateY(-3px) rotate(0.5deg);
+}
 
+.igel_theme-forest-wisdom .igel_features-list li {
+    border-left-width: 6px;
+}
+
+.igel_theme-ocean-depth .igel_features-list li:hover {
+    box-shadow: 0 8px 16px rgba(0, 119, 182, 0.1);
+} */
 
 /* Accessibility */
 @media (prefers-reduced-motion: reduce) {
@@ -288,6 +396,7 @@
 }
 
 /* Features List Styling */
+
 .igel_features-intro {
     font-size: 1.2rem;
     color: var(--igel-text-color);
@@ -398,6 +507,7 @@
 /* ########## MOODLE GRID CARDS ########## */
 
 /* Base styles for Moodle cards */
+
 .grid-section.card {
     background-color: #fff;
     background-clip: border-box;
@@ -427,45 +537,4 @@
 .grid-section.card a {
     color: var(--igel-text-color);
     text-decoration: none;
-}
-
-
-
-/* ##### Styyles for link icons ##### */
-/* Icon base styles */
-.fa-external-link,
-.fa-link {
-    font-size: 0.8em;
-    color: var(--igel-accent-color);
-    margin-left: 0.3em;
-    opacity: 1;
-}
-
-/* External link icon style */
-.fa-external-link {
-    color: var(--igel-accent-color);
-}
-
-/* Internal link icon style */
-.fa-link {
-    color: var(--igel-accent-color);
-}
-
-/* Hover effects */
-a:hover .fa-external-link,
-a:hover .fa-link {
-    opacity: 1;
-    color: var(--igel-primary-color);
-}
-
-/* Screen reader only text */
-.sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    border: 0;
 }
