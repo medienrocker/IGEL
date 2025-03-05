@@ -1,3 +1,5 @@
+/* ### CC-BY bildungssprit GbR | Falk Szyba @medienrocker ### */
+
 :root {
     /* Color Scheme - li-colors */
     --igel-primary-color: #003063;
@@ -180,7 +182,7 @@
     color: var(--igel-secondary-color);
     text-decoration: none;
     font-weight: var(--igel-link-weight);
-    display: inline-block;
+    display: inline;
     margin-bottom: calc(var(--igel-spacing-unit) * 0.2);
 }
 
@@ -211,6 +213,21 @@
             var(--igel-background-color) 0%,
             var(--igel-color-bright) 100%);
     font-size: 0.85rem;
+}
+
+.igel_ul-box {
+    padding: 5px 5px 5px 20px;
+    border: 1px solid var(--igel-primary-color);
+    box-shadow: var(--igel-box-shadow);
+}
+
+.igel_impressum-box .igel_sidebar-header {
+    cursor: pointer;
+    background-color: var(--igel-secondary-color);
+}
+
+.igel_impressum-box .igel_sidebar-header:hover {
+    background-color: var(--igel-primary-color);
 }
 
 .igel_label {
@@ -345,7 +362,8 @@
 }
 
 
-/* Info Box Styling */
+/* ### Info Box Styling ### */
+
 .igel_info-box {
     position: static;
     display: flex;
@@ -372,13 +390,31 @@
 
 .igel_info-detail ul {
     list-style: disc;
-    margin-left: 1.2rem;
     margin-top: 0.5rem;
+    padding-left: 15px;
 }
 
 .igel_info-detail ul li {
-    margin-bottom: 0.3rem;
     font-size: 0.9rem;
+    display: list-item;
+    /* Force proper list-item display */
+    list-style-position: outside;
+    /* Keep bullet points aligned */
+    margin-bottom: 0.3rem;
+}
+
+/* Infobox -> ul -> Zwischenüberschriften */
+.bs_ul-caption {
+    text-align: left;
+    list-style: none;
+    font-weight: bold;
+    margin-top: 20px;
+    font-size: 1.2em;
+    color: #333;
+}
+
+ul li.bs_ul-caption {
+    list-style: none;
 }
 
 /* Responsive Design */
@@ -468,4 +504,144 @@ a:hover .fa-link {
     overflow: hidden;
     clip: rect(0, 0, 0, 0);
     border: 0;
+}
+
+
+/* ##### ANIMATE elements in #### */
+
+/* Ausgangszustand: Elemente sind unsichtbar und leicht verschoben */
+.igel_animate-in-left,
+.igel_animate-in-right,
+.igel_animate-in-up,
+.igel_animate-in-down {
+    opacity: 0.7;
+    /* transition: opacity 0.5s ease-out, transform .3s ease-out !important; */
+}
+
+/* Verschiebung je nach Richtung */
+.igel_animate-in-left {
+    transform: translateX(-100px);
+}
+
+.igel_animate-in-right {
+    transform: translateX(100px);
+}
+
+.igel_animate-in-up {
+    transform: translateY(100px);
+}
+
+.igel_animate-in-down {
+    transform: translateY(-100px);
+}
+
+/* Animierter Zustand: Sobald die .animate-active-Klasse hinzugefügt wird */
+.igel_animate-active {
+    opacity: 1;
+    transform: translateX(0) translateY(0);
+}
+
+
+/* ### Flip Card box animation ### */
+
+.igel_flip-card {
+    width: 200px;
+    height: 70px;
+    padding-left: 10px;
+    perspective: 1000px;
+}
+
+.igel_flip-card-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: igel_flipAnimation 9s infinite linear;
+}
+
+.igel_flip-card-front,
+.igel_flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #003063;
+    border-radius: 10px;
+    font-size: 44px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    backface-visibility: hidden;
+    background-color: #005ca9;
+    color: white;
+}
+
+.igel_flip-card-back {
+    transform: rotateY(180deg);
+}
+
+@keyframes igel_flipAnimation {
+
+    0%,
+    30% {
+        transform: rotateY(0deg);
+    }
+
+    33%,
+    63% {
+        transform: rotateY(180deg);
+    }
+
+    66%,
+    96% {
+        transform: rotateY(360deg);
+    }
+
+    97%,
+    100% {
+        transform: rotateY(540deg);
+    }
+}
+
+/* Content for front face */
+.igel_flip-card-front::before {
+    position: absolute;
+    content: "Events";
+}
+
+/* Content for back face */
+.igel_flip-card-back::before {
+    position: absolute;
+    content: "Updates";
+}
+
+/* Single text change animation applied to both faces */
+@keyframes igel_textChange {
+
+    0%,
+    30% {
+        content: "Events";
+    }
+
+    33%,
+    63% {
+        content: "Updates";
+    }
+
+    66%,
+    96% {
+        content: "News";
+    }
+
+    97%,
+    100% {
+        content: "Events";
+    }
+}
+
+/* Apply the same text animation to both faces */
+.igel_flip-card-front::before,
+.igel_flip-card-back::before {
+    animation: igel_textChange 9s infinite ease;
 }
