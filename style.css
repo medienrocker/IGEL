@@ -89,6 +89,12 @@
     margin: 0;
 }
 
+/* Logo Container der Kacheln */
+.igel_logo-container2 {
+    width: 120px;
+    margin: 0;
+}
+
 .igel_logo {
     width: 100%;
     height: auto;
@@ -142,6 +148,10 @@
     }
 
     .igel_logo-container {
+        margin: 0 auto;
+    }
+
+    .igel_logo-container2 {
         margin: 0 auto;
     }
 
@@ -247,7 +257,7 @@
 /* Animations */
 .igel_animate-in {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(10px);
 }
 
 /* Theme-specific Hover Effects */
@@ -304,6 +314,14 @@
     align-items: stretch;
 }
 
+/* Grid Layout für Kacheln */
+.igel_features-grid2 {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--igel-spacing-unit);
+    align-items: stretch;
+}
+
 /* Features List Styling */
 .igel_features-intro {
     font-size: 1.2rem;
@@ -319,10 +337,30 @@
     border-left: 4px solid var(--igel-accent-color);
 }
 
+/* Features List Styling für Kacheln */
+.igel_features-list2 {
+    list-style: none;
+    padding: 0 0 0 10px;
+    display: grid;
+    gap: calc(var(--igel-spacing-unit) * 1);
+    border-left: 4px solid var(--igel-accent-color);
+}
+
 .igel_features-list li {
     display: flex;
     align-items: center;
     padding: var(--igel-spacing-unit);
+    background: var(--igel-color-bright);
+    border-radius: 8px;
+    box-shadow: var(--igel-box-shadow);
+    transition: transform var(--igel-transition-speed), box-shadow var(--igel-transition-speed);
+}
+
+/* Features List <li> Styling für Kacheln */
+.igel_features-list2 li {
+    display: flex;
+    align-items: center;
+    padding: 3px 10px 3px 10px;
     background: var(--igel-color-bright);
     border-radius: 8px;
     box-shadow: var(--igel-box-shadow);
@@ -385,6 +423,7 @@
 .igel_info-detail h4 {
     color: var(--igel-primary-color);
     margin-bottom: 0.5rem;
+    margin-left: 15px;
     font-weight: 600;
 }
 
@@ -644,4 +683,342 @@ a:hover .fa-link {
 .igel_flip-card-front::before,
 .igel_flip-card-back::before {
     animation: igel_textChange 9s infinite ease;
+}
+
+
+
+
+/* ##### Make Sidebar Menu Button pulsating #### */
+
+/* Add keyframes for the pulsating shadow effect with pause */
+@keyframes pulsate {
+    0% {
+        box-shadow: 0 0 0 0 rgba(225, 0, 25, 0.7);
+    }
+
+    35% {
+        box-shadow: 0 0 0 15px rgba(225, 0, 25, 0);
+    }
+
+    50% {
+        box-shadow: 0 0 0 0 rgba(225, 0, 25, 0);
+    }
+
+    /* Pause between pulses (50% to 100%) */
+    100% {
+        box-shadow: 0 0 0 0 rgba(225, 0, 25, 0);
+    }
+}
+
+/* Apply the animation to the button */
+.drawer-toggler.drawer-right-toggle .btn {
+    /*position: relative;*/
+    animation: pulsate 5s infinite cubic-bezier(0.66, 0, 0, 1);
+}
+
+/* Optional: Pause animation on hover for better user experience */
+.drawer-toggler.drawer-right-toggle:hover .btn {
+    animation-play-state: paused;
+}
+
+
+
+
+
+
+
+/* --------------------------- NEW KacheLayout ---------------------- */
+
+/* ##### KachelLayout NEW #### */
+/* New horizontal menu styles */
+.igel_compact-menu {
+    margin: 20px 0;
+}
+
+.igel_features-list-horizontal {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    list-style: none;
+    padding: 0;
+    width: 100%;
+    border-left: none;
+}
+
+.igel_features-list-horizontal li {
+    flex: 1 1 auto;
+    min-width: 150px;
+    max-width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 15px 10px;
+    background: var(--igel-color-bright);
+    border-radius: 8px;
+    box-shadow: var(--igel-box-shadow);
+    transition: all 0.3s ease;
+    border-bottom: 3px solid transparent;
+}
+
+.igel_features-list-horizontal li:hover {
+    transform: translateY(-5px);
+    border-bottom: 3px solid var(--igel-accent-color);
+}
+
+.igel_features-list-horizontal li.igel_feature-active {
+    background-color: var(--igel-primary-color);
+    color: var(--igel-color-bright);
+    border-bottom: 3px solid var(--igel-accent-color);
+}
+
+.igel_features-list-horizontal .igel_feature-icon {
+    margin-right: 0;
+    margin-bottom: 8px;
+    font-size: 1.8rem;
+}
+
+.igel_features-list-horizontal li.igel_feature-active .igel_feature-icon {
+    color: var(--igel-color-bright);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .igel_features-list-horizontal {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .igel_features-list-horizontal li {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+/* Adjustments to the infobox */
+.igel_info-box {
+    width: 100%;
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+.igel_sidebar-content {
+    padding: 15px 20px;
+}
+
+/* Animation adjustments for horizontal menu */
+.igel_animate-in-up {
+    transform: translateY(30px);
+    transition: opacity 0.5s ease-out, transform 0.3s ease-out !important;
+}
+
+.igel_animate-active {
+    opacity: 1;
+    transform: translateX(0) translateY(0);
+}
+
+
+/* ##### KachelLayout CARD #### */
+
+/* Card-based menu styles */
+.igel_card-menu {
+    margin: 20px 0;
+}
+
+.igel_features-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+.igel_feature-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 15px;
+    background: var(--igel-color-bright);
+    border-radius: 10px;
+    box-shadow: var(--igel-box-shadow);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-align: center;
+    min-height: 130px;
+    border-bottom: 3px solid transparent;
+}
+
+.igel_feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+    border-bottom: 3px solid var(--igel-accent-color);
+}
+
+.igel_feature-card.igel_feature-active {
+    background-color: var(--igel-primary-color);
+    color: var(--igel-color-bright);
+    border-bottom: 3px solid var(--igel-accent-color);
+}
+
+.igel_card-icon {
+    font-size: 2.5rem;
+    color: var(--igel-primary-color);
+    margin-bottom: 15px;
+}
+
+.igel_feature-card.igel_feature-active .igel_card-icon {
+    color: var(--igel-color-bright);
+}
+
+.igel_card-title {
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+/* Animation adjustments */
+.igel_animate-in-up {
+    opacity: 0.7;
+    transform: translateY(30px);
+    transition: opacity 0.5s ease-out, transform 0.3s ease-out !important;
+}
+
+.igel_animate-active {
+    opacity: 1;
+    transform: translateX(0) translateY(0);
+}
+
+/* Info box styles */
+.igel_info-box {
+    width: 100%;
+    max-height: 60vh;
+    overflow-y: auto;
+    transition: all 0.3s ease;
+}
+
+.igel_info-detail {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .igel_features-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .igel_features-cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
+
+
+
+/* ##### KachelLayout TABS #### */
+
+/* Tab Layout Styles */
+.igel_tab-container {
+    width: 100%;
+    margin: 20px 0;
+    background: white;
+    border-radius: 10px;
+    box-shadow: var(--igel-box-shadow);
+    overflow: hidden;
+}
+
+.igel_tabs {
+    display: flex;
+    background: var(--igel-background-color);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.igel_tab {
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+    color: var(--igel-text-color);
+    border-bottom: 3px solid transparent;
+}
+
+.igel_tab i {
+    font-size: 1.2rem;
+    color: var(--igel-secondary-color);
+}
+
+.igel_tab:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    border-bottom: 3px solid var(--igel-accent-color);
+}
+
+.igel_tab-active {
+    background-color: white;
+    border-bottom: 3px solid var(--igel-primary-color);
+    font-weight: 500;
+}
+
+.igel_tab-active i {
+    color: var(--igel-primary-color);
+}
+
+.igel_tab-content {
+    padding: 25px;
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+.igel_tab-panel {
+    display: none;
+}
+
+.igel_active-panel {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .igel_tabs {
+        flex-wrap: wrap;
+    }
+
+    .igel_tab {
+        flex: 1 1 40%;
+        justify-content: center;
+        text-align: center;
+        padding: 12px 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .igel_tab {
+        flex: 1 1 100%;
+    }
+
+    .igel_tab span {
+        display: none;
+    }
+
+    .igel_tab i {
+        font-size: 1.5rem;
+    }
 }

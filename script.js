@@ -276,6 +276,217 @@ document.addEventListener('DOMContentLoaded', function () {
         .forEach(el => observer.observe(el));
 });
 
+// ##### Eigenes Favicon!! #####
+document.addEventListener('DOMContentLoaded', function () {
+
+// Funktion zum Ändern des Favicons
+function changeFavicon(src) {
+    // Suche nach einem existierenden Favicon-Link
+    let link = document.querySelector("link[rel='icon']") ||
+        document.querySelector("link[rel='shortcut icon']");
+
+    // Wenn kein Link gefunden wurde, erstelle einen neuen
+    if (!link) {
+        link = document.createElement('link');
+        link.rel = 'icon';
+        document.head.appendChild(link);
+    }
+
+    // Setze den neuen Pfad zum Favicon
+    link.href = src;
+}
+
+// Nutzung der Funktion
+    changeFavicon('./favicon-128x128.png');
+})
+
+
+
+
+
+
+// -------------------------------- KACHELLAYOUT SCRIPTS --------------------- //
+
+
+// ##### KachelLayout New #####
+
+// This script ensures the existing FeatureManager functionality works with our new layout
+document.addEventListener('DOMContentLoaded', () => {
+    // Make sure animations work with the new horizontal layout
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                if (!entry.target.classList.contains('igel_animate-active')) {
+                    entry.target.classList.add('igel_animate-active');
+                    observer.unobserve(entry.target);
+                }
+            }
+        });
+    }, { threshold: 0.3 });
+
+    document.querySelectorAll('.igel_animate-in-up').forEach(el => observer.observe(el));
+});
+
+
+
+// ##### KachelLayout CARD #####
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Configure the feature system for card layout
+    const config = {
+        activeClass: 'igel_feature-active',
+        detailSelector: '.igel_info-detail',
+        defaultInfoSelector: '.igel_info-default',
+        animationDuration: 300
+    };
+
+    // Feature info management
+    const FeatureManager = {
+        // Store current active feature
+        activeFeature: null,
+
+        // Hide all feature details
+        hideAllDetails: () => {
+            document.querySelectorAll(config.detailSelector).forEach(detail => {
+                detail.style.display = 'none';
+                detail.style.opacity = '0';
+            });
+        },
+
+        // Show default info
+        showDefault: () => {
+            const defaultInfo = document.querySelector(config.defaultInfoSelector);
+            if (defaultInfo) {
+                defaultInfo.style.display = 'block';
+                defaultInfo.style.opacity = '1';
+            }
+        },
+
+        // Hide default info
+        hideDefault: () => {
+            const defaultInfo = document.querySelector(config.defaultInfoSelector);
+            if (defaultInfo) {
+                defaultInfo.style.display = 'none';
+                defaultInfo.style.opacity = '0';
+            }
+        },
+
+        // Show specific feature detail
+        showFeatureDetail: (featureId) => {
+            const detail = document.querySelector(`${config.detailSelector}[data-feature="${featureId}"]`);
+            if (detail) {
+                detail.style.display = 'block';
+                detail.offsetHeight; // Trigger reflow for animation
+                detail.style.opacity = '1';
+            }
+        },
+
+        // Handle feature selection
+        selectFeature: (featureId, clickedElement) => {
+            try {
+                // Remove active class from previous selection
+                const previousActive = document.querySelector(`.${config.activeClass}`);
+                if (previousActive) {
+                    previousActive.classList.remove(config.activeClass);
+                }
+
+                // If clicking the same feature, deselect it
+                if (FeatureManager.activeFeature === featureId) {
+                    FeatureManager.activeFeature = null;
+                    FeatureManager.hideAllDetails();
+                    FeatureManager.showDefault();
+                    return;
+                }
+
+                // Add active class to new selection
+                clickedElement.classList.add(config.activeClass);
+                FeatureManager.activeFeature = featureId;
+
+                // Update info display
+                FeatureManager.hideDefault();
+                FeatureManager.hideAllDetails();
+                setTimeout(() => {
+                    FeatureManager.showFeatureDetail(featureId);
+                }, 50); // Small delay for smooth transition
+            } catch (error) {
+                console.error('Feature Selection Error:', error);
+            }
+        }
+    };
+
+    // Initialize feature info system
+    try {
+        // Add click handlers to feature cards
+        document.querySelectorAll('.igel_feature-card').forEach(card => {
+            card.addEventListener('click', (event) => {
+                const featureId = card.dataset.featureId;
+                if (featureId) {
+                    FeatureManager.selectFeature(featureId, card);
+                }
+            });
+        });
+
+        // Show default info initially
+        FeatureManager.showDefault();
+
+        // Handle animations
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    if (!entry.target.classList.contains('igel_animate-active')) {
+                        entry.target.classList.add('igel_animate-active');
+                        observer.unobserve(entry.target);
+                    }
+                }
+            });
+        }, { threshold: 0.3 });
+
+        document.querySelectorAll('.igel_animate-in-up').forEach(el => observer.observe(el));
+
+    } catch (error) {
+        console.error('Initialization Error:', error);
+    }
+});
+
+
+
+
+// ##### KachelLayout TABS #####
+document.addEventListener('DOMContentLoaded', () => {
+    // Initialize tabs
+    const tabs = document.querySelectorAll('.igel_tab');
+    const panels = document.querySelectorAll('.igel_tab-panel');
+
+    // Function to activate a tab
+    function activateTab(featureId) {
+        // Update tabs
+        tabs.forEach(tab => {
+            if (tab.getAttribute('data-feature-id') === featureId) {
+                tab.classList.add('igel_tab-active');
+            } else {
+                tab.classList.remove('igel_tab-active');
+            }
+        });
+
+        // Update panels
+        panels.forEach(panel => {
+            if (panel.getAttribute('data-feature') === featureId) {
+                panel.classList.add('igel_active-panel');
+            } else {
+                panel.classList.remove('igel_active-panel');
+            }
+        });
+    }
+
+    // Add click events to tabs
+    tabs.forEach(tab => {
+        tab.addEventListener('click', function () {
+            const featureId = this.getAttribute('data-feature-id');
+            activateTab(featureId);
+        });
+    });
+});
+
 
 // ##### Make Right-Sidebar stay open by default #####
 /*
