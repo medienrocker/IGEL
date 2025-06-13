@@ -52,7 +52,7 @@
 .igel_hero-container {
   background: var(--igel-background-color);
   padding: calc(var(--igel-spacing-unit) * 2) var(--igel-spacing-unit);
-  width: 100%;
+  /* width: 100%; */
   min-height: 60vh;
   display: flex;
   justify-content: center;
@@ -1038,7 +1038,7 @@ a:hover .fa-link {
   padding: 5px 20px;
   font-weight: 600;
   color: var(--igel-color-bright);
-  background-color: var(--igel-primary-color);
+  background-color: var(--igel-secondary-color);
   cursor: pointer;
   position: relative;
   outline: none;
@@ -1048,7 +1048,7 @@ a:hover .fa-link {
 }
 
 .igel_faq_item summary:hover {
-  background-color: var(--igel-secondary-color);
+  background-color: var(--igel-primary-color);
 }
 
 .igel_faq_item summary::after {
@@ -1158,4 +1158,40 @@ a:hover .fa-link {
   .igel_faq_content {
     padding: 16px;
   }
+}
+
+
+
+
+/* #### CSS für aufträge der Förderkoordination #### */
+
+.igel_task-instructions {
+  background: #f5f5f5;
+  border-left: 4px solid var(--igel-accent-color);
+  padding: 15px 20px;
+  margin-bottom: 25px;
+  border-radius: 0 var(--igel-border-radius) var(--igel-border-radius) 0;
+}
+
+.igel_formatting-examples {
+  background: #f0f8ff;
+  padding: 15px;
+  border-radius: var(--igel-border-radius);
+  margin-bottom: 20px;
+}
+
+.igel_editor-hint {
+  background: #fffae6;
+  border: 1px dashed #ffd700;
+  padding: 12px 15px;
+  border-radius: var(--igel-border-radius);
+  font-size: 0.9rem;
+  margin-top: 20px;
+}
+
+.igel_hint-title {
+  font-weight: bold;
+  color: #b8860b;
+  margin-bottom: 5px;
+  display: block;
 }
