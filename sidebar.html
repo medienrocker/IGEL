@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IGEL - Sidebar</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <div class="drawer-toggler drawer-right-toggle btn">
+        <button style="min-height: 20px; min-width: 20px; border: 1px solid #333; display: inline-block;"
+            class="btn"></button>
+    </div>
+
+    <div class="igel_home-btn">
+        <p>
+            <a class="igel_custom-button"
+                style="display: inline-flex; align-items: center; justify-content: center; background-color: #005ca9; color: white; border: none; border-radius: 10px; padding: 10px 20px; margin-left: 5px; font-size: 2rem; font-weight: bold; text-decoration: none; cursor: pointer; transition: background-color 0.2s ease;"
+                title="Zurück zum Kurs..." href="https://lms.lernen.hamburg/course/view.php?id=73313" type="button"> <i
+                    class="fa fa-home" aria-hidden="true" style="margin-right: 8px; font-size: 2rem;"></i>&nbsp;Home</a>
+        </p>
+        <p id="feedbackMessage"
+            style="font-size: 1.2rem; color: green; display: none; border: 2px solid green; border-radius: 10px; padding: 10px 20px;">
+            Zurück zum Kurs...</p>
+        <p>
+            <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                    const buttons = document.querySelectorAll(
+                        ".igel_custom-button"); // Select all buttons
+                    const message = document.getElementById("feedbackMessage");
+
+                    buttons.forEach(button => {
+                        button.addEventListener("click", function () {
+                            message.style.display =
+                                "block"; // Show feedback message
+                            setTimeout(() => message.style.display = "none",
+                                1500); // Hide after 2 seconds
+                        });
+
+                        button.addEventListener("mouseover", function () {
+                            this.style.backgroundColor =
+                                "#003063"; // Change background on hover
+                        });
+
+                        button.addEventListener("mouseout", function () {
+                            this.style.backgroundColor =
+                                "#005ca9"; // Revert background on mouse out
+                        });
+
+                        button.addEventListener("mousedown", function () {
+                            this.style.transform =
+                                "scale(0.95)"; // Shrink button on click
+                        });
+
+                        button.addEventListener("mouseup", function () {
+                            this.style.transform =
+                                "scale(1)"; // Restore size on mouse up
+                        });
+                    });
+                });
+            </script>
+        </p>
+    </div>
+
+
+    <!-- Sidebar Container -->
+    <div class="igel_sidebar-container">
+    
+        <!-- Newsfeed Box -->
+        <div class="igel_sidebar-box igel_newsfeed-box">
+            <div class="igel_sidebar-header"><i class="fa fa-bullhorn"></i>
+                <h3>Newsfeed</h3>
+            </div>
+            <div class="igel_sidebar-content"><span class="igel_label">Neuigkeiten und Updates</span>
+                <p>Bleiben Sie informiert über News, Updates und Events rund um IGEL!</p>
+                <p>Schreiben Sie sich als Teilnehmer:in in den Kurs ein:</p>
+                <ul class="igel_ul-box">
+                    <li>Mit LMS-Zugang und</li>
+                    <li>Einschreibeschlüssel: <span class="igel_accent-color"><strong>Igel010124</strong></span></li>
+                </ul>
+                <p>Sie sind an einer Hamburger Schule tätig, haben aber noch keinen LMS-Account? ➔ Bitte wenden Sie sich
+                    an
+                    Ihre Schulleitung!</p>
+                <p></p>
+                <img class="activityicon " title="Forum"
+                    src="https://lms.lernen.hamburg/theme/image.php/ocschool/forum/1733407648/monologo?filtericon=1"
+                    alt="Icon Forum" data-region="activity-icon" data-id="5519866"><a
+                    href="https://lms.lernen.hamburg/mod/forum/view.php?id=9561229"> Hier geht’s zu den News! <i
+                        class="fa fa-link" aria-hidden="true" title="Interner Link"></i></a>
+            </div>
+        </div>
+    
+        <!-- Förderkoordination Box -->
+        <div class="igel_sidebar-box igel_newsfeed-box">
+            <div class="igel_sidebar-header"><i class="fa-solid fa-comments"></i>
+                <h3>Förderkoordination</h3>
+            </div>
+            <div class="igel_sidebar-content"><span class="igel_label">Austauschforum</span>
+                <p>Für die Förderkoordinator:innen der Hamburger Schulen</p>
+    
+                <p></p>
+                <img class="activityicon " title="Forum"
+                    src="https://lms.lernen.hamburg/theme/image.php/ocschool/forum/1733407648/monologo?filtericon=1"
+                    alt="Icon Forum" data-region="activity-icon" data-id="5519866"><a
+                    href="https://lms.lernen.hamburg/mod/forum/view.php?id=9177796"> Hier geht's zum Forum <i
+                        class="fa fa-link" aria-hidden="true" title="Interner Link"></i></a>
+            </div>
+        </div>
+    
+        <!-- Feedback Box -->
+        <div class="igel_sidebar-box igel_feedback-box">
+            <div class="igel_sidebar-header"><i class="fa-solid fa-thumbs-up"></i>
+                <h3>Feedback</h3>
+            </div>
+            <div class="igel_sidebar-content"><span class="igel_label">Wir freuen uns über Ihr Feedback.</span> <br><a
+                    title="Feedback zum IGEL Portal" href="https://app.edkimo.com/feedback/deosaviw" target="_blank"
+                    rel="noopener">Rückmeldung zum Portal<i class="fa fa-external-link" aria-hidden="true"
+                        title="Externer Link"></i><span class="sr-only">(Opens in new window)</span></a> <br><a
+                    title="Materialempfehlung für das IGEL Portal" href="https://app.edkimo.com/feedback/atpiita"
+                    target="_blank" rel="noopener">Materialempfehlung<i class="fa fa-external-link" aria-hidden="true"
+                        title="Externer Link"></i><span class="sr-only">(Opens in new window)</span></a></div>
+        </div>
+    
+        <!-- Contact Box -->
+        <div class="igel_sidebar-box igel_contact-box">
+            <div class="igel_sidebar-header"><i class="fa fa-envelope"></i>
+                <h3>Kontakt</h3>
+            </div>
+            <div class="igel_sidebar-content"><span class="igel_label">Landesinstitut für Lehrerbildung und
+                    Schulentwicklung
+                    Hamburg</span> Referat LIF 22-2 (Individuelle Förderung) <br><br>
+                <p><span class="igel_label">E-Mail:</span> <a href="mailto:lernfoerderung@li.hamburg.de?subject=IGEL">
+                        lernfoerderung@li.hamburg.de <i class="fa fa-external-link" aria-hidden="true"
+                            title="E-Mail-Link"></i><span class="sr-only">(Opens in new window)</span> </a><br>(Betreff:
+                    IGEL)</p>
+                <span class="igel_label">Ansprechperson:</span> Marika Schwaiger
+            </div>
+        </div>
+    
+        <!-- Impressum Box -->
+        <details class="igel_sidebar-box igel_impressum-box">
+            <summary class="igel_sidebar-header">
+                <i class="fa fa-section"></i>
+                <h3>Impressum</h3>
+            </summary>
+            <div class="igel_sidebar-content">
+                <span class="igel_label">IGEL — Das Hamburger Portal mit Informationen und
+                    Materialien für individuelle gezielte Lernförderung</span>
+                <p>wurde im Schuljahr 2021 von der Behörde für Schule und Berufsbildung (BSB) Hamburg beauftragt.
+                    Zuständige Stelle ist das Landesinstitut für Lehrerbildung und Schulentwicklung (LI) Hamburg.</p>
+                <p class="igel_label">Verantwortlich:</p>
+                <ul>
+                    <li>Behörde für Schule und Berufsbildung Hamburg</li>
+                    <li>Landesinstitut für Lehrerbildung und Schulentwicklung Hamburg</li>
+                    <li>Abteilung Fortbildung (LIF 2)</li>
+                    <li>Referat LIF 22-2 (Individuelle Förderung)</li>
+                </ul>
+                <p class="igel_label">Steuergruppe:</p>
+                B 31-11, BQ 11, BQ 22, LIF 22-2&nbsp;<br><br>
+                <p class="igel_label">Mitwirkung der Referate:</p>
+                <ul>
+                    <li>LIF 11 (Sprachen)</li>
+                    <li>LIF 12 (Mathematik)&nbsp;</li>
+                    <li>LIDT 3 (Lehren und Lernen in der Veränderungsgesellschaft)</li>
+                    <li>LIF 17 (Künste - Bewegung - Sport)</li>
+                    <li>LIF 22 (Sonderpädagogik und individuelle Förderung)&nbsp;</li>
+                </ul>
+    
+                <p class="igel_label">Kontakt für Anfragen:</p>
+                <a href="mailto:lernfoerderung@li.hamburg.de?subject=IGEL"> lernfoerderung@li.hamburg.de</a>
+                <i class="fa fa-external-link" aria-hidden="true" title="E-Mail-Link"></i>
+                <span class="sr-only">(Opens in new window)</span> (Betreff: IGEL)
+                <br><br>
+                <p class="igel_label">Ansprechperson:</p>
+                Marika Schwaiger, LIF 22-2 (Individuelle Förderung)
+                <p></p>
+                <p class="igel_label">Kursgestaltung:</p>
+                by Falk Szyba &amp; Martin Karacsony |
+                <a href="https://bildungssprit.de/contact" target="_blank">bildungssprit</a>
+                <i class="fa fa-external-link" aria-hidden="true" title="Website-Link"></i>
+                <span class="sr-only">(Opens in new window)</span>
+            </div>
+        </details>
+    
+    </div>
+
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>

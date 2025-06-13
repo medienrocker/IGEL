@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IGEL FAQ</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- <style>
+        :root {
+            /* Color Scheme - li-colors */
+            --igel-primary-color: #003063;
+            --igel-secondary-color: #005ca9;
+            --igel-accent-color: #e10019;
+            --igel-background-color: #f3f3f3;
+            --igel-text-color: #333;
+            --igel-color-bright: #FFF;
+            --igel-border: 1px solid rgba(0, 0, 0, 0.1);
+            --igel-border-radius: 10px;
+            --igel-box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+            
+            /* Typography */
+            --igel-font-family: 'Montserrat', 'Roboto', sans-serif;
+            
+            /* Animation */
+            --igel-animation-duration: 0.3s;
+        }
+
+        body {
+            font-family: var(--igel-font-family);
+            color: var(--igel-text-color);
+            background-color: var(--igel-background-color);
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .igel_faq_container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .igel_faq_item {
+            background-color: var(--igel-color-bright);
+            border-radius: var(--igel-border-radius);
+            box-shadow: var(--igel-box-shadow);
+            overflow: hidden;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .igel_faq_item:hover {
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
+        }
+
+        /* Hide the default details marker */
+        .igel_faq_item details > summary {
+            list-style: none;
+        }
+        .igel_faq_item details > summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .igel_faq_item summary {
+            padding: 5px 20px;
+            font-weight: 600;
+            color: var(--igel-color-bright);
+            background-color: var(--igel-primary-color);
+            cursor: pointer;
+            position: relative;
+            outline: none;
+            transition: background-color var(--igel-animation-duration) ease;
+            display: flex;
+            align-items: center;
+        }
+
+        .igel_faq_item summary:hover {
+            background-color: var(--igel-secondary-color);
+        }
+
+        .igel_faq_item summary::after {
+            content: "+";
+            font-size: 2em;
+            margin-left: auto;
+            transition: transform var(--igel-animation-duration) ease;
+        }
+
+        .igel_faq_item details[open] summary::after {
+            transform: rotate(45deg);
+        }
+
+        /* Content wrapper for animation */
+        .igel_faq_content_wrapper {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height var(--igel-animation-duration) ease-out;
+        }
+
+        .igel_faq_item details[open] .igel_faq_content_wrapper {
+            max-height: 2000px; /* Large enough to fit any content */
+            transition: max-height 0.5s ease-in; /* Slightly longer for opening */
+        }
+
+        .igel_faq_content {
+            padding: 20px;
+            background-color: var(--igel-color-bright);
+            border-top: 3px solid var(--igel-accent-color);
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: opacity var(--igel-animation-duration) ease, 
+                        transform var(--igel-animation-duration) ease;
+        }
+
+        .igel_faq_item details[open] .igel_faq_content {
+            opacity: 1;
+            transform: translateY(0);
+            transition-delay: 0.1s; /* Slight delay for better effect */
+        }
+
+        .igel_faq_content p {
+            margin-top: 0;
+            margin-bottom: 16px;
+        }
+
+        .igel_faq_content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .igel_faq_content ul, 
+        .igel_faq_content ol {
+            padding-left: 20px;
+            margin-bottom: 16px;
+        }
+
+        .igel_faq_content li {
+            margin-bottom: 8px;
+        }
+
+        .igel_faq_content strong {
+            color: var(--igel-secondary-color);
+        }
+
+        .igel_faq_content em {
+            font-style: italic;
+            color: var(--igel-text-color);
+        }
+
+        .igel_faq_content blockquote {
+            border-left: 3px solid var(--igel-secondary-color);
+            margin-left: 0;
+            padding-left: 16px;
+            font-style: italic;
+            color: #555;
+            background-color: rgba(0, 92, 169, 0.05);
+            padding: 10px 16px;
+            border-radius: 0 5px 5px 0;
+        }
+
+        /* Accessibility improvements */
+        @media (prefers-reduced-motion: reduce) {
+            .igel_faq_item,
+            .igel_faq_item summary,
+            .igel_faq_item summary::after,
+            .igel_faq_content_wrapper,
+            .igel_faq_content {
+                transition: none !important;
+                animation: none !important;
+                transform: none !important;
+            }
+            
+            .igel_faq_content_wrapper {
+                max-height: none !important;
+            }
+            
+            .igel_faq_content {
+                opacity: 1 !important;
+            }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            .igel_faq_item summary {
+                padding: 12px 16px;
+            }
+            
+            .igel_faq_content {
+                padding: 16px;
+            }
+        }
+    </style> -->
+  </head>
+  <body>
+    <div class="igel_faq_container">
+      <!-- FAQ Item 1 -->
+      <div class="igel_faq_item">
+        <details>
+          <summary>An wen soll ich mich melden, wenn ich eine zusätzliche Diagnose für sinnvoll halte?</summary>
+          <div class="igel_faq_content_wrapper">
+            <div class="igel_faq_content">
+              <p>
+                In einem solchen Fall ist die erste direkte Ansprechperson immer die Förderkoordinatorin oder der
+                Förderkoordinator der Schule, oder die Lehrkraft, mit denen Sie als Honorarkraft ohnehin in Kontakt
+                sind.
+              </p>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- FAQ Item 2 -->
+      <div class="igel_faq_item">
+        <details>
+          <summary>Aus welchen Schritten besteht der diagnostische Prozess?</summary>
+          <div class="igel_faq_content_wrapper">
+            <div class="igel_faq_content">
+              <p>Der diagnostische Prozess kann mit folgendem Modell beschrieben werden:</p>
+              <ol>
+                <li>
+                  <strong>Problemanalyse:</strong>
+                  <p>
+                    Hier wird zunächst die Fragestellung formuliert und der Bereich eingegrenzt, in dem eine Diagnose
+                    gestellt werden soll. Was wissen wir bspw. über den Leistungsstand einer Person und wo vermuten wir
+                    eine Diskrepanz zwischen Anspruch und tatsächlichem Leistungsstand?
+                  </p>
+                </li>
+                <li>
+                  <strong>Investigative Entscheidung:</strong>
+                  <p>
+                    Ausgehend von der Problemanalyse werden hypothesengeleitet Informationen durch Anwendung von Tests
+                    und anderen Methoden gesammelt. Diese Informationen werden in standardisierter Form so lange
+                    verarbeitet, bis eine eindeutige Befundlage zu der Diagnose vorhanden ist.
+                  </p>
+                  <p>
+                    Welche Ergebnisse liefert uns z.B. der Rechtschreibtest über die Orthografiekenntnisse einer
+                    Schülerin oder eines Schülers und können Alternativerklärungen – wie z.B. mangelnde Motivation –
+                    ausgeschlossen werden?
+                  </p>
+                </li>
+                <li>
+                  <strong>Terminale Entscheidung/Indikation:</strong>
+                  <p>
+                    Im nächsten Schritt wird über die Intervention entschieden, wie also die Förderung erfolgen soll
+                    oder ob eine Zuordnung der Person zu einer besonderen Maßnahme erfolgen soll.
+                  </p>
+                </li>
+                <li>
+                  <strong>Evaluation:</strong>
+                  <p>
+                    Hat die Förderung stattgefunden, sollte nach einer abgestimmten Zeit eine Evaluation erfolgen. Mit
+                    dieser wird überprüft, ob die auf Basis der Diagnose erfolgte Intervention tatsächlich zu dem
+                    gewünschten Effekt der Förderung geführt hat. Falls nicht, sollte eine Entscheidung über alternative
+                    Interventionen getroffen werden.
+                  </p>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- FAQ Item 3 -->
+      <div class="igel_faq_item">
+        <details>
+          <summary>Darf ich als Honorarkraft Einsicht in die Ergebnisse der Diagnostik erhalten?</summary>
+          <div class="igel_faq_content_wrapper">
+            <div class="igel_faq_content">
+              <p>
+                Aus Datenschutzgründen dürfen Testergebnisse, Noten oder Zeugnisse
+                <strong>nicht</strong>
+                an die Honorarkräfte weitergegeben werden.
+              </p>
+
+              <p>Folgende Informationen können jedoch an die Honorarkräfte übermittelt werden:</p>
+              <ul>
+                <li>Informationen zum Lernstand</li>
+                <li>Ausgangslage der Schülerinnen und Schüler</li>
+                <li>Beschreibung der Förderschwerpunkte</li>
+              </ul>
+
+              <p>
+                Dies geschieht über den Honorarvertrag (das sog. Beiblatt), indem diese Informationen und auch die Ziele
+                der Förderung festzuhalten sind.
+              </p>
+
+              <p>
+                Alles andere kann über mündliche Absprachen mit der Person geschehen, die für die Förderkoordination an
+                der Schule zuständig ist.
+              </p>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- FAQ Item 4 -->
+      <div class="igel_faq_item">
+        <details>
+          <summary>Warum ist eine gute Diagnose für eine gezielte Förderung wichtig?</summary>
+          <div class="igel_faq_content_wrapper">
+            <div class="igel_faq_content">
+              <p>
+                Als Grundlage für eine gezielte Förderung ist eine fundierte Diagnose der Kompetenzen in dem jeweiligen
+                fachlichen oder überfachlichen Bereich entscheidend. Dabei sollte man sich nicht nur auf die Erfassung
+                von Merkmalen bei Schülerinnen und Schülern oder Lerngruppen beschränken, auch die Berücksichtigung der
+                Lehr-Lern-Situation kann hier sinnvoll sein.
+              </p>
+
+              <p>Eine gute Diagnostik erfüllt dabei zwei Funktionen:</p>
+              <ol>
+                <li>
+                  Sie liefert Informationen über den Leistungsstand und ermöglicht somit eine optimale Anpassung der
+                  Unterrichts- und Fördermaterialien.
+                </li>
+                <li>
+                  Es werden sowohl die jeweiligen Herausforderungen als auch besondere Fähigkeiten ermittelt und
+                  aufgezeigt. Dies ermöglicht eine Einteilung in sinnvolle Fördermaßnahmen und damit eine gezielte
+                  Förderung.
+                </li>
+              </ol>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- FAQ Item 5 -->
+      <div class="igel_faq_item">
+        <details>
+          <summary>Was wird unter Diagnostik verstanden?</summary>
+          <div class="igel_faq_content_wrapper">
+            <div class="igel_faq_content">
+              <p>
+                Allgemein wird Diagnostik verstanden als das
+                <strong>systematische Sammeln und Aufbereiten von Informationen</strong>
+                mit dem Ziel, Entscheidungen und daraus resultierende Handlungen zu begründen, zu kontrollieren und zu
+                optimieren (Jäger & Petermann, 1999).
+              </p>
+
+              <p>
+                Ingenkamp und Lissmann (2008, S. 13) spezifizieren diese Definition für den Bereich der pädagogischen
+                Diagnostik:
+              </p>
+
+              <blockquote>
+                „Pädagogische Diagnostik umfasst alle diagnostischen Tätigkeiten, durch die sowohl in Einzelarbeit als
+                auch in einer Gruppe Lernenden Voraussetzungen und Bedingungen planmäßiger Lehr- und Lernprozesse
+                ermittelt, Lernprozesse analysiert und Lernergebnisse festgestellt werden, um individuelles Lernen zu
+                optimieren. Zur pädagogischen Diagnostik gehören ferner die diagnostischen Tätigkeiten, die die
+                Zuweisung zu Lerngruppen oder zu individuellen Förderprogrammen ermöglichen, sowie die mehr
+                gesellschaftlich verankerten Aufgaben der Steuerung des Bildungsnachwuchses oder die Erteilung von
+                Qualifikationen zum Ziele haben."
+              </blockquote>
+
+              <p>
+                Die pädagogische Diagnostik im engeren Sinn orientiert sich an wissenschaftlichen Standards und
+                Methoden, um möglichst belastbare Aussagen über die relevanten Diagnosekategorien zu treffen.
+              </p>
+
+              <p>
+                <em>
+                  Karlheinz Ingenkamp & Urban Lissmann (2008). Lehrbuch der Pädagogischen Diagnostik. Weinheim u.a.:
+                  Beltz.
+                </em>
+              </p>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- FAQ Item 6 -->
+      <div class="igel_faq_item">
+        <details>
+          <summary>Welche Arten von diagnostischen Verfahren gibt es?</summary>
+          <div class="igel_faq_content_wrapper">
+            <div class="igel_faq_content">
+              <p>Es gibt eine Vielzahl unterschiedlicher Verfahren, mit deren Hilfe diagnostische Informationen gesammelt werden können. Diese Verfahren können in folgende Kategorien unterteilt werden:</p>
+              
+              <h4>Leistungstests</h4>
+              <p>Leistungstests haben den Anspruch, Leistungen möglichst <strong>objektiv zu diagnostizieren</strong>. Dabei wird in der Regel eine Auswahl an Aufgaben in den Tests benutzt, die die Gesamtheit des zu messenden Leistungskonstrukts möglichst gut repräsentieren soll und auch den Bereich, in dem die zu messenden Fähigkeiten liegen soll, genau spezifiziert.</p>
+              <p>So beinhaltet beispielsweise ein Mathematiktest, der die Basiskompetenzen der Schülerinnen und Schüler messen soll, eine Reihe von Aufgaben, die sich auf die Leitidee Zahlen und Operationen konzentrieren und vor allem einfache Rechenoperationen beinhalten. Ein anderer Test, der das Begabungspotenzial der Schüler:innen im Bereich der voruniversitären Mathematik diagnostizieren soll, enthält entsprechend anspruchsvolle Aufgaben, mit denen die Kompetenz zum souveränen Umgang mit anspruchsvollen Bereichen der Mathematik erfasst werden.</p>
+              <p>Neben den hier angesprochenen Kompetenzen können Leistungstests auch auf eine Wissensabfrage, auf Fertigkeiten in bestimmten Bereichen oder eine spezifische Eignung für einen bestimmten Bereich oder Tätigkeit abzielen.</p>
+
+              <h4>Beobachtungs- und Einschätzungsverfahren</h4>
+              <p>Die Beobachtung ist die <strong>zielgerichtete, aufmerksame Wahrnehmung</strong> von Objekten, Phänomenen oder Vorgängen, gegebenenfalls unter Verwendung technischer Hilfsmittel. Im Gegensatz zu Messungen zielen Beobachtungen weniger auf quantitative Erfassung der Objekte als auf qualitative Daten.</p>
+              <p>Dennoch werden anders als bei einer Alltagsbeobachtung systematisch Informationen gesammelt und verarbeitet, um eine Diagnose zu ermöglichen. So wird beispielsweise in regelmäßigen, genau definierten Abständen, die Tätigkeiten der Schülerinnen und Schüler im Unterricht kategorisiert und erfasst, um so ein systematisches Bild der Unterrichtsprozesse zu erhalten.</p>
+
+              <h4>Interviews</h4>
+              <p>Interviews zeichnen sich durch ein <strong>planmäßiges Vorgehen mit wissenschaftlicher Zielsetzung</strong> aus, bei dem durch gezielte Fragen Informationen gesammelt werden.</p>
+              
+              <p>Die Fragen in einem Interview können sein:</p>
+              <ul>
+                <li><strong>Geschlossen</strong> (ja, nein)</li>
+                <li><strong>Offen</strong> (freie Antworten)</li>
+                <li><strong>Halboffen</strong> (nicht vorgesehene Antworten sind zusätzlich möglich)</li>
+                <li><strong>Direkt</strong> (Zweck der Frage ist klar)</li>
+                <li><strong>Indirekt</strong> (Zielrichtung wird verschleiert, um sozial erwünschte Antworten zu verhindern)</li>
+              </ul>
+              
+              <p>Ein Interview kann unterschiedlich strukturiert sein:</p>
+              <ul>
+                <li><strong>Standardisiert</strong>: Festgelegt sind Wortlaut, Reihenfolge der Fragen, Antwortmöglichkeiten und Interviewerverhalten, damit eine möglichst gute Vergleichbarkeit zwischen den Interviews erfolgen kann.</li>
+                <li><strong>Halbstandardisiert</strong>: Wortlaut kann verändert werden, Zusatzfragen sind möglich, um sowohl die Vergleichbarkeit zu ermöglichen als auch auf die Entwicklung des Gesprächs eingehen zu können.</li>
+                <li><strong>Tiefeninterview</strong>: Einige Themengruppen vorgegeben, ansonsten ist es weitgehend unstrukturiert und offen, um z.B. die Gedankenprozesse des Interviewten nachvollziehen zu können.</li>
+              </ul>
+
+              <h4>Persönlichkeitstests</h4>
+              <p>Persönlichkeitstests sind in der Regel eine <strong>Spezialform der Fragebögen</strong>. Im Bereich der Persönlichkeitsdiagnostik werden entsprechende Fragebögen genutzt, um mittels einer Selbstbeurteilung Angaben über mehr oder weniger genau umschriebene Bereiche der Persönlichkeit zu erhalten.</p>
+              <p>Wissenschaftlich fundierte Persönlichkeitstests folgen denselben Qualitätskriterien wie Leistungstests. Die Messung soll möglichst standardisiert erfolgen und auch die Reliabilität und Validität sollte nachgewiesen sein.</p>
+              <p>Mit dem Persönlichkeitstest wird eine Art Verhaltensstichprobe gezogen, die als Indikator einer zu messenden Eigenschaft dient. Ähnlich wie bei einem Leistungstest wird dann die relative Position einer Person im Vergleich zu einer Normstichprobe bestimmt.</p>
+              <p>Da Persönlichkeitstests häufig auf Selbstaussagen der befragten Personen beruhen, sind diese - anders als bei Leistungstests - eher anfällig für Selbstdarstellungstendenzen in Form von sozial erwünschten Antworten.</p>
+
+              <h4>Fragebögen</h4>
+              <p>Fragebögen werden dann eingesetzt, wenn <strong>subjektive Wahrnehmung, Einstellung, Meinung, Interesse oder auch psychologische Merkmale</strong> von Personen erfasst werden sollen.</p>
+              <p>Dabei reicht die Bandbreite der Qualität dieser Verfahren von einfachen Listen mit selbst ausgedachten Fragen bis hin zu wissenschaftlich fundierten, empirisch erprobten Fragebögen für spezifische Konstrukte.</p>
+              <p>Hier lohnt es sich zu recherchieren, ob bereits erprobte und empirisch validierte Skalen vorhanden sind und genutzt werden können. Eine gute Quelle für die Recherche ist das Forschungsdatenzentrum Bildung (DIPF, FDZ, 2022).</p>
+              <p>Grundsätzlich kann bei Fragebögen zwischen geschlossenen Fragen (z.B. bei Ratings von Aussagen mit 1 – „trifft nicht zu" bis 4 – „trifft vollkommen zu" oder Ja-Nein-Fragen) und offenen Fragen unterschieden werden. Da Fragebögen eher geeignet sind, ein umfassendes Bild der Untersuchungsgruppe hinsichtlich spezifischer Fragen zu erlangen und zu quantifizieren, sollte die Anzahl an offenen Fragen beschränkt sein.</p>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- FAQ Item 7 -->
+      <div class="igel_faq_item">
+        <details>
+          <summary>Welche Merkmale können im Rahmen der pädagogischen Diagnostik relevant sein?</summary>
+          <div class="igel_faq_content_wrapper">
+            <div class="igel_faq_content">
+              <p>Im Rahmen der pädagogischen Diagnostik können verschiedene Merkmale relevant sein:</p>
+              
+              <ul>
+                <li><strong>Fachliche Kompetenzen</strong></li>
+                <li><strong>Überfachliche Kompetenzen</strong></li>
+                <li><strong>Wissen</strong></li>
+                <li><strong>Fertigkeiten</strong></li>
+                <li><strong>Intelligenz</strong></li>
+                <li><strong>Sonderpädagogischer Förderbedarf</strong> (Unterkategorien)</li>
+                <li><strong>Motivation</strong></li>
+                <li>
+                  <strong>Fachliches Selbstkonzept</strong>: Darunter wird die Einschätzung der eigenen Fähigkeiten in einem Fach oder einer Domäne verstanden. Ein hohes fachliches Selbstkonzept steht auch in enger Verbindung mit Lernmotivation und Leistung.
+                </li>
+                <li>
+                  <strong>Selbstwirksamkeit</strong>: Darunter wird die Überzeugung einer Person verstanden, eine bestimmte Handlung oder Aufgabe aus eigener Kraft erfolgreich bewältigen zu können.
+                </li>
+                <li><strong>Psychosoziale Entwicklung</strong></li>
+              </ul>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- FAQ Item 8 -->
+      <div class="igel_faq_item">
+        <details>
+          <summary>Wer führt in Hamburg die Diagnostik durch?</summary>
+          <div class="igel_faq_content_wrapper">
+            <div class="igel_faq_content">
+              <p>In Hamburg werden verschiedene Arten der Diagnostik von unterschiedlichen Personen durchgeführt:</p>
+              
+              <ul>
+                <li>
+                  <strong>Unterrichtsbegleitende Diagnostik</strong>: Wird von den Fachlehrkräften vorgenommen, wie zum Beispiel auch die Bestimmung des Lernförderbedarfs nach §45 (HmbSG).
+                </li>
+                <li>
+                  <strong>Sprachstandsdiagnostik</strong>: Wird im Allgemeinen von den Deutschlehrkräften, den Sprachförderlehrkräften und/oder den Personen aus der Sprachlernberatung übernommen.
+                </li>
+                <li>
+                  <strong>Diagnostik des sonderpädagogischen Förderbedarfs</strong>: Nach §12 (Bereich Lernen, Sprache oder soziale und emotionale Entwicklung) wird entweder durch das ReBBZ oder - wenn vorhanden - vom sonderpädagogischen Personal in den Schulen vorgenommen.
+                </li>
+              </ul>
+              
+              <p>Zusätzlich gibt es in Hamburg noch die regelhaft durchgeführten <strong>Kompetenztests (KERMIT)</strong>, die entweder von den Lehrkräften durchgeführt werden (KERMIT 2, 3 und 8) oder von externen Testleitungen (KERMIT 5, 7 und 9). Die Auswertung und Ergebnisrückmeldung erfolgt hier immer durch das Institut für Bildungsmonitoring und Qualitätsentwicklung (IfBQ).</p>
+              
+              <p>Diese Tests dienen jedoch primär der datengestützten Schul- und Unterrichtsentwicklung und sind nicht für die Individualdiagnose von Förderbedarfen ausgerichtet.</p>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- FAQ Item 9 -->
+      <div class="igel_faq_item">
+        <details>
+          <summary>Wie helfen Normen die Ergebnisse eines Kindes zu interpretieren?</summary>
+          <div class="igel_faq_content_wrapper">
+            <div class="igel_faq_content">
+              <h4>Entwicklung von Normen</h4>
+              <p>Um das Abschneiden in einem diagnostischen Verfahren interpretieren zu können, reicht in der Regel die Rückmeldung über den erreichten Wert eines Kindes nicht aus. Dieser Wert muss mit einem Bezugssystem, mit einer sogenannten <strong>Norm</strong>, verglichen werden können.</p>
+              <p>Um diese Normwerte zu erhalten, muss ein diagnostisches Verfahren idealerweise an einer repräsentativen Stichprobe erprobt und normiert werden. Dann können beispielsweise die individuellen Leistungen in einem Rechtschreibtest in das Leistungsspektrum der Schülerinnen und Schüler der gleichen Altersgruppe eingeordnet werden.</p>
+              
+              <h4>Verschiedene Normskalen</h4>
+              <p>In den Testunterlagen von psychometrischen Tests finden sich dazu verschiedene Kennwerte, mit denen die Ergebnisse zurückgemeldet und eingeordnet werden können. So werden relativ häufig Prozentränge angegeben, anhand derer die Leistungen von Schülerinnen und Schülern eingeordnet werden können. Oder es gibt – wie bei einem Intelligenztest – einen Punktwert.</p>
+              <p>Bei intervallskalierten Daten (d.h. die Abstände zwischen zwei benachbarten Werten sind gleich) wird die Skala durch den Mittelwert und die Standardabweichung definiert. Sind die Skalen nicht intervall- sondern wie eben bei den Prozenträngen eher rangskaliert (d.h. es gibt eine Rangreihenfolge, die Abstände zwischen den Personen können aber variieren) werden andere Normskalen herangezogen.</p>
+              
+              <p>In der folgenden Tabelle sind eine Reihe von häufig verwendeten Normskalen mit Beispielen aufgelistet:</p>
+              
+              <table border="1" cellpadding="5" cellspacing="0">
+                <thead>
+                  <tr>
+                    <th>Normskala</th>
+                    <th>Beispiel</th>
+                    <th>Mittelwert und Standardabweichung</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>IQ-Test</td>
+                    <td>Hamburg-Wechsler-Intelligenztest</td>
+                    <td>M: 100; SD: 15</td>
+                  </tr>
+                  <tr>
+                    <td>T</td>
+                    <td>HSP (Hamburger Schreibprobe)</td>
+                    <td>M: 50; SD: 10</td>
+                  </tr>
+                  <tr>
+                    <td>C (C-Werte oder Centile)</td>
+                    <td></td>
+                    <td>M: 5; SD: 2</td>
+                  </tr>
+                  <tr>
+                    <td>STANINE (Standard Nine)</td>
+                    <td>FPI (Freiburger Persönlichkeitsinventar)</td>
+                    <td>M: 5; SD 2 (bzw. 1,96)</td>
+                  </tr>
+                  <tr>
+                    <td>Leistungsskalen</td>
+                    <td>PISA; IQB-Bildungstrend</td>
+                    <td>M: 500; SD: 100</td>
+                  </tr>
+                  <tr>
+                    <td>Prozentrang</td>
+                    <td>SCHNABEL</td>
+                    <td>Median: 50 (Werte 1 – 100)</td>
+                  </tr>
+                </tbody>
+              </table>
+              <p><small>M = Median (Mittelwert)    SD: Standardabweichung</small></p>
+              
+              <h4>Zur Interpretation der Normskalen</h4>
+              <p>Bei den Normskalen, die auf Intervallskalen beruhen, wird der durchschnittliche Normbereich durch den Mittelwert der Skala plus-minus der Standardabweichung definiert. Dies bedeutet z.B., dass der durchschnittliche Intelligenzbereich zwischen 85 und 115 Punkten liegt. Werte, die darüber oder darunter liegen, werden als unterdurchschnittlich bzw. überdurchschnittlich intelligent definiert.</p>
+              
+              <p>Prozentränge, die auf einer Rangordnung basieren, geben an, wieviel Prozent der Vergleichsgruppe höchstens genauso viele Punkte erzielt haben wie die Person, die gerade getestet wurde.</p>
+              <ul>
+                <li>Wenn also beispielsweise ein Kind bei SCHNABEL einen <strong>Prozentrang von 5</strong> hat, heißt das, dass nur 5 Prozent der Schülerinnen und Schüler dieses Jahrgangs ein Ergebnis gehabt haben, dass genauso gut oder schlechter war. Dieses Kind gehört also zu den 5 Prozent der schwächsten Schülerinnen und Schüler.</li>
+                <li>Andersherum sagt ein <strong>Prozentrang von 95</strong> aus, dass nur 5 Prozent der Schülerinnen und Schüler besser bzw. gleich gut waren als das hier getestete Kind.</li>
+              </ul>
+              
+              <p>Da man bei Prozenträngen nicht davon ausgehen kann, dass eine Verbesserung bei einem Prozentrang von 5 auf einen Prozentrang von 10 genauso groß ist, wie eine Verbesserung von einem Prozentrang 60 auf einem Prozentrang von 65, können Differenzen auf einer Prozentrangskala nicht sinnvoll interpretiert werden. Man kann lediglich Aussagen machen, dass bei einem bestimmten Prozentrang der Schülerin oder des Schülers XX Prozent gleich oder schlechter waren als dieses Kind.</p>
+              
+              <p>Um dennoch Differenzen und Entwicklungen von Leistungen beschreiben zu können, wird empfohlen die Prozentränge beispielsweise in T-Werte umzuwandeln. Dazu gibt es im Internet auch Beispiele für Umrechnungstabellen (z.B. auf der Seite Psychometrica.de).</p>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- FAQ Item 10 -->
+      <div class="igel_faq_item">
+        <details>
+          <summary>Wie kann die Qualität eines diagnostischen Verfahrens empirisch überprüft werden?</summary>
+          <div class="igel_faq_content_wrapper">
+            <div class="igel_faq_content">
+              <p>Die Qualität eines Tests bzw. eines diagnostischen Verfahrens hängt zum einen von den verfügbaren Normen, die anhand von repräsentativen Stichproben bestimmt worden sind (siehe FAQ zu Normen und Normskalen), und zum anderen von den Gütekriterien des Verfahrens ab.</p>
+              
+              <h4>Hauptgütekriterien</h4>
+              
+              <h5>Objektivität</h5>
+              <p>Die Objektivität betrifft die <strong>Unabhängigkeit einer Testsituation von den Einflüssen unterschiedlicher Umgebungen und den Personen</strong>, die die Testung durchführen, auswerten oder interpretieren. Unabhängig davon, wer die Testung durchführt und im Nachhinein auswertet, soll das Instrument zum gleichen Ergebnis führen.</p>
+              
+              <h5>Reliabilität</h5>
+              <p>Die Reliabilität betrifft die <strong>Zuverlässigkeit des Instruments</strong>. Die Frage ist hier, ob ein Test bei einer wiederholten Anwendung bei dem gleichen Personenkreis zu vergleichbaren Ergebnissen führt. Wird das Merkmal zuverlässig gemessen oder ist die Messung in zu großem Ausmaß mit Messfehlern behaftet?</p>
+              
+              <p>Unterschieden wird bei der Reliabilität noch zwischen:</p>
+              <ul>
+                <li>
+                  <strong>Stabilität eines Tests</strong>: Wird ein Test zu unterschiedlichen Messzeitpunkten in der gleichen Personengruppe wiederholt eingesetzt, so stellt sich die Frage, ob man zu gleichen oder sehr ähnlichen Ergebnissen kommt.
+                </li>
+                <li>
+                  <strong>Konsistenz innerhalb eines Verfahrens</strong>: Wenn in einem Test oder Fragebogen mit mehreren Fragen und Aufgaben (= Items) das Gleiche gemessen werden soll, dann stellt sich die Frage, wie gut diese unterschiedlichen Items das zu messende Merkmal erfassen können.
+                </li>
+                <li>
+                  <strong>Äquivalenz der Messungen</strong>: Wird ein Test mehrfach in derselben oder in unterschiedlichen Personengruppe eingesetzt, so stellt sich die Frage, ob die Qualität der Messungen immer gleich ist bzw. die Messungen unter vergleichbaren Bedingungen durchgeführt werden können.
+                </li>
+              </ul>
+              
+              <h5>Validität</h5>
+              <p>Die Validität betrifft die <strong>inhaltliche Übereinstimmung einer Messung mit dem zu messenden Merkmal</strong>. Die Frage ist hier, ob das Verfahren tatsächlich das gewünschte Merkmal misst.</p>
+              
+              <p>Die Qualität der Validität wird zum Beispiel relevant, wenn man wissen möchte, ob der eingesetzte Rechtschreibtest tatsächlich die Rechtschreibkompetenz einer Schülerin oder eines Schülers erfassen kann, oder doch eher etwas auswendig Gelerntes überprüft.</p>
+              
+              <p>Auch wird das Ausmaß der Validität eines diagnostischen Verfahrens dann wichtig, wenn man zum Beispiel mit einer gewissen Sicherheit den Sprachförderbedarf einer Schülerin oder eines Schülers und damit die Berechtigung für bestimmte Fördermaßnahmen erfassen möchte.</p>
+            </div>
+          </div>
+        </details>
+      </div>
+
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // Animation timing configuration (all in milliseconds)
+        const animationConfig = {
+          // Duration of the main animation
+          duration: 400,
+
+          // Content fade timing
+          contentFadeOutDuration: 400,
+          contentFadeInDelay: 100,
+
+          // Height animation timing
+          heightCollapseDelay: 500,
+          heightExpandDuration: 400,
+          heightCollapseDuration: 300, // Added specific duration for collapse animation
+
+          // Synchronization offset between closing and opening
+          syncOffset: 0, // Lower values make animations more concurrent, higher values more sequential
+        };
+
+        // Select all FAQ items
+        const faqItems = document.querySelectorAll(".igel_faq_item details");
+
+        // Helper function to close a specific details element with proper animation
+        function closeDetailsElement(element) {
+          // Get the content wrapper
+          const contentWrapper = element.querySelector(".igel_faq_content_wrapper");
+          const content = element.querySelector(".igel_faq_content");
+
+          // 1. Start by measuring the current height and setting it explicitly
+          const startHeight = contentWrapper.scrollHeight;
+          contentWrapper.style.maxHeight = startHeight + "px";
+
+          // Force a reflow to make sure the explicit height is applied
+          contentWrapper.offsetHeight;
+
+          // 2. Set the appropriate transition for smooth collapse
+          contentWrapper.style.transition = `max-height ${animationConfig.heightCollapseDuration}ms ease-in-out`;
+
+          // 3. First animate out the content (fade and slide up)
+          content.style.transition = `opacity ${animationConfig.contentFadeOutDuration}ms ease, transform ${animationConfig.contentFadeOutDuration}ms ease`;
+          content.style.opacity = "0";
+          content.style.transform = "translateY(-10px)";
+
+          // 4. After a short delay, start collapsing the height
+          setTimeout(() => {
+            contentWrapper.style.maxHeight = "0";
+
+            // 5. After the height collapse is complete, close the details and reset styles
+            setTimeout(() => {
+              element.open = false;
+
+              // Reset all inline styles for next animation
+              contentWrapper.style.maxHeight = "";
+              contentWrapper.style.transition = "";
+              content.style.opacity = "";
+              content.style.transform = "";
+              content.style.transition = "";
+            }, animationConfig.heightCollapseDuration + 50); // Add small buffer
+          }, animationConfig.heightCollapseDelay);
+
+          // Return when this animation will be visually "halfway done" - used for synchronization
+          return animationConfig.contentFadeOutDuration / 2;
+        }
+
+        // Function to open a details element with animation
+        function openDetailsElement(element, delay = 0) {
+          // Delay the start of opening if needed (for synchronization)
+          setTimeout(() => {
+            // First set open state
+            element.open = true;
+
+            // Get the content wrapper and content
+            const contentWrapper = element.querySelector(".igel_faq_content_wrapper");
+            const content = element.querySelector(".igel_faq_content");
+
+            // Set initial states for animation
+            contentWrapper.style.maxHeight = "0";
+            content.style.opacity = "0";
+            content.style.transform = "translateY(-10px)";
+
+            // Force a reflow
+            contentWrapper.offsetHeight;
+
+            // 1. Set transitions for smooth animation
+            contentWrapper.style.transition = `max-height ${animationConfig.heightExpandDuration}ms ease-in-out`;
+
+            // 2. First animate the wrapper open
+            contentWrapper.style.maxHeight = contentWrapper.scrollHeight + "px";
+
+            // 3. Then fade in and slide down the content
+            setTimeout(() => {
+              content.style.transition = `opacity ${animationConfig.duration}ms ease, transform ${animationConfig.duration}ms ease`;
+              content.style.opacity = "1";
+              content.style.transform = "translateY(0)";
+
+              // 4. After all animations complete, reset the maxHeight to allow for content changes
+              setTimeout(() => {
+                contentWrapper.style.maxHeight = "";
+                contentWrapper.style.transition = "";
+                content.style.transition = "";
+              }, animationConfig.duration);
+            }, animationConfig.contentFadeInDelay);
+          }, delay);
+        }
+
+        // Add click event listeners to each summary element
+        faqItems.forEach((details) => {
+          const summary = details.querySelector("summary");
+
+          summary.addEventListener("click", (event) => {
+            // Prevent default toggle behavior
+            event.preventDefault();
+
+            // If already open, close it
+            if (details.open) {
+              closeDetailsElement(details);
+            } else {
+              let syncDelay = 0;
+              let anyOpen = false;
+
+              // Close all other open items first
+              faqItems.forEach((otherDetails) => {
+                if (otherDetails !== details && otherDetails.open) {
+                  anyOpen = true;
+                  // Get timing info from closing animation for synchronization
+                  const halfwayPoint = closeDetailsElement(otherDetails);
+                  // Set delay for opening animation based on the halfway point of closing
+                  syncDelay = animationConfig.syncOffset;
+                }
+              });
+
+              // Open this item with appropriate delay for synchronization
+              openDetailsElement(details, syncDelay);
+            }
+          });
+
+          // Improve keyboard accessibility
+          summary.addEventListener("keydown", (e) => {
+            // Enter or Space key to toggle details
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              summary.click();
+            }
+          });
+        });
+
+        // For accessibility - disable animations if user prefers reduced motion
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          document.documentElement.classList.add("reduced-motion");
+        }
+      });
+    
+    </script>
+  </body>
+</html>

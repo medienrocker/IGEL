@@ -1,0 +1,836 @@
+/* ### CC-BY bildungssprit GbR | Falk Szyba @medienrocker ### */
+
+:root {
+    /* Color Scheme - li-colors */
+    --igel-primary-color: #003063;
+    --igel-secondary-color: #005ca9;
+    --igel-accent-color: #e10019;
+    --igel-background-color: #f3f3f3;
+    --igel-text-color: #333;
+    --igel-color-bright: #FFF;
+    --igel-border: 1px solid rgba(0, 0, 0, 0.1);
+    --igel-border-radius: 10px;
+    --igel-box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+
+    /* Typography */
+    --igel-font-family: 'Montserat', 'Roboto', sans-serif;
+    --igel-link-weight: 500;
+
+    /* Spacing */
+    --igel-spacing-unit: 1rem;
+    --igel-container-width: min(90%, 1400px);
+
+    /* Animations */
+    --igel-transition-speed: 0.3s;
+}
+
+#region-main .course-content a {
+    color: var(--igel-secondary-color) !important;
+    font-weight: 600;
+    font-family: var(--igel-font-family);
+}
+
+#region-main .course-content a:hover {
+    color: var(--igel-primary-color) !important;
+}
+
+.igel_wrapper {
+    font-family: var(--igel-font-family);
+    padding: 10px;
+}
+
+.igel_accent-color {
+    color: var(--igel-accent-color);
+}
+
+/* Backup colors nordic-calm */
+/* .igel_theme-nordic-calm {
+    --igel-primary-color: #5E81AC;
+    --igel-secondary-color: #4C566A;
+    --igel-accent-color: #88C0D0;
+    --igel-background-color: #ECEFF4;
+    --igel-text-color: #2E3440;
+} */
+
+
+/* Hero Section */
+.igel_hero-container {
+    background: var(--igel-background-color);
+    padding: calc(var(--igel-spacing-unit) * 3) var(--igel-spacing-unit);
+    width: 100%;
+    min-height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: var(--igel-border);
+    border-radius: 10px;
+    box-shadow: var(--igel-box-shadow);
+}
+
+/* Hero Content Layout */
+.igel_hero-content {
+    width: var(--igel-container-width);
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Header flex container for logo and title alignment */
+.igel_header-group {
+    display: grid;
+    grid-template-columns: auto 2fr;
+    gap: calc(var(--igel-spacing-unit) * 1.5);
+    align-items: center;
+    margin-bottom: calc(var(--igel-spacing-unit) * 2);
+}
+
+/* Logo Container */
+.igel_logo-container {
+    width: 200px;
+    margin: 0;
+}
+
+/* Logo Container der Kacheln */
+.igel_logo-container2 {
+    width: 120px;
+    margin: 0;
+}
+
+.igel_logo {
+    width: 100%;
+    height: auto;
+    border-radius: var(--igel-border-radius);
+    /* box-shadow: 
+        0 10px 15px -3px rgba(0, 0, 0, 0.1),
+        0 4px 6px -2px rgba(0, 0, 0, 0.05); 
+    transition: transform var(--igel-transition-speed) ease,
+                box-shadow var(--igel-transition-speed) ease;*/
+}
+
+/* .igel_logo:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        0 20px 25px -5px rgba(0, 0, 0, 0.1),
+        0 10px 10px -5px rgba(0, 0, 0, 0.04);
+} */
+
+/* Title Container */
+.igel_title-container {
+    text-align: left;
+    margin: 0;
+}
+
+.igel_main-title {
+    color: var(--igel-primary-color);
+    margin-top: 0;
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    line-height: 1.2;
+}
+
+.igel_subtitle {
+    color: var(--igel-secondary-color);
+    margin-top: 0.5rem;
+    font-size: clamp(1rem, 2vw, 1.4rem);
+    line-height: 1.4;
+    font-weight: 500;
+}
+
+/* Features Container spacing */
+.igel_features-container {
+    margin-top: calc(var(--igel-spacing-unit) * 3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .igel_header-group {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: var(--igel-spacing-unit);
+    }
+
+    .igel_logo-container {
+        margin: 0 auto;
+    }
+
+    .igel_logo-container2 {
+        margin: 0 auto;
+    }
+
+    .igel_title-container {
+        text-align: center;
+    }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .igel_logo {
+        transition: none;
+    }
+
+    .igel_logo:hover {
+        transform: none;
+    }
+}
+
+
+
+
+/* ########## SIDEBAR ########## */
+
+/* Sidebar Components */
+.igel_sidebar-box {
+    font-family: var(--igel-font-family);
+    background: var(--igel-color-bright);
+    border-radius: var(--igel-border-radius);
+    margin: 0 5px calc(var(--igel-spacing-unit) * 1.2) 5px;
+    overflow: hidden;
+    box-shadow: var(--igel-box-shadow);
+    border: var(--igel-border);
+    transition: all var(--igel-transition-speed) ease;
+}
+
+.igel_sidebar-box a {
+    color: var(--igel-secondary-color);
+    text-decoration: none;
+    font-weight: var(--igel-link-weight);
+    display: inline;
+    margin-bottom: calc(var(--igel-spacing-unit) * 0.2);
+}
+
+.igel_sidebar-box a:hover {
+    color: var(--igel-primary-color);
+    text-decoration: underline;
+}
+
+.igel_sidebar-header {
+    background: var(--igel-primary-color);
+    color: var(--igel-color-bright);
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.igel_sidebar-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.igel_sidebar-content {
+    flex: 1;
+    padding: 10px;
+    background: linear-gradient(to bottom right,
+            var(--igel-background-color) 0%,
+            var(--igel-color-bright) 100%);
+    font-size: 0.85rem;
+}
+
+.igel_ul-box {
+    padding: 5px 5px 5px 20px;
+    border: 1px solid var(--igel-primary-color);
+    box-shadow: var(--igel-box-shadow);
+}
+
+.igel_impressum-box .igel_sidebar-header {
+    cursor: pointer;
+    background-color: var(--igel-secondary-color);
+}
+
+.igel_impressum-box .igel_sidebar-header:hover {
+    background-color: var(--igel-primary-color);
+}
+
+.igel_label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: calc(var(--igel-spacing-unit) * 0.2);
+}
+
+
+
+/* Contact Box Specific */
+.igel_contact-email {
+    margin-bottom: 12px;
+    word-break: break-word;
+}
+
+/* Animations */
+.igel_animate-in {
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+/* Theme-specific Hover Effects */
+.igel_theme-li-colors .igel_features-list li:hover {
+    text-decoration: underline;
+}
+
+
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .igel_animate-in {
+        animation: none !important;
+        opacity: 1;
+        transform: none !important;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .igel_main-title {
+        font-size: 2rem;
+    }
+
+    .igel_subtitle {
+        font-size: 1.2rem;
+    }
+
+    .igel_features-list {
+        gap: var(--igel-spacing-unit);
+    }
+}
+
+@media (max-width: 480px) {
+    .igel_features-list li {
+        padding: calc(var(--igel-spacing-unit) * 0.75);
+    }
+
+    .igel_feature-icon {
+        font-size: 1.25rem;
+    }
+}
+
+
+
+
+/* ########## FEATURE LIST & INFOBOX ########## */
+
+/* Grid Layout */
+.igel_features-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--igel-spacing-unit);
+    align-items: stretch;
+}
+
+/* Grid Layout für Kacheln */
+.igel_features-grid2 {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--igel-spacing-unit);
+    align-items: stretch;
+}
+
+/* Features List Styling */
+.igel_features-intro {
+    font-size: 1.2rem;
+    color: var(--igel-text-color);
+    margin-bottom: var(--igel-spacing-unit);
+}
+
+.igel_features-list {
+    list-style: none;
+    padding: 0 0 0 10px;
+    display: grid;
+    gap: calc(var(--igel-spacing-unit) * 1.5);
+    border-left: 4px solid var(--igel-accent-color);
+}
+
+/* Features List Styling für Kacheln */
+.igel_features-list2 {
+    list-style: none;
+    padding: 0 0 0 10px;
+    display: grid;
+    gap: calc(var(--igel-spacing-unit) * 1);
+    border-left: 4px solid var(--igel-accent-color);
+}
+
+.igel_features-list li {
+    display: flex;
+    align-items: center;
+    padding: var(--igel-spacing-unit);
+    background: var(--igel-color-bright);
+    border-radius: 8px;
+    box-shadow: var(--igel-box-shadow);
+    transition: transform var(--igel-transition-speed), box-shadow var(--igel-transition-speed);
+}
+
+/* Features List <li> Styling für Kacheln */
+.igel_features-list2 li {
+    display: flex;
+    align-items: center;
+    padding: 3px 10px 3px 10px;
+    background: var(--igel-color-bright);
+    border-radius: 8px;
+    box-shadow: var(--igel-box-shadow);
+    transition: transform var(--igel-transition-speed), box-shadow var(--igel-transition-speed);
+}
+
+.igel_feature-icon {
+    color: var(--igel-primary-color);
+    font-size: 1.5rem;
+    margin-right: var(--igel-spacing-unit);
+    flex-shrink: 0;
+}
+
+.igel_outro {
+    text-align: left;
+    color: var(--igel-secondary-color);
+    font-size: 1.1rem;
+    margin-top: calc(var(--igel-spacing-unit) * 2);
+}
+
+.igel_features-list li {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.igel_features-list li:hover {
+    transform: translateX(5px);
+}
+
+.igel_features-list li.igel_feature-active {
+    background-color: var(--igel-primary-color);
+    color: var(--igel-color-bright);
+}
+
+.igel_features-list li.igel_feature-active .igel_feature-icon {
+    color: var(--igel-color-bright);
+}
+
+
+/* ### Info Box Styling ### */
+
+.igel_info-box {
+    position: static;
+    display: flex;
+    flex-direction: column;
+    /*margin-top: var(--igel-spacing-unit);*/
+}
+
+.igel_info-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.igel_info-detail {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.igel_info-detail h4 {
+    color: var(--igel-primary-color);
+    margin-bottom: 0.5rem;
+    margin-left: 15px;
+    font-weight: 600;
+}
+
+.igel_info-detail ul {
+    list-style: disc;
+    margin-top: 0.5rem;
+    padding-left: 15px;
+}
+
+.igel_info-detail ul li {
+    font-size: 0.9rem;
+    display: list-item;
+    /* Force proper list-item display */
+    list-style-position: outside;
+    /* Keep bullet points aligned */
+    margin-bottom: 0.3rem;
+}
+
+/* Infobox -> ul -> Zwischenüberschriften */
+.bs_ul-caption {
+    text-align: left;
+    list-style: none;
+    font-weight: bold;
+    margin-top: 20px;
+    font-size: 1.2em;
+    color: #333;
+}
+
+ul li.bs_ul-caption {
+    list-style: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .igel_features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .igel_info-box {
+        position: static;
+    }
+}
+
+
+
+
+/* ########## MOODLE GRID CARDS ########## */
+
+/* Base styles for Moodle cards */
+.grid-section.card {
+    background-color: #fff;
+    background-clip: border-box;
+    border: var(--igel-border) !important;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--igel-box-shadow);
+    z-index: inherit;
+    transition: all .3s ease;
+}
+
+.grid-section.card:hover {
+    transform: scale(1.2);
+    box-shadow: rgba(0, 0, 0, 0.6) 0px 3px 10px;
+    z-index: 1000;
+}
+
+.grid-section .card-header {
+    background: var(--igel-background-color);
+}
+
+.grid-section .card-header h3 {
+    color: var(--igel-primary-color);
+    font-weight: 600;
+}
+
+.grid-section.card a {
+    color: var(--igel-text-color);
+    text-decoration: none;
+}
+
+
+
+/* ##### Styyles for link icons ##### */
+/* Icon base styles */
+.fa-external-link,
+.fa-link {
+    font-size: 0.8em;
+    color: var(--igel-accent-color);
+    margin-left: 0.3em;
+    opacity: 1;
+}
+
+/* External link icon style */
+.fa-external-link {
+    color: var(--igel-accent-color);
+}
+
+/* Internal link icon style */
+.fa-link {
+    color: var(--igel-accent-color);
+}
+
+/* Hover effects */
+a:hover .fa-external-link,
+a:hover .fa-link {
+    opacity: 1;
+    color: var(--igel-primary-color);
+}
+
+/* Screen reader only text */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+
+/* ##### ANIMATE elements in #### */
+
+/* Ausgangszustand: Elemente sind unsichtbar und leicht verschoben */
+.igel_animate-in-left,
+.igel_animate-in-right,
+.igel_animate-in-up,
+.igel_animate-in-down {
+    opacity: 0.7;
+    /* transition: opacity 0.5s ease-out, transform .3s ease-out !important; */
+}
+
+/* Verschiebung je nach Richtung */
+.igel_animate-in-left {
+    transform: translateX(-100px);
+}
+
+.igel_animate-in-right {
+    transform: translateX(100px);
+}
+
+.igel_animate-in-up {
+    transform: translateY(100px);
+}
+
+.igel_animate-in-down {
+    transform: translateY(-100px);
+}
+
+/* Animierter Zustand: Sobald die .animate-active-Klasse hinzugefügt wird */
+.igel_animate-active {
+    opacity: 1;
+    transform: translateX(0) translateY(0);
+}
+
+
+/* ### Flip Card box animation ### */
+
+.igel_flip-card {
+    width: 200px;
+    height: 70px;
+    padding-left: 10px;
+    perspective: 1000px;
+}
+
+.igel_flip-card-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: igel_flipAnimation 9s infinite linear;
+}
+
+.igel_flip-card-front,
+.igel_flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #003063;
+    border-radius: 10px;
+    font-size: 44px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    backface-visibility: hidden;
+    background-color: #005ca9;
+    color: white;
+}
+
+.igel_flip-card-back {
+    transform: rotateY(180deg);
+}
+
+@keyframes igel_flipAnimation {
+
+    0%,
+    30% {
+        transform: rotateY(0deg);
+    }
+
+    33%,
+    63% {
+        transform: rotateY(180deg);
+    }
+
+    66%,
+    96% {
+        transform: rotateY(360deg);
+    }
+
+    97%,
+    100% {
+        transform: rotateY(540deg);
+    }
+}
+
+/* Content for front face */
+.igel_flip-card-front::before {
+    position: absolute;
+    content: "Events";
+}
+
+/* Content for back face */
+.igel_flip-card-back::before {
+    position: absolute;
+    content: "Updates";
+}
+
+/* Single text change animation applied to both faces */
+@keyframes igel_textChange {
+
+    0%,
+    30% {
+        content: "Events";
+    }
+
+    33%,
+    63% {
+        content: "Updates";
+    }
+
+    66%,
+    96% {
+        content: "News";
+    }
+
+    97%,
+    100% {
+        content: "Events";
+    }
+}
+
+/* Apply the same text animation to both faces */
+.igel_flip-card-front::before,
+.igel_flip-card-back::before {
+    animation: igel_textChange 9s infinite ease;
+}
+
+
+
+
+/* ##### Make Sidebar Menu Button pulsating #### */
+
+/* Add keyframes for the pulsating shadow effect with pause */
+@keyframes pulsate {
+    0% {
+        box-shadow: 0 0 0 0 rgba(225, 0, 25, 0.7);
+    }
+
+    35% {
+        box-shadow: 0 0 0 15px rgba(225, 0, 25, 0);
+    }
+
+    50% {
+        box-shadow: 0 0 0 0 rgba(225, 0, 25, 0);
+    }
+
+    /* Pause between pulses (50% to 100%) */
+    100% {
+        box-shadow: 0 0 0 0 rgba(225, 0, 25, 0);
+    }
+}
+
+/* Apply the animation to the button */
+.drawer-toggler.drawer-right-toggle .btn {
+    /*position: relative;*/
+    animation: pulsate 5s infinite cubic-bezier(0.66, 0, 0, 1);
+}
+
+/* Optional: Pause animation on hover for better user experience */
+.drawer-toggler.drawer-right-toggle:hover .btn {
+    animation-play-state: paused;
+}
+
+
+
+/* ===============================
+   TAB-BASED MENU SPECIFIC STYLES
+   =============================== */
+
+/* Tab container */
+.igel_tab-container {
+    width: 100%;
+    margin: 20px 0;
+    background: white;
+    border-radius: 10px;
+    box-shadow: var(--igel-box-shadow);
+    overflow: hidden;
+}
+
+/* Tab navigation row */
+.igel_tabs {
+    display: flex;
+    background: var(--igel-background-color);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Individual tab */
+.igel_tab {
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+    color: var(--igel-text-color);
+    border-bottom: 3px solid transparent;
+}
+
+/* Tab icon */
+.igel_tab i {
+    font-size: 1.2rem;
+    color: var(--igel-secondary-color);
+}
+
+/* Tab hover state */
+.igel_tab:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    border-bottom: 3px solid var(--igel-accent-color);
+}
+
+/* Active tab */
+.igel_tab-active {
+    background-color: white;
+    border-bottom: 3px solid var(--igel-primary-color);
+    font-weight: 500;
+}
+
+.igel_tab-active i {
+    color: var(--igel-accent-color);
+}
+
+/* Tab content area */
+.igel_tab-content {
+    padding: 25px;
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+/* Tab panels */
+.igel_tab-panel {
+    display: none;
+}
+
+.igel_active-panel {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Tab panel content styling */
+.igel_tab-panel h4 {
+    color: var(--igel-primary-color);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.igel_tab-panel ul {
+    list-style: disc;
+    margin-top: 0.5rem;
+    padding-left: 15px;
+}
+
+.igel_tab-panel ul li {
+    font-size: 0.9rem;
+    display: list-item;
+    list-style-position: outside;
+    margin-bottom: 0.3rem;
+}
+
+/* Footer text */
+.igel_outro {
+    text-align: left;
+    color: var(--igel-secondary-color);
+    font-size: 1.1rem;
+    margin-top: calc(var(--igel-spacing-unit) * 2);
+}

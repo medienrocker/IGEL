@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IGEL Icon-Übersicht</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        :root {
+            --igel-primary-color: #003063;
+            --igel-secondary-color: #005ca9;
+            --igel-accent-color: #e10019;
+            --igel-background-color: #f3f3f3;
+            --igel-text-color: #333;
+            --igel-color-bright: #FFF;
+            --igel-border: 1px solid rgba(0, 0, 0, 0.1);
+            --igel-border-radius: 10px;
+            --igel-box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        body {
+            font-family: 'Montserrat', 'Roboto', sans-serif;
+            background-color: var(--igel-background-color);
+            color: var(--igel-text-color);
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: var(--igel-color-bright);
+            border-radius: var(--igel-border-radius);
+            box-shadow: var(--igel-box-shadow);
+            padding: 30px;
+        }
+        
+        h1 {
+            color: var(--igel-primary-color);
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2rem;
+        }
+        
+        h2 {
+            color: var(--igel-secondary-color);
+            border-bottom: 2px solid var(--igel-accent-color);
+            padding-bottom: 8px;
+            margin-top: 30px;
+        }
+        
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .icon-card {
+            border: var(--igel-border);
+            border-radius: var(--igel-border-radius);
+            padding: 15px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .icon-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .icon-display {
+            font-size: 2rem;
+            color: var(--igel-primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .icon-name {
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+        
+        .icon-class {
+            font-family: monospace;
+            background-color: #f5f5f5;
+            padding: 3px 6px;
+            border-radius: 3px;
+            font-size: 0.8rem;
+            color: var(--igel-accent-color);
+        }
+        
+        .selected-icon {
+            background-color: rgba(0, 92, 169, 0.1);
+            border: 2px solid var(--igel-secondary-color);
+        }
+        
+        .topic-name {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: var(--igel-primary-color);
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>IGEL Icon-Übersicht für Förderinhalte</h1>
+        
+        <p>Hier finden Sie eine Übersicht passender Font Awesome Icons für die verschiedenen Bereiche der Förderinhalte. Die empfohlenen Icons sind markiert.</p>
+        
+        <h2>1. Digitale Pinnwand</h2>
+        <div class="icon-grid">
+            <div class="icon-card selected-icon">
+                <div class="icon-display"><i class="fa fa-thumbtack"></i></div>
+                <div class="icon-name">Pinnnadel</div>
+                <div class="icon-class">fa fa-thumbtack</div>
+            </div>
+            <div class="icon-card">
+                <div class="icon-display"><i class="fa fa-clipboard"></i></div>
+                <div class="icon-name">Klemmbrett</div>
+                <div class="icon-class">fa fa-clipboard</div>
+            </div>
+            <div class="icon-card">
+                <div class="icon-display"><i class="fa fa-sticky-note"></i></div>
+                <div class="icon-name">Haftnotiz</div>
+                <div class="icon-class">fa fa-sticky-note</div>
+            </div>
+        </div>
+        
+        <h2>2. Grundsätze</h2>
+        <div class="icon-grid">
+            <div class="icon-card selected-icon">
+                <div class="icon-display"><i class="fa fa-heart"></i></div>
+                <div class="icon-name">Herz</div>
+                <div class="icon-class">fa fa-heart</div>
+            </div>
+            <div class="icon-card">
+                <div class="icon-display"><i class="fa fa-compass"></i></div>
+                <div class="icon-name">Kompass</div>
+                <div class="icon-class">fa fa-compass</div>
+            </div>
+            <div class="icon-card">
+                <div class="icon-display"><i class="fa fa-balance-scale"></i></div>
+                <div class="icon-name">Waage</div>
+                <div class="icon-class">fa fa-balance-scale</div>
+            </div>
+            <div class="icon-card">
+                <div class="icon-display"><i class="fa fa-book"></i></div>
+                <div class="icon-name">Buch</div>
+                <div class="icon-class">fa fa-book</div>
+            </div>
+        </div>
+        
+        <h2>3. Komponenten</h2>
+        <div class="icon-grid">
+            <div class="icon-card selected-icon">
+                <div class="icon-display"><i class="fa fa-cogs"></i></div>
+                <div class="icon-name">Zahnräder</div>
+                <div class="icon-class">fa fa-cogs</div>
+            </div>
+            <div class="icon-card">
+                <div class="icon-display"><i class="fa fa-puzzle-piece"></i></div>
+                <div class="icon-name">Puzzleteile</div>
+                <div class="icon-class">fa fa-puzzle-piece</div>
+            </div>
+            <div class="icon-card">
+                <div class="icon-display"><i class="fa fa-cubes"></i></div>
+                <div class="icon-name">Würfel/Bausteine</div>
+                <div class="icon-class">fa fa-cubes</div>
+            </div>
+            <div class="icon-card">
+                <div class="icon-display"><i class="fa fa-th"></i></div>
+                <div class="icon-name">Grid/Komponenten</div>
+                <div class="icon-class">fa fa-th</div>
+            </div>
+        </div>
+        
+        <h2>4. Ablauf</h2>
+        <div class="icon-grid">
+            <div class="icon-card selected-icon">
+                <div class="icon-display"><i class="fa fa-tasks"></i></div>
+                <div class="icon-name">Aufgabenliste</div>
+                <div class="icon-class">fa fa-tasks</div>
+            </div>
+            <div class="icon-card">
+                <div class="icon-display"><i class="fa fa-sitemap"></i></div>
+                <div class="icon-name">Flussdiagramm</div>
+                <div class="icon-class">fa fa-sitemap</div>
+            </div>
+            <div class="icon-card">
+                <div class="icon-display"><i class="fa fa-list-ol"></i></div>
+                <div class="icon-name">Nummerierte Liste</div>
+                <div class="icon-class">fa fa-list-ol</div>
+            </div>
+            <div class="icon-card">
+                <div class="icon-display"><i class="fa fa-clock-o"></i></div>
+                <div class="icon-name">Uhr</div>
+                <div class="icon-class">fa fa-clock-o</div>
+            </div>
+        </div>
+        
+        <h2>5. SMARTe Ziele</h2>
+        <div class="icon-grid">
+            <div class="icon-card selected-icon">
+                <div class="icon-display"><i class="fa fa-bullseye"></i></div>
+                <div class="icon-name">Zielscheibe</div>
+                <div class="icon-class">fa fa-bullseye</div>
+            </div>
+            <div class="icon-card">
+                <div class="icon-display"><i class="fa fa-flag-checkered"></i></div>
+                <div class="icon-name">Zielflagge</div>
+                <div class="icon-class">fa fa-flag-checkered</div>
+            </div>
+            <div class="icon-card">
+                <div class="icon-display"><i class="fa fa-line-chart"></i></div>
+                <div class="icon-name">Wachstumsgrafik</div>
+                <div class="icon-class">fa fa-line-chart</div>
+            </div>
+            <div class="icon-card">
+                <div class="icon-display"><i class="fa fa-star"></i></div>
+                <div class="icon-name">Stern</div>
+                <div class="icon-class">fa fa-star</div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Diese Übersicht verwendet Font Awesome 4.7.0 Icons</p>
+            <p>© IGEL - Individuelle GEzielte Lernförderung für Hamburger Schulen</p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kachel Layout NEW</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Kachel Layout CARD</title>
+    <link rel="stylesheet" href="./KachelLayouts/css-card-menu.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
+
 <body>
     <!-- Main Container -->
     <div class="igel_app-container">
@@ -28,30 +30,34 @@
                             <h1 id="heading-mathematik" class="igel_main-title">MATHEMATIK</h1>
                         </div>
                     </div>
-                    <!-- Features List - Now Horizontal -->
+    
+                    <!-- Features List - Cards -->
                     <div class="igel_features-container">
                         <p class="igel_outro">Hier finden Sie folgende Infos:</p>
     
-                        <!-- Horizontal Menu -->
-                        <div class="igel_compact-menu">
-                            <ul class="igel_features-list-horizontal">
-                                <li data-feature-id="mathcloud" class="igel_animate-in-up">
-                                    <div class="igel_feature-icon"><i class="fa fa-plus-minus"></i></div>
-                                    <span>Die MathCloud des LI</span>
-                                </li>
-                                <li data-feature-id="mathcloud-nav" class="igel_animate-in-up">
-                                    <div class="igel_feature-icon"><i class="fa fa-route"></i></div>
-                                    <span>Hinweise zur Navigation</span>
-                                </li>
-                                <li data-feature-id="mathcloud-grundsaetze" class="igel_animate-in-up">
-                                    <div class="igel_feature-icon"><i class="fa fa-seedling"></i></div>
-                                    <span>5 Grundsätze</span>
-                                </li>
-                                <li data-feature-id="mathcloud-contact" class="igel_animate-in-up">
-                                    <div class="igel_feature-icon"><i class="fa fa-comment-dots"></i></div>
-                                    <span>Wünsche oder Anregungen</span>
-                                </li>
-                            </ul>
+                        <!-- Card Menu -->
+                        <div class="igel_card-menu">
+                            <div class="igel_features-cards">
+                                <div class="igel_feature-card igel_animate-in-up" data-feature-id="mathcloud">
+                                    <div class="igel_card-icon"><i class="fa fa-plus-minus"></i></div>
+                                    <div class="igel_card-title">Die MathCloud des LI</div>
+                                </div>
+    
+                                <div class="igel_feature-card igel_animate-in-up" data-feature-id="mathcloud-nav">
+                                    <div class="igel_card-icon"><i class="fa fa-route"></i></div>
+                                    <div class="igel_card-title">Hinweise zur Navigation</div>
+                                </div>
+    
+                                <div class="igel_feature-card igel_animate-in-up" data-feature-id="mathcloud-grundsaetze">
+                                    <div class="igel_card-icon"><i class="fa fa-seedling"></i></div>
+                                    <div class="igel_card-title">5 Grundsätze</div>
+                                </div>
+    
+                                <div class="igel_feature-card igel_animate-in-up" data-feature-id="mathcloud-contact">
+                                    <div class="igel_card-icon"><i class="fa fa-comment-dots"></i></div>
+                                    <div class="igel_card-title">Wünsche oder Anregungen</div>
+                                </div>
+                            </div>
                         </div>
     
                         <!-- Info Box Below Menu -->
@@ -63,11 +69,10 @@
                                 <div id="featureInfo" class="igel_info-content">
                                     <!-- Default content -->
                                     <div class="igel_info-default">
-                                        <p>Wählen Sie einen Punkt aus der Liste für weitere Informationen.</p>
+                                        <p>Wählen Sie eine Karte aus für weitere Informationen.</p>
                                     </div>
     
-                                    <!-- Hidden feature details -->
-                                    <!-- Die MathCLoud enthällt: -->
+                                    <!-- Hidden feature details (same as original) -->
                                     <div class="igel_info-detail" style="display: none;" data-feature="mathcloud">
                                         <h4>Die MathCloud enthällt:</h4>
                                         <ul>
@@ -104,7 +109,8 @@
                                         </ul>
                                     </div>
     
-                                    <!-- Hinweise zur Navigation in der MathCloud -->
+                                    <!-- Other content sections remain the same -->
+                                    <!-- Hinweise zur Navigation -->
                                     <div class="igel_info-detail" style="display: none;" data-feature="mathcloud-nav">
                                         <h4>So navigieren Sie in der MathCloud</h4>
                                         <p dir="ltr"></p><span>Navigieren Sie über die Menüzeile oben links durch die
@@ -149,7 +155,7 @@
                                         ### Hier folgt das interaktive Buch ###
                                     </div>
     
-                                    <!-- Kontakt - Wünsche Anregungen -->
+                                    <!-- Kontakt -->
                                     <div class="igel_info-detail" style="display: none;" data-feature="mathcloud-contact">
                                         <h4>Ihre Ansprechperson</h4>
                                         <p dir="ltr" style="text-align: left;">Haben Sie <strong>Wünsche oder
@@ -168,7 +174,8 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="./KachelLayouts/javascript-card-menu.js"></script>
 
 </body>
+
 </html>

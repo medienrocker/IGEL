@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Horizontales Akkordeon-Menü</title>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-color: rgb(227, 227, 227);
+            --accent-color: rgb(0, 92, 169);
+            --main-color: rgb(0, 48, 99);
+            --active-color: rgb(225, 0, 25);
+            --text-color: #333;
+            --icon-color: white;
+            --panel-width: 2.5rem;
+            --transition-speed: 0.4s;
+            --font-family: sans-serif;
+            --border-highlight: 3px solid var(--active-color);
+        }
+
+        .bs_wrapper {
+            font-family: var(--font-family);
+            margin: 0;
+            padding: 2rem;
+            background-color: var(--bg-color);
+            height: 100vh;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .accordion-container {
+            display: flex;
+            flex-grow: 1;
+            border-radius: 0.5rem;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .accordion-panel {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: start;
+            width: var(--panel-width);
+            min-width: var(--panel-width);
+            background-color: #ccc;
+            color: var(--main-color);
+            cursor: pointer;
+            transition: background-color var(--transition-speed);
+            position: relative;
+            outline: none;
+            padding-top: 10px;
+            border-right: 1px solid var(--main-color);
+            flex-shrink: 0;
+        }
+
+        .accordion-panel:hover {
+            border-bottom: var(--border-highlight);
+            background-color: var(--accent-color);
+            transition: none;
+        }
+
+        .accordion-panel.active {
+            background-color: var(--main-color);
+            color: var(--icon-color);
+        }
+
+        .accordion-panel.active:hover {
+            background-color: var(--accent-color);
+        }
+
+        .accordion-panel:focus-visible {
+            outline: 3px solid #fff;
+        }
+
+        .accordion-panel i {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: var(--main-color);
+        }
+
+        .accordion-panel.active i {
+            color: var(--icon-color);
+        }
+
+        .accordion-label {
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            text-align: center;
+            font-size: 0.75rem;
+            user-select: none;
+        }
+
+        .accordion-content {
+            display: none;
+            flex-grow: 1;
+            padding: 1rem;
+            background-color: white;
+            color: var(--text-color);
+            overflow-y: auto;
+        }
+
+        .accordion-panel.active .accordion-content {
+            display: block;
+            position: static;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bs_wrapper">
+        <h2>5 Grundsätze der Förderung</h2>
+        <div class="accordion-container" role="tablist" aria-label="Service Links">
+            <div class="accordion-panel" role="tab" tabindex="0" aria-expanded="false" aria-controls="panel-1">
+                <i class="fas fa-book-open"></i>
+                <span class="accordion-label">Verstehensgrundlagen</span>
+                <div class="accordion-content" id="panel-1" role="tabpanel">
+                    <h3>Verstehensgrundlagen aufarbeiten</h3>
+                    <p>Textseite</p>
+                </div>
+            </div>
+
+            <div class="accordion-panel" role="tab" tabindex="0" aria-expanded="false" aria-controls="panel-2">
+                <i class="fas fa-bullseye"></i>
+                <span class="accordion-label">Schwerpunkte</span>
+                <div class="accordion-content" id="panel-2" role="tabpanel">
+                    <h3>Schwerpunkte setzen</h3>
+                    <p>Textseite</p>
+                </div>
+            </div>
+
+            <div class="accordion-panel" role="tab" tabindex="0" aria-expanded="false" aria-controls="panel-3">
+                <i class="fas fa-search"></i>
+                <span class="accordion-label">Förderbedarf</span>
+                <div class="accordion-content" id="panel-3" role="tabpanel">
+                    <h3>Förderbedarfe erkennen und adressieren</h3>
+                    <p>Textseite</p>
+                </div>
+            </div>
+
+            <div class="accordion-panel" role="tab" tabindex="0" aria-expanded="false" aria-controls="panel-4">
+                <i class="fas fa-cubes"></i>
+                <span class="accordion-label">Material</span>
+                <div class="accordion-content" id="panel-4" role="tabpanel">
+                    <h3>Material einsetzen</h3>
+                    <p>Textseite</p>
+                </div>
+            </div>
+
+            <div class="accordion-panel active" role="tab" tabindex="0" aria-expanded="true" aria-controls="panel-5">
+                <i class="fas fa-language"></i>
+                <span class="accordion-label">Sprachgebrauch</span>
+                <div class="accordion-content" id="panel-5" role="tabpanel">
+                    <h3>Fachbezogenen Sprachgebrauch fördern</h3>
+                    <p>Textseite</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const panels = document.querySelectorAll('.accordion-panel');
+
+        panels.forEach(panel => {
+            panel.addEventListener('click', () => {
+                panels.forEach(p => {
+                    if (p !== panel) p.classList.remove('active');
+                });
+                panel.classList.toggle('active');
+            });
+
+            panel.addEventListener('keydown', e => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    panel.click();
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

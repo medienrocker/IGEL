@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Horizontales Akkordeon-Menü</title>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-color: rgb(227, 227, 227);
+            --accent-color: rgb(0, 92, 169);
+            --main-color: rgb(0, 48, 99);
+            --active-color: rgb(225, 0, 25);
+            --text-color: #333;
+            --icon-color: white;
+            --panel-width: 2.5rem;
+            --expanded-width: 22rem;
+            --transition-speed: 0.3s;
+            --font-family: sans-serif;
+            --border-highlight: 4px solid var(--active-color);
+        }
+
+        .bs_wrapper {
+            font-family: var(--font-family);
+            margin: 0;
+            padding: 2rem;
+            background-color: var(--bg-color);
+        }
+
+        .accordion-container {
+            display: flex;
+            height: 25rem;
+            overflow: hidden;
+            border-radius: 0.5rem;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .accordion-panel {
+            flex: 0 0 var(--panel-width);
+            background-color: var(--main-color);
+            color: var(--icon-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: start;
+            cursor: pointer;
+            transition: all var(--transition-speed) ease-in-out;
+            position: relative;
+            outline: none;
+            border-bottom: none;
+            border-right: 1px solid var(--icon-color);
+            padding-top: 10px;
+        }
+
+        .accordion-panel:hover {
+            border-bottom: var(--border-highlight);
+            background-color: var(--accent-color);
+        }
+
+        .accordion-panel.active {
+            flex: 0 0 var(--expanded-width);
+            background-color: var(--accent-color);
+        }
+
+        .accordion-panel:focus-visible {
+            outline: 3px solid #fff;
+        }
+
+        .accordion-panel i {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: var(--icon-color);
+            transition: color var(--transition-speed);
+        }
+
+        .accordion-panel.active i {
+            color: var(--active-color);
+            z-index: 2;
+        }
+
+        .accordion-label {
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            text-align: center;
+            font-size: 1rem;
+            user-select: none;
+        }
+
+        .accordion-content {
+            position: absolute;
+            top: 0;
+            left: var(--panel-width);
+            width: calc(var(--expanded-width) - var(--panel-width));
+            height: 100%;
+            padding: 1rem;
+            box-sizing: border-box;
+            background-color: white;
+            color: var(--text-color);
+            opacity: 0;
+            transition: opacity var(--transition-speed) ease-in-out;
+            pointer-events: none;
+        }
+
+        .accordion-panel.active .accordion-content {
+            opacity: 1;
+            pointer-events: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bs_wrapper">
+        <h4>5 Grundsätze der Förderung</h4>
+        <div class="accordion-container" role="tablist" aria-label="Service Links">
+            <div class="accordion-panel" role="tab" tabindex="0" aria-expanded="false" aria-controls="panel-kontakt">
+                <i class="fas fa-phone"></i>
+                <span class="accordion-label">Verstehensgrundlagen aufarbeiten</span>
+                <div class="accordion-content" id="panel-kontakt" role="tabpanel">
+                    <h3>Verstehensgrundlagen aufarbeiten</h3>
+                    <p>Telefon: 0123 456789<br />E-Mail: info@schule.de</p>
+                </div>
+            </div>
+
+            <div class="accordion-panel" role="tab" tabindex="0" aria-expanded="false"
+                aria-controls="panel-ansprechpartner">
+                <i class="fas fa-user"></i>
+                <span class="accordion-label">Schwerpunkte setzen</span>
+                <div class="accordion-content" id="panel-ansprechpartner" role="tabpanel">
+                    <h3>Schwerpunkte setzen</h3>
+                    <p>Herr Mustermann<br />Frau Musterfrau</p>
+                </div>
+            </div>
+
+            <div class="accordion-panel" role="tab" tabindex="0" aria-expanded="false"
+                aria-controls="panel-sekretariat">
+                <i class="fas fa-clock"></i>
+                <span class="accordion-label">Förderbedarfe erkennen und adressieren</span>
+                <div class="accordion-content" id="panel-sekretariat" role="tabpanel">
+                    <h3>Förderbedarfe erkennen und adressieren</h3>
+                    <p>Mo-Fr: 8:00 - 13:00 Uhr</p>
+                </div>
+            </div>
+
+            <div class="accordion-panel" role="tab" tabindex="0" aria-expanded="false" aria-controls="panel-anfahrt">
+                <i class="fas fa-map-marker-alt"></i>
+                <span class="accordion-label">Material einsetzen</span>
+                <div class="accordion-content" id="panel-anfahrt" role="tabpanel">
+                    <h3>AnMaterial einsetzenfahrt</h3>
+                    <p>Adresse: Schulweg 1, 12345 Stadt</p>
+                </div>
+            </div>
+
+            <div class="accordion-panel" role="tab" tabindex="0" aria-expanded="false" aria-controls="panel-anmeldung">
+                <i class="fas fa-pen"></i>
+                <span class="accordion-label">Fachbezogenen Sprachgebrauch fördern</span>
+                <div class="accordion-content" id="panel-anmeldung" role="tabpanel">
+                    <h3>Fachbezogenen Sprachgebrauch fördern</h3>
+                    <p>3. Februar bis 7. Februar 2025 – <a href="#">Alle Informationen hier</a></p>
+                    <h4>Anmeldungen Gymnasiale Oberstufe</h4>
+                    <p>Februar / März 2025</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // === Click to Toggle Panels ===
+        const panels = document.querySelectorAll('.accordion-panel');
+
+        panels.forEach(panel => {
+            panel.addEventListener('click', () => {
+                panels.forEach(p => {
+                    if (p !== panel) p.classList.remove('active');
+                });
+                panel.classList.toggle('active');
+            });
+
+            // Optional: Keyboard toggle (Enter or Space)
+            panel.addEventListener('keydown', e => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    panel.click();
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

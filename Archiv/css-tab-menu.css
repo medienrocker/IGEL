@@ -1,0 +1,425 @@
+/* ### CC-BY bildungssprit GbR | Falk Szyba @medienrocker ### */
+
+/**
+ * IGEL Menu System - Tab-Based Menu Version
+ * CSS for the optimized tab-based navigation layout
+ */
+
+/* ===============================
+   VARIABLES AND BASE SETTINGS
+   =============================== */
+:root {
+    /* Color Scheme - li-colors */
+    --igel-primary-color: #003063;
+    --igel-secondary-color: #005ca9;
+    --igel-accent-color: #e10019;
+    --igel-background-color: #f3f3f3;
+    --igel-text-color: #333;
+    --igel-color-bright: #FFF;
+    
+    /* Common UI elements */
+    --igel-border: 1px solid rgba(0, 0, 0, 0.1);
+    --igel-border-radius: 10px;
+    --igel-box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+
+    /* Typography */
+    --igel-font-family: 'Montserat', 'Roboto', sans-serif;
+    --igel-link-weight: 500;
+
+    /* Spacing */
+    --igel-spacing-unit: 1rem;
+    --igel-container-width: min(90%, 1400px);
+
+    /* Animations */
+    --igel-transition-speed: 0.3s;
+}
+
+/* Link styling within course content */
+#region-main .course-content a {
+    color: var(--igel-secondary-color) !important;
+    font-weight: 600;
+    font-family: var(--igel-font-family);
+}
+
+#region-main .course-content a:hover {
+    color: var(--igel-primary-color) !important;
+}
+
+/* ===============================
+   LAYOUT COMPONENTS
+   =============================== */
+
+/* Base wrapper */
+.igel_wrapper {
+    font-family: var(--igel-font-family);
+    padding: 10px;
+}
+
+.igel_accent-color {
+    color: var(--igel-accent-color);
+}
+
+/* Hero Section */
+.igel_hero-container {
+    background: var(--igel-background-color);
+    padding: calc(var(--igel-spacing-unit) * 3) var(--igel-spacing-unit);
+    width: 100%;
+    min-height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: var(--igel-border);
+    border-radius: 10px;
+    box-shadow: var(--igel-box-shadow);
+}
+
+/* Hero Content Layout */
+.igel_hero-content {
+    width: var(--igel-container-width);
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Header grid container for logo and title alignment */
+.igel_header-group {
+    display: grid;
+    grid-template-columns: auto 2fr;
+    gap: calc(var(--igel-spacing-unit) * 1.5);
+    align-items: center;
+    margin-bottom: calc(var(--igel-spacing-unit) * 2);
+}
+
+/* Logo Container */
+.igel_logo-container {
+    width: 200px;
+    margin: 0;
+}
+
+/* Logo Container for tile menu */
+.igel_logo-container2 {
+    width: 120px;
+    margin: 0;
+}
+
+/* Logo image styling */
+.igel_logo {
+    width: 100%;
+    height: auto;
+    border-radius: var(--igel-border-radius);
+}
+
+/* Title Container */
+.igel_title-container {
+    text-align: left;
+    margin: 0;
+}
+
+.igel_main-title {
+    color: var(--igel-primary-color);
+    margin-top: 0;
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    line-height: 1.2;
+}
+
+.igel_subtitle {
+    color: var(--igel-secondary-color);
+    margin-top: 0.5rem;
+    font-size: clamp(1rem, 2vw, 1.4rem);
+    line-height: 1.4;
+    font-weight: 500;
+}
+
+/* Features Container spacing */
+.igel_features-container {
+    margin-top: calc(var(--igel-spacing-unit) * 3);
+}
+
+/* ===============================
+   TAB-BASED MENU SPECIFIC STYLES
+   =============================== */
+
+/* Tab container */
+.igel_tab-container {
+    width: 100%;
+    margin: 20px 0;
+    background: white;
+    border-radius: 10px;
+    box-shadow: var(--igel-box-shadow);
+    overflow: hidden;
+}
+
+/* Tab navigation row */
+.igel_tabs {
+    display: flex;
+    background: var(--igel-background-color);
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+/* Individual tab */
+.igel_tab {
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+    color: var(--igel-text-color);
+    border-bottom: 3px solid transparent;
+}
+
+/* Tab icon */
+.igel_tab i {
+    font-size: 1.2rem;
+    color: var(--igel-secondary-color);
+}
+
+/* Tab hover state */
+.igel_tab:hover {
+    background-color: rgba(0,0,0,0.05);
+    border-bottom: 3px solid var(--igel-accent-color);
+}
+
+/* Active tab */
+.igel_tab-active {
+    background-color: white;
+    border-bottom: 3px solid var(--igel-primary-color);
+    font-weight: 500;
+}
+
+.igel_tab-active i {
+    color: var(--igel-primary-color);
+}
+
+/* Tab content area */
+.igel_tab-content {
+    padding: 25px;
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+/* Tab panels */
+.igel_tab-panel {
+    display: none;
+}
+
+.igel_active-panel {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Tab panel content styling */
+.igel_tab-panel h4 {
+    color: var(--igel-primary-color);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.igel_tab-panel ul {
+    list-style: disc;
+    margin-top: 0.5rem;
+    padding-left: 15px;
+}
+
+.igel_tab-panel ul li {
+    font-size: 0.9rem;
+    display: list-item;
+    list-style-position: outside;
+    margin-bottom: 0.3rem;
+}
+
+/* Footer text */
+.igel_outro {
+    text-align: left;
+    color: var(--igel-secondary-color);
+    font-size: 1.1rem;
+    margin-top: calc(var(--igel-spacing-unit) * 2);
+}
+
+/* ===============================
+   ANIMATION STYLES
+   =============================== */
+
+/* Base classes for animations */
+.igel_animate-in-left,
+.igel_animate-in-right,
+.igel_animate-in-up,
+.igel_animate-in-down {
+    opacity: 0.7;
+    transition: opacity 0.5s ease-out, transform 0.3s ease-out !important;
+}
+
+/* Direction-specific transforms */
+.igel_animate-in-left {
+    transform: translateX(-100px);
+}
+
+.igel_animate-in-right {
+    transform: translateX(100px);
+}
+
+.igel_animate-in-up {
+    transform: translateY(30px);
+}
+
+.igel_animate-in-down {
+    transform: translateY(-100px);
+}
+
+/* Active animation state */
+.igel_animate-active {
+    opacity: 1;
+    transform: translateX(0) translateY(0);
+}
+
+/* ===============================
+   ICON STYLES FOR LINKS
+   =============================== */
+
+/* Icon base styles */
+.fa-external-link,
+.fa-link {
+    font-size: 0.8em;
+    color: var(--igel-accent-color);
+    margin-left: 0.3em;
+    opacity: 1;
+}
+
+/* External link icon style */
+.fa-external-link {
+    color: var(--igel-accent-color);
+}
+
+/* Internal link icon style */
+.fa-link {
+    color: var(--igel-accent-color);
+}
+
+/* Hover effects */
+a:hover .fa-external-link,
+a:hover .fa-link {
+    opacity: 1;
+    color: var(--igel-primary-color);
+}
+
+/* Screen reader only text */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* ===============================
+   RESPONSIVE STYLES
+   =============================== */
+
+/* Standard responsive breakpoints */
+@media (max-width: 768px) {
+    /* Header adjustments */
+    .igel_header-group {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: var(--igel-spacing-unit);
+    }
+
+    .igel_logo-container, 
+    .igel_logo-container2 {
+        margin: 0 auto;
+    }
+
+    .igel_title-container {
+        text-align: center;
+    }
+    
+    /* Tab layout adjustments for medium screens */
+    .igel_tabs {
+        flex-wrap: wrap;
+    }
+    
+    .igel_tab {
+        flex: 1 1 40%;
+        justify-content: center;
+        text-align: center;
+        padding: 12px 10px;
+    }
+}
+
+/* Smaller devices */
+@media (max-width: 480px) {
+    .igel_main-title {
+        font-size: 2rem;
+    }
+
+    .igel_subtitle {
+        font-size: 1.2rem;
+    }
+    
+    /* Icon-only tabs for small screens */
+    .igel_tab {
+        flex: 1 1 100%;
+    }
+    
+    .igel_tab span {
+        display: none;
+    }
+    
+    .igel_tab i {
+        font-size: 1.5rem;
+    }
+    
+    /* Smaller padding for tab content */
+    .igel_tab-content {
+        padding: 15px;
+    }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .igel_logo {
+        transition: none;
+    }
+
+    .igel_tab,
+    .igel_tab:hover {
+        transition: none;
+    }
+
+    .igel_animate-in-left,
+    .igel_animate-in-right,
+    .igel_animate-in-up,
+    .igel_animate-in-down,
+    .igel_animate-active {
+        animation: none !important;
+        opacity: 1;
+        transform: none !important;
+        transition: none !important;
+    }
+    
+    .igel_active-panel {
+        animation: none !important;
+    }
+}
+
+/* Infobox -> ul -> Captions for sections */
+.bs_ul-caption {
+    text-align: left;
+    list-style: none;
+    font-weight: bold;
+    margin-top: 20px;
+    font-size: 1.2em;
+    color: #333;
+}
+
+ul li.bs_ul-caption {
+    list-style: none;
+}
